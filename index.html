@@ -235,10 +235,10 @@
             margin-top: 4px;
         }
 
-        /* Tesla Strategy Banner */
-        .tesla-banner {
-            background: linear-gradient(135deg, rgba(232, 33, 39, 0.08) 0%, rgba(19, 28, 46, 0.8) 100%);
-            border: 1px solid rgba(232, 33, 39, 0.25);
+        /* Apartment & Base Logistics Banner */
+        .apartment-banner {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.08) 0%, rgba(19, 28, 46, 0.85) 100%);
+            border: 1px solid rgba(245, 158, 11, 0.25);
             border-radius: var(--radius-lg);
             padding: 30px;
             margin-bottom: 45px;
@@ -246,62 +246,84 @@
             overflow: hidden;
         }
 
-        .tesla-banner::before {
-            content: "LOGÍSTICA TESLA SUPERCHARGER";
+        .apartment-banner::before {
+            content: "ALOJAMIENTO BASE & PARKING";
             position: absolute;
             top: 15px;
             right: 25px;
             font-size: 0.75rem;
             font-weight: 800;
-            color: rgba(232, 33, 39, 0.3);
+            color: rgba(245, 158, 11, 0.35);
             letter-spacing: 0.1em;
         }
 
-        .tesla-grid {
+        .apartment-grid {
             display: grid;
-            grid-template-columns: 1fr 1.4fr;
+            grid-template-columns: 1fr 1.35fr;
             gap: 30px;
             align-items: center;
         }
 
         @media (max-width: 850px) {
-            .tesla-grid {
+            .apartment-grid {
                 grid-template-columns: 1fr;
             }
         }
 
-        .tesla-img-wrapper {
+        .apartment-img-wrapper {
             position: relative;
             border-radius: var(--radius-md);
             overflow: hidden;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            height: 250px;
+            height: 290px;
         }
 
-        .tesla-img-wrapper img {
+        .apartment-img-wrapper img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
 
-        .tesla-info h3 {
+        .apartment-info h3 {
             font-size: 1.5rem;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             display: flex;
             align-items: center;
             gap: 10px;
         }
 
-        .tesla-info p {
+        .apartment-info p {
             color: var(--text-muted);
             font-size: 0.95rem;
             margin-bottom: 16px;
         }
 
+        .apartment-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+
+        .apt-feature {
+            background: rgba(0, 0, 0, 0.25);
+            padding: 10px 12px;
+            border-radius: var(--radius-sm);
+            border-left: 3px solid var(--primary);
+            font-size: 0.82rem;
+            color: #cbd5e1;
+        }
+
+        .apt-feature strong {
+            color: #fff;
+            display: block;
+            margin-bottom: 2px;
+        }
+
         .supercharger-steps {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 10px;
         }
 
         .sc-step {
@@ -821,7 +843,7 @@
                 <svg class="icon-svg" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
                 Puente del Pilar • 8 al 12 Octubre 2026
             </div>
-            <h1>La Gran Escapada a Granada & Sierra Nevada</h1>
+            <h1>Escapada a Granada & Sierra Nevada</h1>
             <p class="lead">
                 Alta montaña a 2.150 m, cañón de puentes colgantes en Monachil, secretos libres de la Alhambra, tardeo en Granada y la gran noche de chuletón y vino en el apartamento.
             </p>
@@ -841,8 +863,8 @@
                         <svg class="icon-svg" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
                         Alojamiento Base
                     </div>
-                    <div class="meta-val">Pradollano (2.150 m)</div>
-                    <div class="meta-sub">Airbnb zona media-alta • 4 Viajeros</div>
+                    <div class="meta-val">Apartamento Alya (90 m²)</div>
+                    <div class="meta-sub">Dúplex reformado • Parking cubierto incluido</div>
                 </div>
                 <div class="meta-card">
                     <div class="meta-label">
@@ -863,29 +885,33 @@
             </div>
         </section>
 
-        <!-- Tesla Strategy Section -->
-        <section id="tesla" class="tesla-banner">
-            <div class="tesla-grid">
-                <div class="tesla-img-wrapper">
-                    <img src="./assets/img/tesla_model3_road.jpg" alt="Tesla Model 3 en viaje">
+        <!-- Apartment & Logistics Banner -->
+        <section id="alojamiento" class="apartment-banner">
+            <div class="apartment-grid">
+                <div class="apartment-img-wrapper">
+                    <img src="./assets/img/apartamento_duplex_interior.jpg" alt="Apartamento Alya Sierra Nevada Dúplex">
                 </div>
-                <div class="tesla-info">
+                <div class="apartment-info">
                     <h3>
-                        <svg class="icon-svg" style="color: var(--tesla-red);" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-                        Estrategia Tesla: Rutas, Desnivel & Regeneración
+                        <svg class="icon-svg" style="color: var(--primary);" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                        Apartamento Base: Dúplex Alya (Pradollano)
                     </h3>
                     <p>
-                        Subir a Sierra Nevada implica salvar <strong>+1.500 m de desnivel</strong> desde la vega de Granada hasta Pradollano. Esto añade un consumo de 8 a 10 kWh al subir, pero a cambio <strong>regenera +3-4 kWh en cada descenso</strong> gracias a la frenada regenerativa.
+                        Dúplex de 90 m² reformado íntegramente en 2022 con vistas espectaculares a la montaña y balcón. Situado en la zona media-alta de Sierra Nevada (a 400 m de pistas y del telesilla Parador; a 50 m de la parada de bus interurbano). Consta de 2 habitaciones, 2 baños, salón comedor, cocina equipada, Smart TV y Wi-Fi de alta velocidad.
                     </p>
+                    <div class="apartment-features">
+                        <div class="apt-feature">
+                            <strong>Parking Cubierto Incluido</strong>
+                            Plaza amplia y cubierta en el mismo edificio (ideal para guardar el Tesla protegido en altura).
+                        </div>
+                        <div class="apt-feature">
+                            <strong>Dúplex 90 m² con Balcón</strong>
+                            Balcón con vistas a la montaña, 2 baños completos y estancia espaciosa para 4 personas.
+                        </div>
+                    </div>
                     <div class="supercharger-steps">
                         <div class="sc-step">
-                            <div><strong>Ida (Jueves 8):</strong> Ontinyent al 100% ➔ Parada en <strong>SuC Guadix</strong> (km 345, 25 min al 85%) ➔ Subida a Pradollano coronando con ~55% de batería de sobra.</div>
-                        </div>
-                        <div class="sc-step">
-                            <div><strong>Desplazamientos locales:</strong> Cada bajada a Monachil o Granada recupera batería en el puerto. Opcional: recarga de 15 min en SuC Nevada Shopping (Granada) el sábado.</div>
-                        </div>
-                        <div class="sc-step">
-                            <div><strong>Vuelta (Lunes 12):</strong> Salida de Pradollano ➔ Regeneración de bajada ➔ Toque rápido en SuC Guadix (20 min) ➔ Directos a Ontinyent.</div>
+                            <div><strong>Logística Tesla:</strong> Salida de Ontinyent al 100% ➔ Parada en <strong>SuC Guadix</strong> (km 345, 25 min al 85%) ➔ Subida a Pradollano guardando el coche en el parking cubierto con ~55% de batería. Cada descenso a Monachil o Granada regenera +3-4 kWh.</div>
                         </div>
                     </div>
                 </div>
@@ -1401,7 +1427,7 @@
             <div id="tab-dia5" class="tab-pane">
                 <div class="day-card">
                     <div class="day-hero-img">
-                        <img src="./assets/img/tesla_model3_road.jpg" alt="Regreso en Tesla">
+                        <img src="./assets/img/mountain_trail.jpg" alt="Descenso y Regreso">
                         <div class="day-hero-overlay">
                             <div class="day-badge-row">
                                 <span class="day-pill pill-gold">Día 5 • Vuelta a Casa</span>
