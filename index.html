@@ -30,10 +30,8 @@
             --accent-purple: #8b5cf6;
 
             --tesla-red: #e82127;
-            --tesla-glow: rgba(232, 33, 39, 0.25);
 
             --shadow-card: 0 12px 30px -10px rgba(0, 0, 0, 0.6);
-            --shadow-glow: 0 0 25px rgba(245, 158, 11, 0.15);
             --blur-glass: blur(16px);
             --radius-lg: 18px;
             --radius-md: 12px;
@@ -69,6 +67,20 @@
         a {
             color: inherit;
             text-decoration: none;
+        }
+
+        .icon-svg {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 1.2em;
+            height: 1.2em;
+            vertical-align: -0.2em;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
         }
 
         .container {
@@ -117,17 +129,8 @@
             font-weight: 500;
         }
 
-        .nav-links a {
-            color: var(--text-muted);
-            transition: var(--transition);
-        }
-
-        .nav-links a:hover {
-            color: var(--text-main);
-        }
-
         .btn-share {
-            background: rgba(37, 211, 102, 0.15);
+            background: rgba(37, 211, 102, 0.12);
             color: #25d366;
             border: 1px solid rgba(37, 211, 102, 0.3);
             padding: 8px 16px;
@@ -149,7 +152,7 @@
 
         /* Hero */
         .hero {
-            padding: 60px 0 40px;
+            padding: 50px 0 35px;
             text-align: center;
         }
 
@@ -164,26 +167,25 @@
             color: var(--primary);
             font-size: 0.85rem;
             font-weight: 600;
-            text-transform: uppercase;
             letter-spacing: 0.05em;
             margin-bottom: 20px;
         }
 
         .hero h1 {
-            font-size: clamp(2.4rem, 5vw, 4rem);
+            font-size: clamp(2.3rem, 5vw, 3.8rem);
             font-weight: 800;
             line-height: 1.1;
-            margin-bottom: 18px;
+            margin-bottom: 16px;
             background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 50%, #f59e0b 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .hero p.lead {
-            font-size: clamp(1rem, 2vw, 1.25rem);
+            font-size: clamp(1rem, 2vw, 1.2rem);
             color: var(--text-muted);
-            max-width: 800px;
-            margin: 0 auto 36px;
+            max-width: 820px;
+            margin: 0 auto 34px;
         }
 
         /* Hero Meta Grid */
@@ -233,44 +235,19 @@
             margin-top: 4px;
         }
 
-        /* Sections */
-        .section-header {
-            margin-bottom: 32px;
-        }
-
-        .section-header .sub-badge {
-            font-size: 0.8rem;
-            color: var(--primary);
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            font-weight: 700;
-        }
-
-        .section-header h2 {
-            font-size: clamp(1.8rem, 3.5vw, 2.5rem);
-            font-weight: 800;
-            margin-top: 4px;
-        }
-
-        .section-header p {
-            color: var(--text-muted);
-            font-size: 1rem;
-            margin-top: 6px;
-        }
-
         /* Tesla Strategy Banner */
         .tesla-banner {
             background: linear-gradient(135deg, rgba(232, 33, 39, 0.08) 0%, rgba(19, 28, 46, 0.8) 100%);
             border: 1px solid rgba(232, 33, 39, 0.25);
             border-radius: var(--radius-lg);
             padding: 30px;
-            margin-bottom: 50px;
+            margin-bottom: 45px;
             position: relative;
             overflow: hidden;
         }
 
         .tesla-banner::before {
-            content: "TESLA SUPERCHARGER STRATEGY";
+            content: "LOGÍSTICA TESLA SUPERCHARGER";
             position: absolute;
             top: 15px;
             right: 25px;
@@ -298,7 +275,7 @@
             border-radius: var(--radius-md);
             overflow: hidden;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            height: 260px;
+            height: 250px;
         }
 
         .tesla-img-wrapper img {
@@ -308,7 +285,7 @@
         }
 
         .tesla-info h3 {
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             margin-bottom: 12px;
             display: flex;
             align-items: center;
@@ -342,13 +319,35 @@
             color: #fff;
         }
 
-        /* Day Tabs / Navigation */
+        /* Central Tabs Navigation */
+        .tabs-wrapper {
+            margin-bottom: 30px;
+        }
+
+        .tabs-header-area {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .tabs-header-area h2 {
+            font-size: 2rem;
+            font-weight: 800;
+        }
+
+        .tabs-header-area p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
         .day-tabs {
             display: flex;
-            gap: 10px;
+            gap: 8px;
             overflow-x: auto;
-            padding-bottom: 12px;
-            margin-bottom: 30px;
+            padding-bottom: 10px;
             border-bottom: 1px solid var(--border-subtle);
         }
 
@@ -356,9 +355,9 @@
             background: var(--bg-card);
             border: 1px solid var(--border-subtle);
             color: var(--text-muted);
-            padding: 12px 20px;
+            padding: 12px 18px;
             border-radius: var(--radius-md);
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: 600;
             white-space: nowrap;
             cursor: pointer;
@@ -376,27 +375,32 @@
 
         .tab-btn.active {
             background: var(--primary);
-            color: #000;
+            color: #090d16;
             border-color: var(--primary);
             box-shadow: 0 0 20px var(--primary-glow);
+            font-weight: 700;
         }
 
-        /* Day Content Container */
-        .day-content {
+        .tab-btn.tab-btn-highlight {
+            border-color: rgba(245, 158, 11, 0.3);
+        }
+
+        /* Tab Content Display */
+        .tab-pane {
             display: none;
             animation: fadeIn 0.3s ease-out forwards;
         }
 
-        .day-content.active {
+        .tab-pane.active {
             display: block;
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(8px); }
+            from { opacity: 0; transform: translateY(6px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Day Card Structure */
+        /* Day Card */
         .day-card {
             background: var(--bg-card);
             border: 1px solid var(--border-subtle);
@@ -421,7 +425,7 @@
         }
 
         .day-card:hover .day-hero-img img {
-            transform: scale(1.03);
+            transform: scale(1.025);
         }
 
         .day-hero-overlay {
@@ -446,8 +450,10 @@
             font-weight: 700;
             padding: 4px 12px;
             border-radius: 999px;
-            text-transform: uppercase;
             letter-spacing: 0.05em;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
         }
 
         .pill-gold { background: rgba(245, 158, 11, 0.25); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.4); }
@@ -621,7 +627,7 @@
         }
 
         .media-card:hover img {
-            transform: scale(1.05);
+            transform: scale(1.04);
         }
 
         .media-caption {
@@ -636,12 +642,11 @@
             color: #fff;
         }
 
-        /* Budget Section */
+        /* Budget Card Section */
         .budget-grid {
             display: grid;
             grid-template-columns: 2fr 1fr;
             gap: 24px;
-            margin-top: 20px;
         }
 
         @media (max-width: 900px) {
@@ -725,21 +730,20 @@
             margin-top: 6px;
         }
 
-        /* Checklist / Action items */
+        /* Checklist Grid */
         .checklist-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 16px;
-            margin-top: 20px;
         }
 
         .check-card {
             background: var(--bg-card);
             border: 1px solid var(--border-subtle);
             border-radius: var(--radius-md);
-            padding: 20px;
+            padding: 22px;
             display: flex;
-            gap: 14px;
+            gap: 16px;
             align-items: flex-start;
             transition: var(--transition);
         }
@@ -761,9 +765,9 @@
         .status-soon { background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.4); }
         .status-ok { background: rgba(16, 185, 129, 0.2); color: #6ee7b7; border: 1px solid rgba(16, 185, 129, 0.4); }
 
-        /* Floating action bottom */
+        /* Bottom CTA */
         .bottom-cta {
-            margin: 60px 0 40px;
+            margin: 50px 0 40px;
             padding: 36px;
             text-align: center;
             background: linear-gradient(180deg, rgba(16, 23, 38, 0.8) 0%, rgba(9, 13, 22, 0.95) 100%);
@@ -789,21 +793,6 @@
             font-size: 0.85rem;
             color: var(--text-dim);
         }
-
-        /* Modal or toast */
-        .toast {
-            position: fixed;
-            bottom: 24px;
-            right: 24px;
-            background: var(--bg-surface);
-            border: 1px solid var(--primary);
-            color: #fff;
-            padding: 12px 20px;
-            border-radius: var(--radius-sm);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-            display: none;
-            z-index: 1000;
-        }
     </style>
 </head>
 <body>
@@ -812,15 +801,12 @@
     <header class="navbar">
         <div class="container nav-inner">
             <div class="brand-badge">
-                🏔️ Sierra Nevada <span>&</span> Granada 2026
+                <svg class="icon-svg" style="color: var(--primary);" viewBox="0 0 24 24"><path d="M8 3l4 8 5-5 5 15H2L8 3z"/></svg>
+                Sierra Nevada <span>&</span> Granada 2026
             </div>
             <div class="nav-links">
-                <a href="#itinerario">Itinerario</a>
-                <a href="#tesla">Estrategia Tesla</a>
-                <a href="#presupuesto">Presupuesto</a>
-                <a href="#reservas">Reservas</a>
                 <button class="btn-share" onclick="shareOnWhatsApp()">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                    <svg class="icon-svg" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
                     Compartir Grupo
                 </button>
             </div>
@@ -832,32 +818,45 @@
         <!-- Hero Section -->
         <section class="hero">
             <div class="tag-pill">
-                🍂 Puente del Pilar • 8 al 12 Octubre 2026
+                <svg class="icon-svg" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                Puente del Pilar • 8 al 12 Octubre 2026
             </div>
             <h1>La Gran Escapada a Granada & Sierra Nevada</h1>
             <p class="lead">
-                Alta montaña a 2.150 m, cañón de puentes colgantes en Monachil, secretos libres de la Alhambra, tardeo legendario en Granada y el gran homenaje de chuletón y vino en el apartamento.
+                Alta montaña a 2.150 m, cañón de puentes colgantes en Monachil, secretos libres de la Alhambra, tardeo en Granada y la gran noche de chuletón y vino en el apartamento.
             </p>
 
             <!-- Quick Metrics Grid -->
             <div class="hero-meta-grid">
                 <div class="meta-card">
-                    <div class="meta-label">🚘 Vehículo & Salida</div>
+                    <div class="meta-label">
+                        <svg class="icon-svg" viewBox="0 0 24 24"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9C2.1 11.1 2 11.5 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg>
+                        Vehículo & Salida
+                    </div>
                     <div class="meta-val">Tesla Model 3 (100%)</div>
                     <div class="meta-sub">Jueves 8 • 16:00 h desde Ontinyent</div>
                 </div>
                 <div class="meta-card">
-                    <div class="meta-label">🏔️ Alojamiento Base</div>
+                    <div class="meta-label">
+                        <svg class="icon-svg" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                        Alojamiento Base
+                    </div>
                     <div class="meta-val">Pradollano (2.150 m)</div>
                     <div class="meta-sub">Airbnb zona media-alta • 4 Viajeros</div>
                 </div>
                 <div class="meta-card">
-                    <div class="meta-label">⚡ Carga Eléctrica</div>
+                    <div class="meta-label">
+                        <svg class="icon-svg" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                        Carga Eléctrica
+                    </div>
                     <div class="meta-val">SuC Guadix & Granada</div>
-                    <div class="meta-sub">2 paradas clave • Coste total ~25€</div>
+                    <div class="meta-sub">2 paradas clave • Coste total ~24€</div>
                 </div>
                 <div class="meta-card">
-                    <div class="meta-label">💰 Presupuesto Estimado</div>
+                    <div class="meta-label">
+                        <svg class="icon-svg" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                        Presupuesto Estimado
+                    </div>
                     <div class="meta-val">~190 € / persona</div>
                     <div class="meta-sub">Comidas, cenas top, tapeo, vinos y recargas</div>
                 </div>
@@ -871,9 +870,12 @@
                     <img src="./assets/img/tesla_model3_road.jpg" alt="Tesla Model 3 en viaje">
                 </div>
                 <div class="tesla-info">
-                    <h3>⚡ Estrategia Tesla: Rutas, Desnivel & Regeneración</h3>
+                    <h3>
+                        <svg class="icon-svg" style="color: var(--tesla-red);" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                        Estrategia Tesla: Rutas, Desnivel & Regeneración
+                    </h3>
                     <p>
-                        Viajar a Sierra Nevada supone salvar <strong>+1.500 m de desnivel</strong> desde la vega de Granada hasta Pradollano. Esto añade un consumo puntual de 8 a 10 kWh al subir, pero a cambio <strong>regenera +3-4 kWh en cada descenso</strong> gracias a la frenada regenerativa.
+                        Subir a Sierra Nevada implica salvar <strong>+1.500 m de desnivel</strong> desde la vega de Granada hasta Pradollano. Esto añade un consumo de 8 a 10 kWh al subir, pero a cambio <strong>regenera +3-4 kWh en cada descenso</strong> gracias a la frenada regenerativa.
                     </p>
                     <div class="supercharger-steps">
                         <div class="sc-step">
@@ -890,35 +892,49 @@
             </div>
         </section>
 
-        <!-- Itinerary Section -->
-        <section id="itinerario">
-            <div class="section-header">
-                <span class="sub-badge">Plan de Acción Detallado</span>
-                <h2>Itinerario de los 4 Días</h2>
-                <p>Equilibrio perfecto entre aventura activa, gastronomía de primer nivel y relax en el apartamento.</p>
+        <!-- Main Unified Tab Navigation -->
+        <div class="tabs-wrapper" id="plan-central">
+            <div class="tabs-header-area">
+                <div>
+                    <h2>Planificación Integral</h2>
+                    <p>Selecciona cada pestaña para consultar el itinerario por días, el presupuesto global o el checklist de reservas.</p>
+                </div>
             </div>
 
-            <!-- Tab Buttons -->
+            <!-- Tab Buttons Bar -->
             <div class="day-tabs">
-                <button class="tab-btn active" onclick="switchDay('dia1')">
-                    <span>📅</span> Jueves 8 • Salida & Llegada
+                <button class="tab-btn active" onclick="switchTab('tab-dia1', this)">
+                    <svg class="icon-svg" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                    Jueves 8 • Salida
                 </button>
-                <button class="tab-btn" onclick="switchDay('dia2')">
-                    <span>🥾</span> Viernes 9 • Los Cahorros de Monachil
+                <button class="tab-btn" onclick="switchTab('tab-dia2', this)">
+                    <svg class="icon-svg" viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+                    Viernes 9 • Los Cahorros
                 </button>
-                <button class="tab-btn" onclick="switchDay('dia3')">
-                    <span>🏰</span> Sábado 10 • Granada & Tardeo
+                <button class="tab-btn" onclick="switchTab('tab-dia3', this)">
+                    <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    Sábado 10 • Granada & Tardeo
                 </button>
-                <button class="tab-btn" onclick="switchDay('dia4')">
-                    <span>🥩</span> Domingo 11 • Hoya Mora & Chuletón
+                <button class="tab-btn" onclick="switchTab('tab-dia4', this)">
+                    <svg class="icon-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+                    Domingo 11 • Chuletón
                 </button>
-                <button class="tab-btn" onclick="switchDay('dia5')">
-                    <span>🚗</span> Lunes 12 • Guadix & Vuelta
+                <button class="tab-btn" onclick="switchTab('tab-dia5', this)">
+                    <svg class="icon-svg" viewBox="0 0 24 24"><path d="M3 12h18M15 6l6 6-6 6"/></svg>
+                    Lunes 12 • Vuelta
+                </button>
+                <button class="tab-btn tab-btn-highlight" onclick="switchTab('tab-presupuesto', this)">
+                    <svg class="icon-svg" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                    Presupuesto Global
+                </button>
+                <button class="tab-btn tab-btn-highlight" onclick="switchTab('tab-reservas', this)">
+                    <svg class="icon-svg" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                    Checklist & Reservas
                 </button>
             </div>
 
-            <!-- TAB 1: JUEVES 8 -->
-            <div id="dia1" class="day-content active">
+            <!-- TAB PANE 1: JUEVES 8 -->
+            <div id="tab-dia1" class="tab-pane active">
                 <div class="day-card">
                     <div class="day-hero-img">
                         <img src="./assets/img/sierra_nevada_autumn.jpg" alt="Sierra Nevada Otoño">
@@ -926,7 +942,7 @@
                             <div class="day-badge-row">
                                 <span class="day-pill pill-gold">Día 1 • Viaje de Ida</span>
                                 <span class="day-pill pill-cyan">430 km</span>
-                                <span class="day-pill pill-red">1 Parada SuC</span>
+                                <span class="day-pill pill-red">1 Parada SuC Guadix</span>
                             </div>
                             <h3 class="day-title">Jueves 8: Rumbo al Techo de la Península</h3>
                             <p class="day-subtitle">Salida en el Tesla, cruce del altiplano granadino y llegada nocturna a la montaña.</p>
@@ -975,7 +991,8 @@
                                     Ubicado en el Hotel Restaurante Abades Guadix (A-92 km 294). Llegamos con ~18% de batería tras 345 km. Conectamos 25 minutos para cargar al 85%, ideal para estirar las piernas y tomar un café rápido.
                                 </p>
                                 <div class="timeline-callout tip">
-                                    🔋 <strong>Clave técnica:</strong> Salir de Guadix al 85% garantiza subir los +1.500 m de puerto por la A-395 hasta Pradollano (2.150 m) con total holgura, llegando al apartamento con un ~55% restante.
+                                    <svg class="icon-svg" style="color: var(--accent-emerald);" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                                    <div><strong>Clave técnica:</strong> Salir de Guadix al 85% garantiza subir los +1.500 m de puerto por la A-395 hasta Pradollano (2.150 m) con total holgura, llegando al apartamento con un ~55% restante.</div>
                                 </div>
                             </div>
 
@@ -1005,8 +1022,8 @@
                 </div>
             </div>
 
-            <!-- TAB 2: VIERNES 9 -->
-            <div id="dia2" class="day-content">
+            <!-- TAB PANE 2: VIERNES 9 -->
+            <div id="tab-dia2" class="tab-pane">
                 <div class="day-card">
                     <div class="day-hero-img">
                         <img src="./assets/img/cahorros_monachil_1.jpg" alt="Los Cahorros de Monachil">
@@ -1073,7 +1090,8 @@
                                     </div>
                                 </div>
                                 <div class="timeline-callout tip">
-                                    👟 <strong>Consejo:</strong> Zapatillas de trekking o deportivas con buen agarre. No es exigente físicamente, pero es una experiencia entretenida y fotogénica al máximo.
+                                    <svg class="icon-svg" style="color: var(--accent-emerald);" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                                    <div><strong>Consejo:</strong> Zapatillas de trekking o deportivas con buen agarre. No es exigente físicamente, pero es una experiencia entretenida y fotogénica al máximo.</div>
                                 </div>
                             </div>
 
@@ -1114,14 +1132,14 @@
                 </div>
             </div>
 
-            <!-- TAB 3: SABADO 10 -->
-            <div id="dia3" class="day-content">
+            <!-- TAB PANE 3: SABADO 10 -->
+            <div id="tab-dia3" class="tab-pane">
                 <div class="day-card">
                     <div class="day-hero-img">
                         <img src="./assets/img/granada_albaicin_sunset.jpg" alt="Granada y Alhambra al atardecer">
                         <div class="day-hero-overlay">
                             <div class="day-badge-row">
-                                <span class="day-pill pill-gold">Día 3 • Día Grande en Granada</span>
+                                <span class="day-pill pill-gold">Día 3 • Granada Monumental</span>
                                 <span class="day-pill pill-cyan">Alhambra Libre & Albaicín</span>
                                 <span class="day-pill pill-green">Tardeo & Cena Top</span>
                             </div>
@@ -1180,7 +1198,7 @@
                                 <div class="media-strip">
                                     <div class="media-card">
                                         <img src="./assets/img/alhambra_carlos_v.jpg" alt="Patio Palacio Carlos V">
-                                        <div class="media-caption">Patio Circular de Carlos V (Gratis)</div>
+                                        <div class="media-caption">Patio Circular de Carlos V (Acceso Libre)</div>
                                     </div>
                                     <div class="media-card">
                                         <img src="./assets/img/granada_albaicin_sunset.jpg" alt="Vistas de la Alhambra">
@@ -1196,7 +1214,7 @@
                                     <h4 class="timeline-title">Bajada a Plaza Nueva & Ruta de Tapeo Legendaria</h4>
                                 </div>
                                 <p class="timeline-desc">
-                                    Bajamos a pie por el romántico bosque de la Alhambra hacia Plaza Nueva. Momento de vivir la tradición granadina del tapeo con consumición:
+                                    Bajamos a pie por el bosque de la Alhambra hacia Plaza Nueva. Momento de vivir la tradición granadina del tapeo con consumición:
                                 </p>
                                 <ul style="margin: 10px 0 16px 20px; color: var(--text-muted); font-size: 0.95rem;">
                                     <li><strong>Bodegas Castañeda:</strong> Tablas calientes/frías de ibéricos y su famoso vermut artesano de la casa.</li>
@@ -1247,7 +1265,8 @@
                                     El gran momento gastronómico de la noche en el <strong>Restaurante Carmen de San Miguel</strong> (o Carmen de Aben Humeya). Mesa con vistas privilegiadas a la Alhambra y Granada totalmente iluminadas. Cocina andaluza vanguardista, excelente bodega y un marco imposible de olvidar.
                                 </p>
                                 <div class="timeline-callout alert">
-                                    ⚠️ <strong>Imprescindible:</strong> Esta cena requiere reserva anticipada urgente para los 4 comensales.
+                                    <svg class="icon-svg" style="color: var(--accent-rose);" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                                    <div><strong>Imprescindible:</strong> Esta cena requiere reserva anticipada urgente para los 4 comensales.</div>
                                 </div>
                             </div>
 
@@ -1266,8 +1285,8 @@
                 </div>
             </div>
 
-            <!-- TAB 4: DOMINGO 11 -->
-            <div id="dia4" class="day-content">
+            <!-- TAB PANE 4: DOMINGO 11 -->
+            <div id="tab-dia4" class="tab-pane">
                 <div class="day-card">
                     <div class="day-hero-img">
                         <img src="./assets/img/chuleton_grill.jpg" alt="Chuletón a la brasa y vino">
@@ -1378,8 +1397,8 @@
                 </div>
             </div>
 
-            <!-- TAB 5: LUNES 12 -->
-            <div id="dia5" class="day-content">
+            <!-- TAB PANE 5: LUNES 12 -->
+            <div id="tab-dia5" class="tab-pane">
                 <div class="day-card">
                     <div class="day-hero-img">
                         <img src="./assets/img/tesla_model3_road.jpg" alt="Regreso en Tesla">
@@ -1452,172 +1471,200 @@
                 </div>
             </div>
 
-        </section>
+            <!-- TAB PANE 6: PRESUPUESTO GLOBAL -->
+            <div id="tab-presupuesto" class="tab-pane">
+                <div class="day-card" style="padding: 30px;">
+                    <div class="section-header" style="margin-bottom: 24px;">
+                        <span class="sub-badge">Economía del Viaje</span>
+                        <h2>Plan Presupuestario Global</h2>
+                        <p>Estimación detallada de costes compartidos para el grupo de 4 personas durante los 4 días completos.</p>
+                    </div>
 
-        <!-- Budget Plan Section -->
-        <section id="presupuesto" style="margin-top: 60px;">
-            <div class="section-header">
-                <span class="sub-badge">Economía del Viaje</span>
-                <h2>Plan Presupuestario Transparente</h2>
-                <p>Estimación realista de costes para el grupo de 4 personas durante los 4 días completos.</p>
-            </div>
-
-            <div class="budget-grid">
-                <div class="budget-table-card">
-                    <table class="budget-table">
-                        <thead>
-                            <tr>
-                                <th>Concepto</th>
-                                <th>Detalle</th>
-                                <th>Total Grupo (4p)</th>
-                                <th>Por Persona</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>⚡ Recargas Tesla</strong></td>
-                                <td>Superchargers Guadix ida y vuelta (~60 kWh)</td>
-                                <td>24 €</td>
-                                <td><strong>6 €</strong></td>
-                            </tr>
-                            <tr>
-                                <td><strong>🅿️ Parkings</strong></td>
-                                <td>Parking Alhambra + Parking Granada Centro</td>
-                                <td>40 €</td>
-                                <td><strong>10 €</strong></td>
-                            </tr>
-                            <tr>
-                                <td><strong>🥘 Almuerzo Monachil (Viernes)</strong></td>
-                                <td>Restaurante tradicional Los Cerezos / Puntarrón</td>
-                                <td>100 €</td>
-                                <td><strong>25 €</strong></td>
-                            </tr>
-                            <tr>
-                                <td><strong>🍻 Tapeo Granada (Sábado)</strong></td>
-                                <td>Ruta Bodegas Castañeda, Diamantes y Ávila</td>
-                                <td>80 €</td>
-                                <td><strong>20 €</strong></td>
-                            </tr>
-                            <tr>
-                                <td><strong>🍸 Tardeo & Cócteles</strong></td>
-                                <td>Rooftop B-Heaven / Terrazas Ganivet</td>
-                                <td>60 €</td>
-                                <td><strong>15 €</strong></td>
-                            </tr>
-                            <tr>
-                                <td><strong>🍷 Cena Memorable (Sábado)</strong></td>
-                                <td>Restaurante Carmen San Miguel con vistas Alhambra</td>
-                                <td>240 €</td>
-                                <td><strong>60 €</strong></td>
-                            </tr>
-                            <tr>
-                                <td><strong>🥩 Compra Homenaje Chuletón</strong></td>
-                                <td>Chuletones madurados, ibéricos, quesos, 3 vinos D.O.</td>
-                                <td>180 €</td>
-                                <td><strong>45 €</strong></td>
-                            </tr>
-                            <tr>
-                                <td><strong>☕ Cafés, Aperitivos & Extras</strong></td>
-                                <td>Terrazas Pradollano, Hoya Mora, desayunos</td>
-                                <td>40 €</td>
-                                <td><strong>10 €</strong></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <div class="budget-summary-card">
-                    <div>
-                        <div class="meta-label">Coste Estimado Total</div>
-                        <div class="summary-figure">
-                            <span class="currency">€</span>
-                            <span class="big-number">191</span>
-                            <div class="caption">por persona (4 días con todo)</div>
+                    <div class="budget-grid">
+                        <div class="budget-table-card">
+                            <table class="budget-table">
+                                <thead>
+                                    <tr>
+                                        <th>Concepto</th>
+                                        <th>Detalle</th>
+                                        <th>Total Grupo (4p)</th>
+                                        <th>Por Persona</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <svg class="icon-svg" style="color: var(--tesla-red); margin-right: 6px;" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                                            <strong>Recargas Tesla</strong>
+                                        </td>
+                                        <td>Superchargers Guadix ida y vuelta (~60 kWh)</td>
+                                        <td>24 €</td>
+                                        <td><strong>6 €</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <svg class="icon-svg" style="color: var(--primary); margin-right: 6px;" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 17V7h4a3 3 0 0 1 0 6H9"/></svg>
+                                            <strong>Parkings</strong>
+                                        </td>
+                                        <td>Parking Alhambra + Parking Granada Centro</td>
+                                        <td>40 €</td>
+                                        <td><strong>10 €</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <svg class="icon-svg" style="color: var(--accent-cyan); margin-right: 6px;" viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+                                            <strong>Almuerzo Monachil (Viernes)</strong>
+                                        </td>
+                                        <td>Restaurante tradicional Los Cerezos / Puntarrón</td>
+                                        <td>100 €</td>
+                                        <td><strong>25 €</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <svg class="icon-svg" style="color: var(--accent-emerald); margin-right: 6px;" viewBox="0 0 24 24"><path d="M17 11h1a3 3 0 0 1 0 6h-1"/><path d="M9 12v6"/><path d="M13 12v6"/><path d="M14 7.5c-1 0-1.44.5-3 .5s-2-.5-3-.5-1.72.5-2.5.5a2.5 2.5 0 0 1 0-5c.78 0 1.57.5 2.5.5s1.44-.5 3-.5 2 .5 3 .5 1.72-.5 2.5-.5a2.5 2.5 0 0 1 0 5c-.78 0-1.5-.5-2.5-.5z"/><path d="M5 8v10a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V8"/></svg>
+                                            <strong>Tapeo Granada (Sábado)</strong>
+                                        </td>
+                                        <td>Ruta Bodegas Castañeda, Diamantes y Ávila</td>
+                                        <td>80 €</td>
+                                        <td><strong>20 €</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <svg class="icon-svg" style="color: var(--accent-purple); margin-right: 6px;" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                            <strong>Tardeo & Cócteles</strong>
+                                        </td>
+                                        <td>Rooftop B-Heaven / Terrazas Ganivet</td>
+                                        <td>60 €</td>
+                                        <td><strong>15 €</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <svg class="icon-svg" style="color: var(--primary); margin-right: 6px;" viewBox="0 0 24 24"><path d="M8 22h8"/><path d="M12 15v7"/><path d="M12 15a5 5 0 0 0 5-5c0-4-3-7-5-7s-5 3-5 7a5 5 0 0 0 5 5z"/></svg>
+                                            <strong>Cena Memorable (Sábado)</strong>
+                                        </td>
+                                        <td>Restaurante Carmen San Miguel con vistas Alhambra</td>
+                                        <td>240 €</td>
+                                        <td><strong>60 €</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <svg class="icon-svg" style="color: var(--accent-rose); margin-right: 6px;" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/></svg>
+                                            <strong>Compra Homenaje Chuletón</strong>
+                                        </td>
+                                        <td>Chuletones madurados, ibéricos, quesos, 3 vinos D.O.</td>
+                                        <td>180 €</td>
+                                        <td><strong>45 €</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <svg class="icon-svg" style="color: var(--text-dim); margin-right: 6px;" viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/></svg>
+                                            <strong>Cafés, Aperitivos & Extras</strong>
+                                        </td>
+                                        <td>Terrazas Pradollano, Hoya Mora, desayunos</td>
+                                        <td>40 €</td>
+                                        <td><strong>10 €</strong></td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
-                        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
-                            *No incluye el coste del alojamiento Airbnb ya reservado. Incluye comilonas prémium, tapeo, copas, carne madurada y energía Tesla.
-                        </p>
-                    </div>
 
-                    <div style="margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--border-subtle); display: flex; justify-content: space-between; font-weight: 700;">
-                        <span>Total bote grupo (4p):</span>
-                        <span style="color: var(--primary);">764 €</span>
+                        <div class="budget-summary-card">
+                            <div>
+                                <div class="meta-label">Coste Estimado Total</div>
+                                <div class="summary-figure">
+                                    <span class="currency">€</span>
+                                    <span class="big-number">191</span>
+                                    <div class="caption">por persona (4 días completos)</div>
+                                </div>
+                                <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+                                    *No incluye el coste del alojamiento Airbnb ya contratado. Incluye comilonas prémium, tapeo, copas, carne madurada y energía Tesla.
+                                </p>
+                            </div>
+
+                            <div style="margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--border-subtle); display: flex; justify-content: space-between; font-weight: 700;">
+                                <span>Total bote grupo (4p):</span>
+                                <span style="color: var(--primary);">764 €</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
 
-        <!-- Checklist & Reservations Section -->
-        <section id="reservas" style="margin-top: 60px;">
-            <div class="section-header">
-                <span class="sub-badge">Acciones Inmediatas</span>
-                <h2>Checklist de Reservas Pendientes</h2>
-                <p>Lo que debemos dejar atado antes del viaje para no encontrarnos sorpresas en pleno puente.</p>
+            <!-- TAB PANE 7: CHECKLIST & RESERVAS -->
+            <div id="tab-reservas" class="tab-pane">
+                <div class="day-card" style="padding: 30px;">
+                    <div class="section-header" style="margin-bottom: 24px;">
+                        <span class="sub-badge">Gestión Anticipada</span>
+                        <h2>Checklist de Reservas Pendientes</h2>
+                        <p>Estado de cada gestión para dejar el viaje completamente cerrado sin imprevistos.</p>
+                    </div>
+
+                    <div class="checklist-grid">
+                        <div class="check-card">
+                            <div>
+                                <span class="status-badge status-urgent">Urgente</span>
+                            </div>
+                            <div>
+                                <h4 style="font-size: 1.05rem; margin-bottom: 4px;">Cena Sábado Noche: Carmen de San Miguel</h4>
+                                <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 8px;">
+                                    Reserva de mesa para 4 comensales a las 21:30 h con vistas directas a la Alhambra iluminada. Las plazas se agotan con semanas de antelación.
+                                </p>
+                                <a href="https://carmensanmiguel.com" target="_blank" style="color: var(--primary); font-size: 0.8rem; font-weight: 600;">Ver Web Restaurante ➔</a>
+                            </div>
+                        </div>
+
+                        <div class="check-card">
+                            <div>
+                                <span class="status-badge status-soon">Próximos días</span>
+                            </div>
+                            <div>
+                                <h4 style="font-size: 1.05rem; margin-bottom: 4px;">Almuerzo Viernes: Los Cerezos (Monachil)</h4>
+                                <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 8px;">
+                                    Mesa para 4 comensales a las 14:30 h tras terminar la ruta de Los Cahorros.
+                                </p>
+                                <span style="color: var(--text-dim); font-size: 0.8rem;">Teléfono: +34 958 30 08 44</span>
+                            </div>
+                        </div>
+
+                        <div class="check-card">
+                            <div>
+                                <span class="status-badge status-soon">Opcional</span>
+                            </div>
+                            <div>
+                                <h4 style="font-size: 1.05rem; margin-bottom: 4px;">Tardeo Rooftop B-Heaven (Sábado)</h4>
+                                <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 8px;">
+                                    Acceso y mesa alta a las 18:30 h en la terraza del Hotel Barceló Carmen para las primeras copas al atardecer.
+                                </p>
+                                <a href="https://www.barcelo.com" target="_blank" style="color: var(--primary); font-size: 0.8rem; font-weight: 600;">Consultar Reserva ➔</a>
+                            </div>
+                        </div>
+
+                        <div class="check-card">
+                            <div>
+                                <span class="status-badge status-ok">Controlado</span>
+                            </div>
+                            <div>
+                                <h4 style="font-size: 1.05rem; margin-bottom: 4px;">Alhambra Libre & Puertas Monumentales</h4>
+                                <p style="font-size: 0.85rem; color: var(--text-muted);">
+                                    <strong>No requiere entrada ni reserva.</strong> El acceso al Palacio de Carlos V, Museo de la Alhambra, Puerta de la Justicia y Parador es completamente público y libre.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div class="checklist-grid">
-                <div class="check-card">
-                    <div>
-                        <span class="status-badge status-urgent">Urgente</span>
-                    </div>
-                    <div>
-                        <h4 style="font-size: 1.05rem; margin-bottom: 4px;">Cena Sábado Noche: Carmen de San Miguel</h4>
-                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 8px;">
-                            Reserva de mesa para 4 comensales a las 21:30 h con vistas a la Alhambra iluminada. Las mesas vuelan en fines de semana festivos.
-                        </p>
-                        <a href="https://carmensanmiguel.com" target="_blank" style="color: var(--primary); font-size: 0.8rem; font-weight: 600;">Ver Web Restaurante ➔</a>
-                    </div>
-                </div>
-
-                <div class="check-card">
-                    <div>
-                        <span class="status-badge status-soon">Próximos días</span>
-                    </div>
-                    <div>
-                        <h4 style="font-size: 1.05rem; margin-bottom: 4px;">Almuerzo Viernes: Los Cerezos (Monachil)</h4>
-                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 8px;">
-                            Mesa para 4 a las 14:30 h tras terminar la ruta de Los Cahorros. Teléfono de reserva directa.
-                        </p>
-                        <span style="color: var(--text-dim); font-size: 0.8rem;">Tel: +34 958 30 08 44</span>
-                    </div>
-                </div>
-
-                <div class="check-card">
-                    <div>
-                        <span class="status-badge status-soon">Opcional</span>
-                    </div>
-                    <div>
-                        <h4 style="font-size: 1.05rem; margin-bottom: 4px;">Tardeo Rooftop B-Heaven (Sábado)</h4>
-                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 8px;">
-                            Acceso y reserva de mesa alta a las 18:30 h en la terraza del Hotel Barceló Carmen para las primeras copas.
-                        </p>
-                        <a href="https://www.barcelo.com" target="_blank" style="color: var(--primary); font-size: 0.8rem; font-weight: 600;">Consultar Reserva ➔</a>
-                    </div>
-                </div>
-
-                <div class="check-card">
-                    <div>
-                        <span class="status-badge status-ok">Controlado</span>
-                    </div>
-                    <div>
-                        <h4 style="font-size: 1.05rem; margin-bottom: 4px;">Alhambra Libre & Puertas Monumentales</h4>
-                        <p style="font-size: 0.85rem; color: var(--text-muted);">
-                            <strong>No requiere entrada ni reserva.</strong> El acceso al Palacio de Carlos V, Museo de la Alhambra, Puerta de la Justicia y Parador es completamente libre.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
+        </div>
 
         <!-- Bottom CTA -->
         <section class="bottom-cta">
-            <h3>¿Listos para ponerlo en marcha?</h3>
+            <h3>Coordinación con el Grupo</h3>
             <p>
-                Comparte este enlace interactivo con el grupo de WhatsApp para que todos confirmen el itinerario y cerremos las reservas de los restaurantes.
+                Comparte este enlace interactivo con el grupo para revisar el itinerario, los costes y confirmar las reservas de los restaurantes.
             </p>
             <button class="btn-share" style="padding: 12px 28px; font-size: 1rem;" onclick="shareOnWhatsApp()">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-                Enviar Plan al Grupo por WhatsApp
+                <svg class="icon-svg" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                Compartir Plan por WhatsApp
             </button>
         </section>
 
@@ -1625,26 +1672,26 @@
 
     <footer>
         <div class="container">
-            <p>Planificación de Escapada • Sierra Nevada & Granada 2026 • Diseñado con ❤️ para el Grupo</p>
+            <p>Planificación de Escapada • Sierra Nevada & Granada 2026 • Grupo Ontinyent</p>
         </div>
     </footer>
 
-    <div id="toast" class="toast">Enlace copiado al portapapeles</div>
-
     <script>
-        function switchDay(dayId) {
+        function switchTab(tabId, element) {
             document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-            document.querySelectorAll('.day-content').forEach(content => content.classList.remove('active'));
+            document.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('active'));
             
-            event.currentTarget.classList.add('active');
-            const target = document.getElementById(dayId);
+            if (element) {
+                element.classList.add('active');
+            }
+            const target = document.getElementById(tabId);
             if (target) {
                 target.classList.add('active');
             }
         }
 
         function shareOnWhatsApp() {
-            const text = "🏔️ ¡Aquí está el planazo completo para Sierra Nevada y Granada! Desfiladero de Monachil, Alhambra libre, tardeo, cena top y noche de chuletón. Mirad el planning interactivo con horarios, recargas Tesla y presupuesto: " + window.location.href;
+            const text = "Plan integral para la escapada a Sierra Nevada y Granada: desfiladero de Monachil, Alhambra libre, tardeo, cena con vistas, noche de chuletón y logística Tesla. Consulta el planning interactivo con horarios y presupuesto: " + window.location.href;
             const url = "https://api.whatsapp.com/send?text=" + encodeURIComponent(text);
             window.open(url, '_blank');
         }
