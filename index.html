@@ -787,6 +787,53 @@
         .status-soon { background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.4); }
         .status-ok { background: rgba(16, 185, 129, 0.2); color: #6ee7b7; border: 1px solid rgba(16, 185, 129, 0.4); }
 
+        /* Apartment Thumbs & Link */
+        .apartment-thumbs {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .apt-thumb {
+            height: 75px;
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            border: 1px solid var(--border-subtle);
+            background: #000;
+        }
+
+        .apt-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .apt-thumb:hover img {
+            transform: scale(1.08);
+        }
+
+        .airbnb-link-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            border-radius: var(--radius-sm);
+            background: rgba(255, 56, 92, 0.15);
+            border: 1px solid rgba(255, 56, 92, 0.35);
+            color: #ff385c;
+            font-size: 0.8rem;
+            font-weight: 700;
+            transition: var(--transition);
+        }
+
+        .airbnb-link-badge:hover {
+            background: #ff385c;
+            color: #fff;
+            box-shadow: 0 0 15px rgba(255, 56, 92, 0.35);
+        }
+
         /* Bottom CTA */
         .bottom-cta {
             margin: 50px 0 40px;
@@ -814,6 +861,119 @@
             text-align: center;
             font-size: 0.85rem;
             color: var(--text-dim);
+        }
+
+        /* Responsive Breakpoints & Mobile Optimization */
+        @media (max-width: 900px) {
+            .hero-meta-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .apartment-grid {
+                grid-template-columns: 1fr;
+            }
+            .apartment-img-wrapper {
+                height: 240px;
+            }
+            .budget-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 0 16px;
+            }
+            .nav-inner {
+                flex-wrap: wrap;
+                gap: 12px;
+            }
+            .hero {
+                padding: 35px 0 25px;
+            }
+            .hero h1 {
+                font-size: 2.1rem;
+            }
+            .hero p.lead {
+                font-size: 0.95rem;
+                margin-bottom: 24px;
+            }
+            .hero-meta-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+            .meta-card {
+                padding: 16px;
+            }
+            .apartment-banner {
+                padding: 20px 16px;
+            }
+            .day-tabs {
+                gap: 6px;
+                padding-bottom: 8px;
+            }
+            .tab-btn {
+                padding: 10px 14px;
+                font-size: 0.82rem;
+            }
+            .day-hero-img {
+                height: 220px;
+            }
+            .day-hero-overlay {
+                padding: 18px;
+            }
+            .day-title {
+                font-size: 1.4rem;
+            }
+            .day-subtitle {
+                font-size: 0.85rem;
+            }
+            .day-stats-ribbon {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .ribbon-item {
+                padding: 12px;
+            }
+            .day-body {
+                padding: 20px 16px;
+            }
+            .timeline {
+                padding-left: 28px;
+            }
+            .timeline-bullet {
+                left: -28px;
+                width: 22px;
+                height: 22px;
+                font-size: 0.7rem;
+            }
+            .timeline-title {
+                font-size: 1.05rem;
+            }
+            .timeline-desc {
+                font-size: 0.88rem;
+            }
+            .media-strip {
+                grid-template-columns: 1fr;
+            }
+            .budget-table-card {
+                padding: 16px;
+                overflow-x: auto;
+            }
+            .budget-table th, .budget-table td {
+                padding: 10px 8px;
+                font-size: 0.82rem;
+            }
+            .budget-summary-card {
+                padding: 20px;
+            }
+            .summary-figure .big-number {
+                font-size: 2.8rem;
+            }
+            .bottom-cta {
+                padding: 24px 16px;
+            }
+            .bottom-cta h3 {
+                font-size: 1.5rem;
+            }
         }
     </style>
 </head>
@@ -888,21 +1048,40 @@
         <!-- Apartment & Logistics Banner -->
         <section id="alojamiento" class="apartment-banner">
             <div class="apartment-grid">
-                <div class="apartment-img-wrapper">
-                    <img src="./assets/img/apartamento_duplex_interior.jpg" alt="Apartamento Alya Sierra Nevada Dúplex">
+                <div class="apartment-gallery-col">
+                    <div class="apartment-img-wrapper">
+                        <img src="./assets/img/airbnb_alya_main.jpg" alt="Apartamento Alya Sierra Nevada">
+                    </div>
+                    <div class="apartment-thumbs">
+                        <div class="apt-thumb">
+                            <img src="./assets/img/airbnb_alya_salon.jpg" alt="Salón Dúplex Alya">
+                        </div>
+                        <div class="apt-thumb">
+                            <img src="./assets/img/airbnb_alya_vistas.jpg" alt="Vistas a la Montaña">
+                        </div>
+                        <div class="apt-thumb">
+                            <img src="./assets/img/airbnb_alya_dormitorio.jpg" alt="Dormitorio Dúplex Alya">
+                        </div>
+                    </div>
                 </div>
                 <div class="apartment-info">
-                    <h3>
-                        <svg class="icon-svg" style="color: var(--primary);" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-                        Apartamento Base: Dúplex Alya (Pradollano)
-                    </h3>
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px; margin-bottom: 8px;">
+                        <h3>
+                            <svg class="icon-svg" style="color: var(--primary);" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                            Apartamento Base: Dúplex Alya (Pradollano)
+                        </h3>
+                        <a href="https://es-l.airbnb.com/rooms/820731397155508023" target="_blank" rel="noopener" class="airbnb-link-badge">
+                            <svg class="icon-svg" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                            Ver en Airbnb
+                        </a>
+                    </div>
                     <p>
-                        Dúplex de 90 m² reformado íntegramente en 2022 con vistas espectaculares a la montaña y balcón. Situado en la zona media-alta de Sierra Nevada (a 400 m de pistas y del telesilla Parador; a 50 m de la parada de bus interurbano). Consta de 2 habitaciones, 2 baños, salón comedor, cocina equipada, Smart TV y Wi-Fi de alta velocidad.
+                        Dúplex de 90 m² reformado íntegramente en 2022 con vistas espectaculares a la montaña y balcón exterior. Situado en la zona media-alta de Sierra Nevada (a 400 m de pistas y del telesilla Parador; a 50 m de la parada de bus interurbano). Consta de 2 habitaciones, 2 baños completos, salón comedor, cocina equipada, Smart TV y Wi-Fi de alta velocidad.
                     </p>
                     <div class="apartment-features">
                         <div class="apt-feature">
                             <strong>Parking Cubierto Incluido</strong>
-                            Plaza amplia y cubierta en el mismo edificio (ideal para guardar el Tesla protegido en altura).
+                            Plaza amplia y cubierta en el mismo edificio (fundamental para guardar el Tesla protegido en altura).
                         </div>
                         <div class="apt-feature">
                             <strong>Dúplex 90 m² con Balcón</strong>
@@ -1417,6 +1596,16 @@
                                     <li><strong>La Bodega:</strong> Selección de tintos prémium (Vinos de Granada como Muñana o Calvente, más un gran Ribera del Duero).</li>
                                     <li><strong>Sobremesa:</strong> Horas de historias, anécdotas, risas y copas sin mirar el reloj y con la calidez del hogar.</li>
                                 </ul>
+                                <div class="media-strip">
+                                    <div class="media-card">
+                                        <img src="./assets/img/chuleton_grill.jpg" alt="Chuletones a la Brasa">
+                                        <div class="media-caption">Chuletón de Vaca Vieja Madurada</div>
+                                    </div>
+                                    <div class="media-card">
+                                        <img src="./assets/img/airbnb_alya_salon.jpg" alt="Salón Apartamento Alya">
+                                        <div class="media-caption">Salón del Apartamento Alya para la Sobremesa</div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
