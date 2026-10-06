@@ -1223,63 +1223,133 @@
         .checklist-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 12px;
+            gap: 20px;
         }
 
         .check-card {
-            background: rgba(255, 255, 255, 0.03);
+            background: var(--bg-card);
             border: 1px solid var(--border-subtle);
             border-radius: var(--radius-md);
-            padding: 16px;
-            display: flex;
-            gap: 14px;
-            align-items: flex-start;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
             transition: var(--transition);
         }
 
+        @media (max-width: 768px) {
+            .check-card {
+                grid-template-columns: 1fr;
+            }
+        }
+
         .check-card:hover {
-            border-color: rgba(255, 255, 255, 0.15);
+            border-color: var(--border-highlight);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+        }
+
+        .check-card-img {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            min-height: 200px;
+            overflow: hidden;
+            background: rgba(16, 23, 38, 0.8);
+        }
+
+        @media (max-width: 768px) {
+            .check-card-img {
+                height: 180px;
+                min-height: 180px;
+            }
+        }
+
+        .check-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .check-card:hover .check-card-img img {
+            transform: scale(1.04);
+        }
+
+        .check-card-body {
+            padding: 22px 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        @media (max-width: 768px) {
+            .check-card-body {
+                padding: 16px;
+            }
         }
 
         .status-badge {
             display: inline-block;
-            padding: 4px 8px;
-            border-radius: 6px;
+            padding: 4px 10px;
+            border-radius: 999px;
             font-size: 0.72rem;
-            font-weight: 700;
+            font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
-            white-space: nowrap;
+            letter-spacing: 0.04em;
+            margin-bottom: 8px;
+            width: fit-content;
         }
 
         .status-urgent {
-            background: rgba(244, 63, 94, 0.2);
-            color: var(--accent-rose);
+            background: rgba(244, 63, 94, 0.18);
+            color: #fda4af;
             border: 1px solid rgba(244, 63, 94, 0.35);
         }
 
         .status-soon {
-            background: rgba(245, 158, 11, 0.2);
-            color: var(--primary);
+            background: rgba(245, 158, 11, 0.18);
+            color: #fcd34d;
             border: 1px solid rgba(245, 158, 11, 0.35);
         }
 
         .status-ok {
-            background: rgba(16, 185, 129, 0.2);
-            color: var(--accent-emerald);
+            background: rgba(16, 185, 129, 0.18);
+            color: #6ee7b7;
             border: 1px solid rgba(16, 185, 129, 0.35);
         }
 
+        .status-warning {
+            background: rgba(239, 68, 68, 0.18);
+            color: #fca5a5;
+            border: 1px solid rgba(239, 68, 68, 0.35);
+        }
+
+        .status-pref {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.3), rgba(217, 119, 6, 0.2));
+            color: #fef08a;
+            border: 1px solid var(--primary);
+            box-shadow: 0 0 10px rgba(245, 158, 11, 0.25);
+        }
+
+        .status-alt {
+            background: rgba(6, 182, 212, 0.18);
+            color: #a5f3fc;
+            border: 1px solid rgba(6, 182, 212, 0.35);
+        }
+
         .check-card h4 {
-            font-size: 1.05rem;
-            margin-bottom: 4px;
+            font-size: 1.15rem;
+            margin-bottom: 6px;
+            line-height: 1.25;
         }
 
         .check-card p {
-            font-size: 0.85rem;
+            font-size: 0.88rem;
             color: var(--text-muted);
             line-height: 1.5;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
 
         .check-action-link {
@@ -2390,84 +2460,133 @@
         <section id="view-reservas" class="app-view">
             <div class="reservas-view-card">
                 <div class="reservas-header">
-                    <span class="day-pill pill-gold" style="margin-bottom: 6px; display: inline-block;">Gestión Anticipada</span>
-                    <h2>Checklist de Reservas Pendientes</h2>
-                    <p>Acciones concretas para dejar el viaje completamente asegurado y sin imprevistos.</p>
+                    <span class="day-pill pill-gold" style="margin-bottom: 6px; display: inline-block;">Control de Estado</span>
+                    <h2>Checklist de Reservas & Programación</h2>
+                    <p>Estado en tiempo real de cada mesa, visita y compra programada para la escapada.</p>
                 </div>
 
                 <div class="checklist-grid">
+
+                    <!-- 1. LOS CEREZOS -->
                     <div class="check-card">
-                        <div>
-                            <span class="status-badge status-soon">Próximos días</span>
+                        <div class="check-card-img">
+                            <img src="./assets/img/restaurante_los_cerezos_terraza.jpg" alt="Terraza Restaurante Los Cerezos Monachil">
                         </div>
-                        <div>
-                            <h4>Encargo Chuletones: Mercado San Agustín / Carnicería Luján</h4>
+                        <div class="check-card-body">
+                            <div>
+                                <span class="status-badge status-ok">Reserva Confirmada • Terraza</span>
+                            </div>
+                            <h4>Almuerzo Viernes 9: Restaurante Los Cerezos (Monachil)</h4>
                             <p>
-                                Para asegurar los mejores chuletones de Vaca Vieja madurada (+45 días) o Raza Pajuna de Sierra Nevada con grosor óptimo (4-5 cm) y marmoleado prémium, conviene avisar con 24-48h de antelación para tenerlos cortados y envasados al vacío al recogerlos el sábado a mediodía (13:30 h).
+                                <strong>Viernes 9 de Octubre • 14:30 h.</strong> Mesa para 4 personas confirmada en la terraza exterior con vistas panorámicas, justo al concluir la ruta circular de Los Cahorros. Cocina tradicional andaluza, choto al ajillo y carnes a la brasa.
                             </p>
-                            <span style="color: var(--text-dim); font-size: 0.82rem; display: block; margin-top: 4px;">Casa Carmina (Mercado San Agustín, Puestos 4-6) • Tel: +34 958 27 82 82 | Carnicería Luján (Merca 80)</span>
+                            <div style="font-size: 0.82rem; color: var(--text-dim); margin-top: 4px;">
+                                Teléfono: +34 958 30 08 44 • Monachil pueblo
+                            </div>
                         </div>
                     </div>
 
+                    <!-- 2. CARMEN DE SAN MIGUEL -->
                     <div class="check-card">
-                        <div>
-                            <span class="status-badge status-urgent">Urgente</span>
+                        <div class="check-card-img">
+                            <img src="./assets/img/carmen_san_miguel_terraza.jpg" alt="Vistas desde Carmen de San Miguel">
                         </div>
-                        <div>
-                            <h4>Cena Sábado Noche: Carmen de San Miguel</h4>
+                        <div class="check-card-body">
+                            <div>
+                                <span class="status-badge status-soon">Pre-reservada • Pendiente Confirmación</span>
+                            </div>
+                            <h4>Cena Sábado 10: Restaurante Carmen de San Miguel</h4>
                             <p>
-                                Reserva de mesa para 4 comensales a las 21:30 h con vistas directas a la Alhambra iluminada. Las mesas exteriores con vistas se agotan con semanas de antelación.
+                                <strong>Sábado 10 de Octubre • 21:30 h.</strong> Pre-reserva solicitada para 4 comensales en mesa con vistas directas a la Alhambra y la ciudad iluminadas. A la espera de la confirmación final por parte del restaurante.
                             </p>
                             <a href="https://carmensanmiguel.com" target="_blank" rel="noopener" class="check-action-link">
-                                Ir a la Web Oficial de Carmen de San Miguel
+                                Ver Web Oficial del Restaurante
                                 <svg class="icon-svg" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                             </a>
                         </div>
                     </div>
 
-                    <div class="check-card">
-                        <div>
-                            <span class="status-badge status-soon">Próximos días</span>
+                    <!-- 3. CHULETÓN - OPCIÓN 1 (PREFERENCIA) -->
+                    <div class="check-card" style="border: 1px solid var(--border-highlight); box-shadow: 0 0 20px rgba(245, 158, 11, 0.15);">
+                        <div class="check-card-img">
+                            <img src="./assets/img/mercado_san_agustin_carmina.jpg" alt="Mercado San Agustín Casa Carmina">
                         </div>
-                        <div>
-                            <h4>Almuerzo Viernes: Restaurante Los Cerezos (Monachil)</h4>
+                        <div class="check-card-body">
+                            <div>
+                                <span class="status-badge status-pref">Opción Recomendada • Nuestra Preferencia</span>
+                            </div>
+                            <h4>Chuletón: Casa Carmina — Mercado de San Agustín (Puestos 4-6)</h4>
                             <p>
-                                Mesa para 4 comensales a las 14:30 h al concluir la ruta circular de Los Cahorros. Cocina tradicional andaluza con terraza.
+                                <strong>Por qué es nuestra preferencia:</strong> Encaje perfecto en la ruta del sábado sin desviarse. El mercado está en pleno centro histórico junto a la Catedral (Plaza de San Agustín). Al mediodía (13:30 h) bajamos de la Alhambra, compramos los chuletones envasados al vacío y arrancamos el tapeo a pie por Calle Navas inmediatamente, sin tocar el coche.
                             </p>
-                            <a href="tel:+34958300844" class="check-action-link">
-                                Llamar para reservar (+34 958 30 08 44)
-                                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            <p style="margin-bottom: 6px;">
+                                <strong>El producto:</strong> Más de 40 años de oficio con chuletones de Vaca Vieja madurada (+45 días) de gran infiltración. En el mismo puesto compramos también el queso artesano curado de cabra de Montefrío y el jamón de Trevélez.
+                            </p>
+                            <div style="font-size: 0.82rem; color: var(--primary); font-weight: 600;">
+                                Contacto para encargo previo: +34 958 27 82 82 (Pedir 2 chuletones de ~1,1 kg cortados a 4 cm y al vacío)
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 4. CHULETÓN - OPCIÓN 2 (ALTERNATIVA) -->
+                    <div class="check-card">
+                        <div class="check-card-img">
+                            <img src="./assets/img/carniceria_lujan_pajuna.jpg" alt="Chuletones Raza Pajuna Cortijo Luján">
+                        </div>
+                        <div class="check-card-body">
+                            <div>
+                                <span class="status-badge status-alt">Opción 2 • Raza Pajuna 100% Autóctona</span>
+                            </div>
+                            <h4>Chuletón: Carnicería Luján (Cortijo Luján) — Merca 80</h4>
+                            <p>
+                                <strong>Qué la hace única:</strong> Familia pionera en rescatar y criar la auténtica <em>Vaca Pajuna de Sierra Nevada</em> (raza endémica criada en semilibertad en las altas cumbres granadinas). Sabor rústico singular, grasa con alto contenido en ácido oleico y terneza excepcional.
+                            </p>
+                            <p style="margin-bottom: 6px;">
+                                <strong>Matiz logístico:</strong> Su tienda está en el C.C. Merca 80 (Zaidín), por lo que requiere o bien encargar con antelación o hacer un desplazamiento en coche fuera del centro peatonal.
+                            </p>
+                            <a href="https://cortijolujan.com" target="_blank" rel="noopener" class="check-action-link">
+                                Conocer el Proyecto Cortijo Luján
+                                <svg class="icon-svg" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                             </a>
                         </div>
                     </div>
 
+                    <!-- 5. ROOFTOP B-HEAVEN -->
                     <div class="check-card">
-                        <div>
-                            <span class="status-badge status-soon">Opcional</span>
+                        <div class="check-card-img">
+                            <img src="./assets/img/tardeo_cocktail_rooftop.jpg" alt="Rooftop B-Heaven Barceló Carmen">
                         </div>
-                        <div>
-                            <h4>Tardeo Rooftop B-Heaven (Sábado)</h4>
+                        <div class="check-card-body">
+                            <div>
+                                <span class="status-badge status-warning">Módulo Desactivado • Reintentar en unos días</span>
+                            </div>
+                            <h4>Tardeo Sábado: Rooftop B-Heaven (Hotel Barceló Carmen)</h4>
                             <p>
-                                Reserva de mesa alta a las 18:30 h en la terraza del Hotel Barceló Carmen para tomar las primeras copas disfrutando del atardecer sobre Granada.
+                                <strong>Sábado 10 de Octubre • 18:30 h.</strong> El motor de reservas de la terraza está temporalmente no operativo en la web para esa fecha. Volveremos a probar en unos días; en caso de continuar cerrado, accederemos directamente al atardecer para mesa alta y cócteles.
                             </p>
                             <a href="https://www.barcelo.com" target="_blank" rel="noopener" class="check-action-link">
-                                Consultar Rooftop B-Heaven
+                                Consultar Web Hotel Barceló
                                 <svg class="icon-svg" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                             </a>
                         </div>
                     </div>
 
+                    <!-- 6. ALHAMBRA LIBRE -->
                     <div class="check-card">
-                        <div>
-                            <span class="status-badge status-ok">Controlado</span>
+                        <div class="check-card-img">
+                            <img src="./assets/img/alhambra_carlos_v.jpg" alt="Palacio de Carlos V Alhambra">
                         </div>
-                        <div>
+                        <div class="check-card-body">
+                            <div>
+                                <span class="status-badge status-ok">Controlado • Acceso Libre</span>
+                            </div>
                             <h4>Alhambra Libre & Puertas Monumentales</h4>
                             <p>
-                                <strong>No requiere entrada ni reserva previa.</strong> El acceso al Palacio de Carlos V, Museo de Bellas Artes, Puerta de la Justicia, Puerta del Vino y jardines del Parador es completamente público y libre.
+                                <strong>Sábado 10 de Octubre • 11:30 h.</strong> No requiere entrada ni reserva previa. El acceso al Palacio de Carlos V, Museo de Bellas Artes, Puerta de la Justicia, Puerta del Vino y jardines del Parador es público, libre y 100% gratuito.
                             </p>
                         </div>
                     </div>
+
                 </div>
             </div>
         </section>
