@@ -225,53 +225,61 @@
             }
         }
 
-        /* Hero Banner */
-        .hero {
-            padding: 28px 0 20px;
+        /* View Section Header Component */
+        .view-header {
+            padding: 16px 0 22px;
+            margin-bottom: 6px;
         }
 
-        .tag-pill {
+        .view-tag {
             display: inline-flex;
             align-items: center;
             gap: 6px;
             background: rgba(245, 158, 11, 0.12);
             border: 1px solid rgba(245, 158, 11, 0.3);
             color: var(--primary);
-            padding: 5px 12px;
+            padding: 4px 12px;
             border-radius: 999px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            margin-bottom: 12px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            margin-bottom: 10px;
         }
 
-        .hero h1 {
-            font-size: 2.2rem;
+        .view-tag .icon-svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        .view-header h2 {
+            font-size: 2rem;
             font-weight: 800;
-            line-height: 1.15;
-            margin-bottom: 10px;
-            background: linear-gradient(180deg, #ffffff 30%, #cbd5e1 100%);
+            line-height: 1.2;
+            margin-bottom: 8px;
+            background: linear-gradient(180deg, #ffffff 40%, #cbd5e1 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .hero p.lead {
-            font-size: 0.98rem;
+        .view-header p.view-lead {
+            font-size: 0.96rem;
             color: var(--text-muted);
-            max-width: 820px;
-            line-height: 1.5;
-            margin-bottom: 18px;
+            max-width: 860px;
+            line-height: 1.55;
+            margin: 0;
         }
 
         @media (max-width: 640px) {
-            .hero {
-                padding: 18px 0 14px;
+            .view-header {
+                padding: 10px 0 16px;
             }
-            .hero h1 {
-                font-size: 1.7rem;
+            .view-header h2 {
+                font-size: 1.6rem;
+                margin-bottom: 6px;
             }
-            .hero p.lead {
+            .view-header p.view-lead {
                 font-size: 0.88rem;
-                margin-bottom: 14px;
+                line-height: 1.45;
             }
         }
 
@@ -1760,21 +1768,20 @@
 
     <main class="container">
 
-        <!-- Hero Intro -->
-        <section class="hero">
-            <div class="tag-pill">
-                <svg class="icon-svg" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-                Puente del Pilar • 8 al 12 Octubre 2026
-            </div>
-            <h1>Escapada a Granada & Sierra Nevada</h1>
-            <p class="lead">
-                Alta montaña a 2.150 m, cañón de puentes colgantes en Monachil, secretos libres de la Alhambra, tardeo en Granada y la gran noche de chuletón y vino en el apartamento.
-            </p>
-        </section>
-
         <!-- VIEW 1: ITINERARIO -->
         <section id="view-itinerario" class="app-view active">
             
+            <div class="view-header">
+                <div class="view-tag">
+                    <svg class="icon-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    <span>Puente del Pilar • 8 al 12 Octubre 2026</span>
+                </div>
+                <h2>Itinerario</h2>
+                <p class="view-lead">
+                    Planificación detallada día a día: trayectos por carretera, ruta senderista en Los Cahorros de Monachil, secretos libres de la Alhambra y tardeo en Granada, cumbre del Veleta y velada de chuletón en Pradollano.
+                </p>
+            </div>
+
             <!-- Sticky Segmented Day Selector Bar -->
             <div class="day-selector-sticky" id="itinerario-top">
                 <div class="day-pills-row">
@@ -2703,6 +2710,18 @@
 
         <!-- VIEW 2: ALOJAMIENTO -->
         <section id="view-alojamiento" class="app-view">
+            
+            <div class="view-header">
+                <div class="view-tag">
+                    <svg class="icon-svg" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                    <span>Pradollano • 2.150 m (Sierra Nevada)</span>
+                </div>
+                <h2>Alojamiento</h2>
+                <p class="view-lead">
+                    Dúplex Alya en Edificio Mont Blanc 18: 90 m² para 4 personas con 2 dormitorios, 2 baños y garaje privado. Reserva confirmada y 100% abonada entre los 4 (450 € en total, sin pagos pendientes de estancia).
+                </p>
+            </div>
+
             <div class="apartment-showcase-card">
                 <div class="apartment-gallery-grid">
                     <div>
@@ -2735,7 +2754,7 @@
                     </div>
 
                     <div class="apt-info-col">
-                        <h2>Apartamento Base: Dúplex Alya</h2>
+                        <h3>Dúplex Alya (Edificio Mont Blanc 18)</h3>
                         <div class="apt-location-sub">
                             <svg class="icon-svg" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
                             Pradollano (Zona Media-Alta, 2.150 m) • Sierra Nevada
@@ -2777,14 +2796,20 @@
 
         <!-- VIEW 3: PRESUPUESTO -->
         <section id="view-presupuesto" class="app-view">
+            
+            <div class="view-header">
+                <div class="view-tag">
+                    <svg class="icon-svg" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                    <span>Previsión Financiera 100% Detallada</span>
+                </div>
+                <h2>Presupuesto</h2>
+                <p class="view-lead">
+                    Control económico transparente agrupado por jornadas: fondo común estimado en ~340 € por persona para cubrir el 100% de comidas, cenas, tapeo, copas, discoteca, taxi oficial de Granada I/V y compras, con el alojamiento ya liquidado.
+                </p>
+            </div>
+
             <div class="budget-view-card">
                 <div class="budget-hero-box">
-                    <div class="budget-hero-top">
-                        <span class="day-pill pill-gold" style="margin-bottom: 6px; display: inline-block;">Previsión Completa 100% Detallada</span>
-                        <h3>Presupuesto de la Escapada: Resumen Financiero</h3>
-                        <p>Desglose transparente del viaje. El alojamiento ya está íntegramente pagado entre los 4. Lo único pendiente de aportar al salir el jueves es el bote común para cubrir el 100% de comidas, cenas, copas, discoteca, taxi oficial puerta a puerta I/V y compras de mercado.</p>
-                    </div>
-
                     <div class="budget-summary-grid">
                         <div class="budget-summary-card card-pending">
                             <div class="summary-card-header">
@@ -3179,13 +3204,19 @@
 
         <!-- VIEW 4: RESERVAS & CHECKLIST -->
         <section id="view-reservas" class="app-view">
-            <div class="reservas-view-card">
-                <div class="reservas-header">
-                    <span class="day-pill pill-gold" style="margin-bottom: 6px; display: inline-block;">Control de Estado</span>
-                    <h2>Checklist de Reservas & Programación</h2>
-                    <p>Estado en tiempo real de cada mesa, visita y compra programada para la escapada.</p>
+            
+            <div class="view-header">
+                <div class="view-tag">
+                    <svg class="icon-svg" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                    <span>Control de Estado & Logística</span>
                 </div>
+                <h2>Reservas</h2>
+                <p class="view-lead">
+                    Checklist cronológico en tiempo real de cada mesa en restaurantes, transportes oficiales, visitas a monumentos y compras gourmet de jueves a lunes para que todo esté perfectamente coordinado.
+                </p>
+            </div>
 
+            <div class="reservas-view-card">
                 <div class="checklist-grid">
 
                     <!-- DÍA 1: JUEVES 8 DE OCTUBRE -->
@@ -3555,7 +3586,7 @@
                     <!-- 5.1 COMIDA VENTA DEL PERAL (13:30 h) -->
                     <div class="check-card">
                         <div class="check-card-img">
-                            <img src="./assets/img/tesla_model3_road.jpg" alt="Comida Venta del Peral Baza">
+                            <img src="./assets/img/asador_venta_del_peral.jpg" alt="Restaurante Asador Venta del Peral Baza">
                         </div>
                         <div class="check-card-body">
                             <div>
@@ -3566,7 +3597,7 @@
                                 <strong>Lunes 12 de Octubre • 13:30 h.</strong> Descenso de Pradollano y parada gastronómica en el restaurante asador tradicional de Venta del Peral (A-92N, Baza) sincronizada con la parada de carga antes del tramo final de carretera a Valencia.
                             </p>
                             <div style="font-size: 0.82rem; color: var(--text-dim);">
-                                Autovía A-92N Km 28 • Baza (Granada)
+                                Autovía A-92N Salida 58 • Cúllar - Baza (Granada)
                             </div>
                         </div>
                     </div>
