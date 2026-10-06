@@ -2,9 +2,9 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sierra Nevada & Granada 2026 — Plan de Escapada</title>
-    <meta name="description" content="Plan integral de escapada al Puente del Pilar: Sierra Nevada, Monachil, Granada, Alhambra libre, chuletón, tardeo y logística de ruta.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+    <title>Escapada a Granada & Sierra Nevada • Plan de Viaje</title>
+    <meta name="description" content="Plan integral de escapada al Puente del Pilar: Sierra Nevada a 2.150 m, cañón de Los Cahorros, rincones libres de la Alhambra, tardeo en Granada, velada de chuletón y logística completa.">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,36 +13,35 @@
         :root {
             --bg-base: #090d16;
             --bg-surface: #101726;
-            --bg-card: rgba(19, 28, 46, 0.75);
-            --bg-card-hover: rgba(28, 40, 65, 0.9);
+            --bg-card: rgba(19, 28, 46, 0.85);
+            --bg-card-hover: rgba(28, 40, 65, 0.95);
             --border-subtle: rgba(255, 255, 255, 0.08);
-            --border-highlight: rgba(245, 158, 11, 0.35);
+            --border-highlight: rgba(245, 158, 11, 0.4);
 
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
             --text-dim: #64748b;
 
             --primary: #f59e0b;
-            --primary-glow: rgba(245, 158, 11, 0.2);
+            --primary-glow: rgba(245, 158, 11, 0.25);
             --accent-cyan: #06b6d4;
             --accent-emerald: #10b981;
             --accent-rose: #f43f5e;
             --accent-purple: #8b5cf6;
-
-            --tesla-red: #e82127;
 
             --shadow-card: 0 12px 30px -10px rgba(0, 0, 0, 0.6);
             --blur-glass: blur(16px);
             --radius-lg: 18px;
             --radius-md: 12px;
             --radius-sm: 8px;
-            --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+            -webkit-tap-highlight-color: transparent;
         }
 
         body {
@@ -56,6 +55,13 @@
                 radial-gradient(circle at 85% 60%, rgba(6, 182, 212, 0.08) 0%, transparent 45%),
                 radial-gradient(circle at 50% 90%, rgba(139, 92, 246, 0.06) 0%, transparent 50%);
             background-attachment: fixed;
+            padding-bottom: 30px;
+        }
+
+        @media (max-width: 850px) {
+            body {
+                padding-bottom: calc(85px + env(safe-area-inset-bottom, 0px));
+            }
         }
 
         h1, h2, h3, h4 {
@@ -67,6 +73,13 @@
         a {
             color: inherit;
             text-decoration: none;
+        }
+
+        button {
+            font-family: inherit;
+            cursor: pointer;
+            border: none;
+            background: none;
         }
 
         .icon-svg {
@@ -81,30 +94,38 @@
             stroke-width: 2;
             stroke-linecap: round;
             stroke-linejoin: round;
+            flex-shrink: 0;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1140px;
             margin: 0 auto;
-            padding: 0 24px;
+            padding: 0 20px;
         }
 
-        /* Top Nav */
+        @media (max-width: 640px) {
+            .container {
+                padding: 0 14px;
+            }
+        }
+
+        /* Top Navbar */
         .navbar {
             position: sticky;
             top: 0;
             z-index: 100;
             backdrop-filter: var(--blur-glass);
             -webkit-backdrop-filter: var(--blur-glass);
-            background: rgba(9, 13, 22, 0.85);
+            background: rgba(9, 13, 22, 0.88);
             border-bottom: 1px solid var(--border-subtle);
-            padding: 16px 0;
+            padding: 12px 0;
         }
 
         .nav-inner {
             display: flex;
             align-items: center;
             justify-content: space-between;
+            gap: 16px;
         }
 
         .brand-badge {
@@ -117,326 +138,331 @@
             color: #fff;
         }
 
-        .brand-badge span {
-            color: var(--primary);
+        .brand-badge span.brand-sub {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-weight: 400;
+            display: inline-block;
+            margin-left: 4px;
+            padding-left: 8px;
+            border-left: 1px solid var(--border-subtle);
         }
 
-        .nav-links {
+        @media (max-width: 500px) {
+            .brand-badge span.brand-sub {
+                display: none;
+            }
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--primary), #d97706);
+            border-radius: var(--radius-sm);
             display: flex;
             align-items: center;
-            gap: 20px;
-            font-size: 0.9rem;
-            font-weight: 500;
+            justify-content: center;
+            color: #000;
+            font-weight: 800;
+            box-shadow: 0 0 15px var(--primary-glow);
         }
 
-        .btn-share {
-            background: rgba(37, 211, 102, 0.12);
-            color: #25d366;
-            border: 1px solid rgba(37, 211, 102, 0.3);
-            padding: 8px 16px;
+        /* Desktop Nav Tabs */
+        .desktop-nav {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(16, 23, 38, 0.8);
+            border: 1px solid var(--border-subtle);
             border-radius: 999px;
-            font-weight: 600;
-            font-size: 0.85rem;
+            padding: 4px;
+        }
+
+        .desktop-tab-btn {
             display: inline-flex;
             align-items: center;
             gap: 8px;
+            padding: 8px 16px;
+            border-radius: 999px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--text-muted);
             transition: var(--transition);
-            cursor: pointer;
         }
 
-        .btn-share:hover {
-            background: #25d366;
-            color: #000;
-            box-shadow: 0 0 15px rgba(37, 211, 102, 0.4);
+        .desktop-tab-btn:hover {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.05);
         }
 
-        /* Hero */
+        .desktop-tab-btn.active {
+            color: #fff;
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.3), rgba(245, 158, 11, 0.15));
+            border: 1px solid var(--border-highlight);
+            box-shadow: 0 2px 10px rgba(245, 158, 11, 0.2);
+        }
+
+        .desktop-tab-btn.active .icon-svg {
+            color: var(--primary);
+        }
+
+        .date-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-subtle);
+            padding: 6px 12px;
+            border-radius: 999px;
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        @media (max-width: 850px) {
+            .desktop-nav {
+                display: none;
+            }
+        }
+
+        /* Hero Banner */
         .hero {
-            padding: 50px 0 35px;
-            text-align: center;
+            padding: 28px 0 20px;
         }
 
         .tag-pill {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            padding: 6px 16px;
-            border-radius: 999px;
+            gap: 6px;
             background: rgba(245, 158, 11, 0.12);
             border: 1px solid rgba(245, 158, 11, 0.3);
             color: var(--primary);
-            font-size: 0.85rem;
+            padding: 5px 12px;
+            border-radius: 999px;
+            font-size: 0.8rem;
             font-weight: 600;
-            letter-spacing: 0.05em;
-            margin-bottom: 20px;
+            margin-bottom: 12px;
         }
 
         .hero h1 {
-            font-size: clamp(2.3rem, 5vw, 3.8rem);
+            font-size: 2.2rem;
             font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 16px;
-            background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 50%, #f59e0b 100%);
+            line-height: 1.15;
+            margin-bottom: 10px;
+            background: linear-gradient(180deg, #ffffff 30%, #cbd5e1 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .hero p.lead {
-            font-size: clamp(1rem, 2vw, 1.2rem);
+            font-size: 0.98rem;
             color: var(--text-muted);
             max-width: 820px;
-            margin: 0 auto 34px;
+            line-height: 1.5;
+            margin-bottom: 18px;
         }
 
-        /* Hero Meta Grid */
+        @media (max-width: 640px) {
+            .hero {
+                padding: 18px 0 14px;
+            }
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+            .hero p.lead {
+                font-size: 0.88rem;
+                margin-bottom: 14px;
+            }
+        }
+
+        /* Hero Quick Specs Grid */
         .hero-meta-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 16px;
-            margin-bottom: 40px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        @media (max-width: 850px) {
+            .hero-meta-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
         }
 
         .meta-card {
             background: var(--bg-card);
             border: 1px solid var(--border-subtle);
             border-radius: var(--radius-md);
-            padding: 20px;
-            text-align: left;
-            backdrop-filter: var(--blur-glass);
+            padding: 12px 14px;
             transition: var(--transition);
         }
 
         .meta-card:hover {
-            border-color: rgba(255, 255, 255, 0.18);
+            border-color: var(--border-highlight);
             transform: translateY(-2px);
         }
 
         .meta-label {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--text-dim);
-            font-weight: 600;
             display: flex;
             align-items: center;
             gap: 6px;
-            margin-bottom: 6px;
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            margin-bottom: 4px;
+        }
+
+        .meta-label .icon-svg {
+            color: var(--primary);
+            width: 14px;
+            height: 14px;
         }
 
         .meta-val {
-            font-size: 1.15rem;
+            font-size: 0.96rem;
             font-weight: 700;
             color: var(--text-main);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .meta-sub {
-            font-size: 0.8rem;
+            font-size: 0.78rem;
             color: var(--text-muted);
-            margin-top: 4px;
-        }
-
-        /* Apartment & Base Logistics Banner */
-        .apartment-banner {
-            background: linear-gradient(135deg, rgba(245, 158, 11, 0.08) 0%, rgba(19, 28, 46, 0.85) 100%);
-            border: 1px solid rgba(245, 158, 11, 0.25);
-            border-radius: var(--radius-lg);
-            padding: 30px;
-            margin-bottom: 45px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .apartment-banner::before {
-            content: "ALOJAMIENTO BASE & PARKING";
-            position: absolute;
-            top: 15px;
-            right: 25px;
-            font-size: 0.75rem;
-            font-weight: 800;
-            color: rgba(245, 158, 11, 0.35);
-            letter-spacing: 0.1em;
-        }
-
-        .apartment-grid {
-            display: grid;
-            grid-template-columns: 1fr 1.35fr;
-            gap: 30px;
-            align-items: center;
-        }
-
-        @media (max-width: 850px) {
-            .apartment-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .apartment-img-wrapper {
-            position: relative;
-            border-radius: var(--radius-md);
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            height: 290px;
-        }
-
-        .apartment-img-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .apartment-info h3 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .apartment-info p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 16px;
-        }
-
-        .apartment-features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 10px;
-            margin-bottom: 16px;
-        }
-
-        .apt-feature {
-            background: rgba(0, 0, 0, 0.25);
-            padding: 10px 12px;
-            border-radius: var(--radius-sm);
-            border-left: 3px solid var(--primary);
-            font-size: 0.82rem;
-            color: #cbd5e1;
-        }
-
-        .apt-feature strong {
-            color: #fff;
-            display: block;
-            margin-bottom: 2px;
-        }
-
-        .supercharger-steps {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .sc-step {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            background: rgba(0, 0, 0, 0.25);
-            padding: 10px 14px;
-            border-radius: var(--radius-sm);
-            border-left: 3px solid var(--tesla-red);
-            font-size: 0.85rem;
-        }
-
-        .sc-step strong {
-            color: #fff;
-        }
-
-        /* Central Tabs Navigation */
-        .tabs-wrapper {
-            margin-bottom: 30px;
-        }
-
-        .tabs-header-area {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-
-        .tabs-header-area h2 {
-            font-size: 2rem;
-            font-weight: 800;
-        }
-
-        .tabs-header-area p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
-
-        .day-tabs {
-            display: flex;
-            gap: 8px;
-            overflow-x: auto;
-            padding-bottom: 10px;
-            border-bottom: 1px solid var(--border-subtle);
-        }
-
-        .tab-btn {
-            background: var(--bg-card);
-            border: 1px solid var(--border-subtle);
-            color: var(--text-muted);
-            padding: 12px 18px;
-            border-radius: var(--radius-md);
-            font-size: 0.9rem;
-            font-weight: 600;
             white-space: nowrap;
-            cursor: pointer;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
-        .tab-btn:hover {
-            color: var(--text-main);
-            border-color: rgba(255, 255, 255, 0.2);
-            background: var(--bg-card-hover);
-        }
-
-        .tab-btn.active {
-            background: var(--primary);
-            color: #090d16;
-            border-color: var(--primary);
-            box-shadow: 0 0 20px var(--primary-glow);
-            font-weight: 700;
-        }
-
-        .tab-btn.tab-btn-highlight {
-            border-color: rgba(245, 158, 11, 0.3);
-        }
-
-        /* Tab Content Display */
-        .tab-pane {
+        /* View Container */
+        .app-view {
             display: none;
-            animation: fadeIn 0.3s ease-out forwards;
+            animation: fadeIn 0.25s ease-out forwards;
         }
 
-        .tab-pane.active {
+        .app-view.active {
             display: block;
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(6px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(6px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        /* Day Card */
+        /* Sticky Day Selector for Itinerary */
+        .day-selector-sticky {
+            position: sticky;
+            top: 56px;
+            z-index: 90;
+            backdrop-filter: var(--blur-glass);
+            -webkit-backdrop-filter: var(--blur-glass);
+            background: rgba(9, 13, 22, 0.92);
+            border-bottom: 1px solid var(--border-subtle);
+            padding: 10px 0;
+            margin-bottom: 16px;
+        }
+
+        .day-pills-row {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 6px;
+        }
+
+        .day-pill-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 4px;
+            background: rgba(19, 28, 46, 0.7);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-sm);
+            color: var(--text-muted);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .day-pill-btn:hover {
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .day-pill-btn.active {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.28), rgba(245, 158, 11, 0.12));
+            border-color: var(--primary);
+            color: #fff;
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.2);
+        }
+
+        .day-pill-code {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: 0.85rem;
+            letter-spacing: -0.01em;
+            line-height: 1.1;
+        }
+
+        .day-pill-btn.active .day-pill-code {
+            color: var(--primary);
+        }
+
+        .day-pill-title {
+            font-size: 0.68rem;
+            color: var(--text-dim);
+            font-weight: 500;
+            margin-top: 2px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 100%;
+        }
+
+        .day-pill-btn.active .day-pill-title {
+            color: #fff;
+            font-weight: 600;
+        }
+
+        /* Day Panes */
+        .day-pane {
+            display: none;
+        }
+
+        .day-pane.active {
+            display: block;
+            animation: fadeIn 0.2s ease-out;
+        }
+
+        /* Day Card Styles */
         .day-card {
             background: var(--bg-card);
             border: 1px solid var(--border-subtle);
             border-radius: var(--radius-lg);
             overflow: hidden;
-            backdrop-filter: var(--blur-glass);
-            margin-bottom: 40px;
+            box-shadow: var(--shadow-card);
+            margin-bottom: 24px;
         }
 
         .day-hero-img {
             position: relative;
-            height: 320px;
-            width: 100%;
+            height: 280px;
             overflow: hidden;
+        }
+
+        @media (max-width: 640px) {
+            .day-hero-img {
+                height: 190px;
+            }
         }
 
         .day-hero-img img {
@@ -447,108 +473,156 @@
         }
 
         .day-card:hover .day-hero-img img {
-            transform: scale(1.025);
+            transform: scale(1.02);
         }
 
         .day-hero-overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(0deg, var(--bg-surface) 0%, rgba(9, 13, 22, 0.3) 60%, transparent 100%);
+            background: linear-gradient(180deg, rgba(9, 13, 22, 0.1) 0%, rgba(9, 13, 22, 0.88) 95%);
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            padding: 30px;
+            padding: 24px;
+        }
+
+        @media (max-width: 640px) {
+            .day-hero-overlay {
+                padding: 14px;
+            }
         }
 
         .day-badge-row {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 10px;
+            gap: 8px;
+            margin-bottom: 8px;
         }
 
         .day-pill {
+            padding: 4px 10px;
+            border-radius: 999px;
             font-size: 0.75rem;
             font-weight: 700;
-            padding: 4px 12px;
-            border-radius: 999px;
-            letter-spacing: 0.05em;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
         }
 
-        .pill-gold { background: rgba(245, 158, 11, 0.25); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.4); }
-        .pill-cyan { background: rgba(6, 182, 212, 0.25); color: #67e8f9; border: 1px solid rgba(6, 182, 212, 0.4); }
-        .pill-red { background: rgba(232, 33, 39, 0.25); color: #f87171; border: 1px solid rgba(232, 33, 39, 0.4); }
-        .pill-green { background: rgba(16, 185, 129, 0.25); color: #6ee7b7; border: 1px solid rgba(16, 185, 129, 0.4); }
+        .pill-gold {
+            background: rgba(245, 158, 11, 0.25);
+            border: 1px solid var(--primary);
+            color: #fbbf24;
+        }
+
+        .pill-cyan {
+            background: rgba(6, 182, 212, 0.25);
+            border: 1px solid var(--accent-cyan);
+            color: #67e8f9;
+        }
+
+        .pill-emerald {
+            background: rgba(16, 185, 129, 0.25);
+            border: 1px solid var(--accent-emerald);
+            color: #6ee7b7;
+        }
+
+        .pill-rose {
+            background: rgba(244, 63, 94, 0.25);
+            border: 1px solid var(--accent-rose);
+            color: #fda4af;
+        }
 
         .day-title {
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: 800;
+            line-height: 1.2;
             color: #fff;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+            margin-bottom: 4px;
         }
 
         .day-subtitle {
-            color: #cbd5e1;
-            font-size: 1rem;
-            margin-top: 4px;
+            font-size: 0.92rem;
+            color: var(--text-muted);
         }
 
-        /* Day Stats Ribbon */
+        @media (max-width: 640px) {
+            .day-title {
+                font-size: 1.3rem;
+            }
+            .day-subtitle {
+                font-size: 0.8rem;
+            }
+        }
+
         .day-stats-ribbon {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 1px;
-            background: var(--border-subtle);
-            border-top: 1px solid var(--border-subtle);
+            grid-template-columns: repeat(4, 1fr);
             border-bottom: 1px solid var(--border-subtle);
+            background: rgba(16, 23, 38, 0.6);
+        }
+
+        @media (max-width: 640px) {
+            .day-stats-ribbon {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         .ribbon-item {
-            background: var(--bg-surface);
-            padding: 16px 20px;
-            text-align: center;
+            padding: 12px 16px;
+            border-right: 1px solid var(--border-subtle);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .ribbon-item:last-child {
+            border-right: none;
         }
 
         .ribbon-label {
-            font-size: 0.75rem;
-            color: var(--text-dim);
+            font-size: 0.72rem;
             text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-dim);
             font-weight: 600;
         }
 
-        .ribbon-val {
-            font-size: 1.1rem;
+        .ribbon-value {
+            font-size: 0.95rem;
             font-weight: 700;
             color: var(--text-main);
             margin-top: 2px;
         }
 
-        /* Timeline Activities */
         .day-body {
-            padding: 30px;
+            padding: 24px;
         }
 
+        @media (max-width: 640px) {
+            .day-body {
+                padding: 18px 14px;
+            }
+        }
+
+        /* Timeline */
         .timeline {
             position: relative;
-            padding-left: 36px;
+            padding-left: 32px;
         }
 
         .timeline::before {
             content: '';
             position: absolute;
-            left: 12px;
-            top: 10px;
-            bottom: 20px;
+            top: 8px;
+            bottom: 8px;
+            left: 10px;
             width: 2px;
             background: linear-gradient(180deg, var(--primary) 0%, rgba(245, 158, 11, 0.1) 100%);
         }
 
         .timeline-item {
             position: relative;
-            margin-bottom: 30px;
+            margin-bottom: 24px;
         }
 
         .timeline-item:last-child {
@@ -557,99 +631,99 @@
 
         .timeline-bullet {
             position: absolute;
-            left: -36px;
-            top: 4px;
-            width: 26px;
-            height: 26px;
+            left: -32px;
+            top: 2px;
+            width: 22px;
+            height: 22px;
             border-radius: 50%;
             background: var(--bg-surface);
             border: 2px solid var(--primary);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.75rem;
-            color: var(--primary);
-            font-weight: 700;
             box-shadow: 0 0 10px var(--primary-glow);
+            z-index: 2;
+        }
+
+        .timeline-bullet-inner {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--primary);
         }
 
         .timeline-header {
             display: flex;
             align-items: baseline;
-            gap: 12px;
             flex-wrap: wrap;
+            gap: 10px;
             margin-bottom: 6px;
         }
 
         .timeline-time {
-            font-size: 0.85rem;
-            font-weight: 700;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.88rem;
+            font-weight: 800;
             color: var(--primary);
             background: rgba(245, 158, 11, 0.1);
             padding: 2px 8px;
-            border-radius: 4px;
-            letter-spacing: 0.05em;
+            border-radius: 6px;
+            border: 1px solid rgba(245, 158, 11, 0.2);
         }
 
         .timeline-title {
-            font-size: 1.2rem;
+            font-size: 1.12rem;
             font-weight: 700;
             color: var(--text-main);
         }
 
+        @media (max-width: 640px) {
+            .timeline-title {
+                font-size: 0.98rem;
+            }
+        }
+
         .timeline-desc {
             color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 12px;
+            font-size: 0.92rem;
+            line-height: 1.6;
         }
 
-        .timeline-callout {
-            background: rgba(10, 16, 28, 0.8);
-            border: 1px solid var(--border-subtle);
-            border-radius: var(--radius-sm);
-            padding: 12px 16px;
-            font-size: 0.85rem;
-            color: #cbd5e1;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+        .timeline-highlight-box {
             margin-top: 10px;
+            background: rgba(255, 255, 255, 0.03);
+            border-left: 3px solid var(--primary);
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            padding: 10px 14px;
+            font-size: 0.88rem;
+            color: #e2e8f0;
         }
 
-        .timeline-callout.tip {
-            border-left: 3px solid var(--accent-emerald);
-        }
-
-        .timeline-callout.alert {
-            border-left: 3px solid var(--accent-rose);
-        }
-
-        /* Image Gallery inside Day */
         .media-strip {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 16px;
-            margin-top: 16px;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 12px;
+            margin-top: 20px;
         }
 
-        .media-card {
+        @media (max-width: 640px) {
+            .media-strip {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .media-strip-img {
             border-radius: var(--radius-md);
             overflow: hidden;
+            height: 160px;
             border: 1px solid var(--border-subtle);
-            background: #000;
             position: relative;
-            height: 180px;
         }
 
-        .media-card img {
+        .media-strip-img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.4s ease;
-        }
-
-        .media-card:hover img {
-            transform: scale(1.04);
         }
 
         .media-caption {
@@ -657,346 +731,640 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, transparent 100%);
-            padding: 8px 12px;
+            background: rgba(9, 13, 22, 0.75);
+            backdrop-filter: blur(4px);
+            padding: 6px 10px;
             font-size: 0.75rem;
-            font-weight: 600;
+            color: #e2e8f0;
+            font-weight: 500;
+        }
+
+        /* Step Navigation at the bottom of each day */
+        .day-step-nav {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 24px;
+            background: rgba(16, 23, 38, 0.75);
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        @media (max-width: 640px) {
+            .day-step-nav {
+                padding: 14px;
+            }
+        }
+
+        .day-step-nav.single-btn .btn-step-next {
+            width: 100%;
+            justify-content: center;
+        }
+
+        .day-step-nav.double-btn {
+            justify-content: space-between;
+        }
+
+        .btn-step {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 18px;
+            border-radius: var(--radius-md);
+            font-size: 0.88rem;
+            font-weight: 700;
+            transition: var(--transition);
+            min-height: 48px;
+        }
+
+        .btn-step-prev {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-muted);
+        }
+
+        .btn-step-prev:hover {
+            background: rgba(255, 255, 255, 0.1);
             color: #fff;
         }
 
-        /* Budget Card Section */
-        .budget-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 24px;
+        .btn-step-next {
+            background: linear-gradient(135deg, var(--primary), #d97706);
+            color: #000;
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+            margin-left: auto;
         }
 
-        @media (max-width: 900px) {
-            .budget-grid {
+        .btn-step-next:hover {
+            filter: brightness(1.1);
+            transform: translateY(-1px);
+        }
+
+        .btn-step-text {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        .btn-step-prev .btn-step-text {
+            text-align: left;
+        }
+
+        .btn-step-next .btn-step-text {
+            text-align: right;
+        }
+
+        .step-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            opacity: 0.8;
+            font-weight: 600;
+        }
+
+        .step-title {
+            font-size: 0.88rem;
+            font-weight: 700;
+        }
+
+        /* Apartment Showcase */
+        .apartment-showcase-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+            margin-bottom: 24px;
+        }
+
+        .apartment-gallery-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            padding: 24px;
+            align-items: start;
+        }
+
+        @media (max-width: 850px) {
+            .apartment-gallery-grid {
+                grid-template-columns: 1fr;
+                padding: 16px;
+                gap: 16px;
+            }
+        }
+
+        .apt-main-img-box {
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            height: 320px;
+            border: 1px solid var(--border-subtle);
+            position: relative;
+        }
+
+        @media (max-width: 640px) {
+            .apt-main-img-box {
+                height: 220px;
+            }
+        }
+
+        .apt-main-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.3s ease;
+        }
+
+        .apt-thumbs-strip {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 6px;
+            margin-top: 8px;
+        }
+
+        .apt-thumb-item {
+            height: 52px;
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: var(--transition);
+        }
+
+        .apt-thumb-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .apt-thumb-item:hover, .apt-thumb-item.active {
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .apt-info-col h2 {
+            font-size: 1.6rem;
+            margin-bottom: 6px;
+        }
+
+        .apt-location-sub {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.85rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 14px;
+        }
+
+        .apt-desc {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .apt-airbnb-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #ff385c, #e00b41);
+            color: #fff;
+            padding: 10px 18px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 0.88rem;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(255, 56, 92, 0.3);
+            transition: var(--transition);
+        }
+
+        .apt-airbnb-cta:hover {
+            filter: brightness(1.1);
+            transform: translateY(-2px);
+        }
+
+        .apt-features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-bottom: 18px;
+        }
+
+        @media (max-width: 640px) {
+            .apt-features-grid {
                 grid-template-columns: 1fr;
             }
         }
 
-        .budget-table-card {
+        .apt-feature-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            padding: 12px;
+        }
+
+        .apt-feature-card strong {
+            display: block;
+            font-size: 0.88rem;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+
+        .apt-feature-card span {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+            display: block;
+        }
+
+        .apt-logistics-box {
+            background: rgba(245, 158, 11, 0.08);
+            border: 1px solid rgba(245, 158, 11, 0.25);
+            border-radius: var(--radius-md);
+            padding: 14px;
+            font-size: 0.85rem;
+            color: #e2e8f0;
+            line-height: 1.5;
+        }
+
+        /* Presupuesto View */
+        .budget-view-card {
             background: var(--bg-card);
             border: 1px solid var(--border-subtle);
             border-radius: var(--radius-lg);
             padding: 24px;
-            backdrop-filter: var(--blur-glass);
+            box-shadow: var(--shadow-card);
+            margin-bottom: 24px;
         }
 
-        .budget-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.9rem;
+        @media (max-width: 640px) {
+            .budget-view-card {
+                padding: 16px;
+            }
         }
 
-        .budget-table th {
-            text-align: left;
-            padding: 12px 14px;
-            color: var(--text-dim);
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            border-bottom: 1px solid var(--border-subtle);
-        }
-
-        .budget-table td {
-            padding: 14px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-            color: var(--text-muted);
-        }
-
-        .budget-table tr:hover td {
-            background: rgba(255, 255, 255, 0.02);
-            color: var(--text-main);
-        }
-
-        .budget-table td strong {
-            color: var(--text-main);
-        }
-
-        .budget-summary-card {
-            background: linear-gradient(135deg, rgba(245, 158, 11, 0.12) 0%, rgba(19, 28, 46, 0.9) 100%);
+        .budget-hero-box {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(6, 182, 212, 0.1));
             border: 1px solid var(--border-highlight);
-            border-radius: var(--radius-lg);
-            padding: 28px;
-            backdrop-filter: var(--blur-glass);
+            border-radius: var(--radius-md);
+            padding: 20px;
             display: flex;
-            flex-direction: column;
             justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 24px;
         }
 
-        .summary-figure {
-            margin: 20px 0;
-            text-align: center;
+        .budget-hero-left h3 {
+            font-size: 1.4rem;
+            margin-bottom: 4px;
         }
 
-        .summary-figure .big-number {
-            font-size: 3.5rem;
+        .budget-hero-left p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            max-width: 500px;
+        }
+
+        .budget-hero-badge {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            padding: 12px 20px;
+            text-align: right;
+        }
+
+        .budget-big-number {
             font-family: 'Outfit', sans-serif;
-            font-weight: 800;
-            color: #fff;
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: var(--primary);
             line-height: 1;
         }
 
-        .summary-figure .currency {
+        .budget-number-sub {
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+
+        .budget-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 750px) {
+            .budget-cards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .budget-item-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            padding: 14px 16px;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 12px;
+            transition: var(--transition);
+        }
+
+        .budget-item-card:hover {
+            border-color: rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .budget-item-info {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+        .budget-item-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid rgba(245, 158, 11, 0.2);
             color: var(--primary);
-            font-size: 2rem;
-            vertical-align: super;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
         }
 
-        .summary-figure .caption {
-            font-size: 0.85rem;
+        .budget-item-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 2px;
+        }
+
+        .budget-item-desc {
+            font-size: 0.8rem;
             color: var(--text-muted);
-            margin-top: 6px;
+            line-height: 1.4;
         }
 
-        /* Checklist Grid */
+        .budget-item-price {
+            text-align: right;
+            flex-shrink: 0;
+        }
+
+        .budget-price-person {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1;
+        }
+
+        .budget-price-total {
+            font-size: 0.72rem;
+            color: var(--text-dim);
+            margin-top: 2px;
+        }
+
+        .budget-tip-card {
+            background: rgba(16, 185, 129, 0.08);
+            border: 1px solid rgba(16, 185, 129, 0.25);
+            border-radius: var(--radius-md);
+            padding: 14px 18px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .budget-tip-card p {
+            font-size: 0.85rem;
+            color: #d1fae5;
+            line-height: 1.4;
+        }
+
+        /* Reservas Checklist View */
+        .reservas-view-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            box-shadow: var(--shadow-card);
+            margin-bottom: 24px;
+        }
+
+        @media (max-width: 640px) {
+            .reservas-view-card {
+                padding: 16px;
+            }
+        }
+
+        .reservas-header {
+            margin-bottom: 20px;
+        }
+
+        .reservas-header h2 {
+            font-size: 1.6rem;
+            margin-bottom: 4px;
+        }
+
+        .reservas-header p {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+        }
+
         .checklist-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 16px;
+            grid-template-columns: 1fr;
+            gap: 12px;
         }
 
         .check-card {
-            background: var(--bg-card);
+            background: rgba(255, 255, 255, 0.03);
             border: 1px solid var(--border-subtle);
             border-radius: var(--radius-md);
-            padding: 22px;
+            padding: 16px;
             display: flex;
-            gap: 16px;
+            gap: 14px;
             align-items: flex-start;
             transition: var(--transition);
         }
 
         .check-card:hover {
-            border-color: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
+            border-color: rgba(255, 255, 255, 0.15);
         }
 
         .status-badge {
-            padding: 4px 10px;
+            display: inline-block;
+            padding: 4px 8px;
             border-radius: 6px;
-            font-size: 0.7rem;
+            font-size: 0.72rem;
             font-weight: 700;
             text-transform: uppercase;
+            letter-spacing: 0.05em;
+            white-space: nowrap;
         }
 
-        .status-urgent { background: rgba(244, 63, 94, 0.2); color: #fb7185; border: 1px solid rgba(244, 63, 94, 0.4); }
-        .status-soon { background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.4); }
-        .status-ok { background: rgba(16, 185, 129, 0.2); color: #6ee7b7; border: 1px solid rgba(16, 185, 129, 0.4); }
-
-        /* Apartment Thumbs & Link */
-        .apartment-thumbs {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 8px;
-            margin-top: 10px;
+        .status-urgent {
+            background: rgba(244, 63, 94, 0.2);
+            color: var(--accent-rose);
+            border: 1px solid rgba(244, 63, 94, 0.35);
         }
 
-        .apt-thumb {
-            height: 75px;
-            border-radius: var(--radius-sm);
-            overflow: hidden;
-            border: 1px solid var(--border-subtle);
-            background: #000;
+        .status-soon {
+            background: rgba(245, 158, 11, 0.2);
+            color: var(--primary);
+            border: 1px solid rgba(245, 158, 11, 0.35);
         }
 
-        .apt-thumb img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
+        .status-ok {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--accent-emerald);
+            border: 1px solid rgba(16, 185, 129, 0.35);
         }
 
-        .apt-thumb:hover img {
-            transform: scale(1.08);
+        .check-card h4 {
+            font-size: 1.05rem;
+            margin-bottom: 4px;
         }
 
-        .airbnb-link-badge {
+        .check-card p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin-bottom: 8px;
+        }
+
+        .check-action-link {
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            padding: 6px 14px;
-            border-radius: var(--radius-sm);
-            background: rgba(255, 56, 92, 0.15);
-            border: 1px solid rgba(255, 56, 92, 0.35);
-            color: #ff385c;
-            font-size: 0.8rem;
+            font-size: 0.82rem;
             font-weight: 700;
+            color: var(--primary);
             transition: var(--transition);
         }
 
-        .airbnb-link-badge:hover {
-            background: #ff385c;
-            color: #fff;
-            box-shadow: 0 0 15px rgba(255, 56, 92, 0.35);
+        .check-action-link:hover {
+            color: #fbbf24;
+            transform: translateX(2px);
         }
 
-        /* Bottom CTA */
-        .bottom-cta {
-            margin: 50px 0 40px;
-            padding: 36px;
-            text-align: center;
-            background: linear-gradient(180deg, rgba(16, 23, 38, 0.8) 0%, rgba(9, 13, 22, 0.95) 100%);
-            border: 1px solid var(--border-subtle);
-            border-radius: var(--radius-lg);
+        /* Bottom Fixed App Bar for Mobile */
+        .bottom-app-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(9, 13, 22, 0.94);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            padding: 8px 6px calc(8px + env(safe-area-inset-bottom, 0px));
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.5);
         }
 
-        .bottom-cta h3 {
-            font-size: 2rem;
-            margin-bottom: 10px;
+        @media (min-width: 851px) {
+            .bottom-app-bar {
+                display: none;
+            }
         }
 
-        .bottom-cta p {
-            color: var(--text-muted);
-            max-width: 650px;
-            margin: 0 auto 24px;
-        }
-
-        footer {
-            border-top: 1px solid var(--border-subtle);
-            padding: 30px 0;
-            text-align: center;
-            font-size: 0.85rem;
+        .bottom-tab-btn {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
             color: var(--text-dim);
+            font-size: 0.72rem;
+            font-weight: 600;
+            transition: var(--transition);
+            padding: 4px 0;
         }
 
-        /* Responsive Breakpoints & Mobile Optimization */
-        @media (max-width: 900px) {
-            .hero-meta-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .apartment-grid {
-                grid-template-columns: 1fr;
-            }
-            .apartment-img-wrapper {
-                height: 240px;
-            }
-            .budget-grid {
-                grid-template-columns: 1fr;
-            }
+        .bottom-tab-btn .icon-svg {
+            width: 20px;
+            height: 20px;
+            stroke-width: 2.2;
+            transition: var(--transition);
         }
 
-        @media (max-width: 640px) {
-            .container {
-                padding: 0 16px;
-            }
-            .nav-inner {
-                flex-wrap: wrap;
-                gap: 12px;
-            }
-            .hero {
-                padding: 35px 0 25px;
-            }
-            .hero h1 {
-                font-size: 2.1rem;
-            }
-            .hero p.lead {
-                font-size: 0.95rem;
-                margin-bottom: 24px;
-            }
-            .hero-meta-grid {
-                grid-template-columns: 1fr;
-                gap: 12px;
-            }
-            .meta-card {
-                padding: 16px;
-            }
-            .apartment-banner {
-                padding: 20px 16px;
-            }
-            .day-tabs {
-                gap: 6px;
-                padding-bottom: 8px;
-            }
-            .tab-btn {
-                padding: 10px 14px;
-                font-size: 0.82rem;
-            }
-            .day-hero-img {
-                height: 220px;
-            }
-            .day-hero-overlay {
-                padding: 18px;
-            }
-            .day-title {
-                font-size: 1.4rem;
-            }
-            .day-subtitle {
-                font-size: 0.85rem;
-            }
-            .day-stats-ribbon {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .ribbon-item {
-                padding: 12px;
-            }
-            .day-body {
-                padding: 20px 16px;
-            }
-            .timeline {
-                padding-left: 28px;
-            }
-            .timeline-bullet {
-                left: -28px;
-                width: 22px;
-                height: 22px;
-                font-size: 0.7rem;
-            }
-            .timeline-title {
-                font-size: 1.05rem;
-            }
-            .timeline-desc {
-                font-size: 0.88rem;
-            }
-            .media-strip {
-                grid-template-columns: 1fr;
-            }
-            .budget-table-card {
-                padding: 16px;
-                overflow-x: auto;
-            }
-            .budget-table th, .budget-table td {
-                padding: 10px 8px;
-                font-size: 0.82rem;
-            }
-            .budget-summary-card {
-                padding: 20px;
-            }
-            .summary-figure .big-number {
-                font-size: 2.8rem;
-            }
-            .bottom-cta {
-                padding: 24px 16px;
-            }
-            .bottom-cta h3 {
-                font-size: 1.5rem;
-            }
+        .bottom-tab-btn.active {
+            color: var(--primary);
+        }
+
+        .bottom-tab-btn.active .icon-svg {
+            color: var(--primary);
+            transform: translateY(-2px);
+            filter: drop-shadow(0 0 6px var(--primary-glow));
+        }
+
+        /* Footer */
+        footer {
+            padding: 24px 0;
+            border-top: 1px solid var(--border-subtle);
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            margin-top: 30px;
         }
     </style>
 </head>
 <body>
 
-    <!-- Navigation -->
+    <!-- Top Sticky Header -->
     <header class="navbar">
         <div class="container nav-inner">
             <div class="brand-badge">
-                <svg class="icon-svg" style="color: var(--primary);" viewBox="0 0 24 24"><path d="M8 3l4 8 5-5 5 15H2L8 3z"/></svg>
-                Sierra Nevada <span>&</span> Granada 2026
+                <div class="logo-icon">
+                    <svg class="icon-svg" style="width: 18px; height: 18px; color: #000;" viewBox="0 0 24 24"><polygon points="12 2 2 22 22 22 12 2"/></svg>
+                </div>
+                <div>
+                    Escapada
+                    <span class="brand-sub">Granada & Sierra Nevada</span>
+                </div>
             </div>
-            <div class="nav-links">
-                <span style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600; background: rgba(255, 255, 255, 0.05); padding: 6px 14px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
-                    8 – 12 Octubre 2026
-                </span>
+
+            <!-- Desktop Navigation Menu -->
+            <nav class="desktop-nav" aria-label="Menú principal escritorio">
+                <button type="button" class="desktop-tab-btn active" id="btn-desk-itinerario" onclick="goToView('itinerario')">
+                    <svg class="icon-svg" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                    Itinerario
+                </button>
+                <button type="button" class="desktop-tab-btn" id="btn-desk-alojamiento" onclick="goToView('alojamiento')">
+                    <svg class="icon-svg" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                    Alojamiento
+                </button>
+                <button type="button" class="desktop-tab-btn" id="btn-desk-presupuesto" onclick="goToView('presupuesto')">
+                    <svg class="icon-svg" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                    Presupuesto
+                </button>
+                <button type="button" class="desktop-tab-btn" id="btn-desk-reservas" onclick="goToView('reservas')">
+                    <svg class="icon-svg" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                    Reservas
+                </button>
+            </nav>
+
+            <div class="date-badge">
+                <svg class="icon-svg" style="width: 14px; height: 14px; color: var(--primary);" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                8–12 Octubre 2026
             </div>
         </div>
     </header>
 
     <main class="container">
-        
-        <!-- Hero Section -->
+
+        <!-- Hero Intro -->
         <section class="hero">
             <div class="tag-pill">
                 <svg class="icon-svg" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
@@ -1007,23 +1375,23 @@
                 Alta montaña a 2.150 m, cañón de puentes colgantes en Monachil, secretos libres de la Alhambra, tardeo en Granada y la gran noche de chuletón y vino en el apartamento.
             </p>
 
-            <!-- Quick Metrics Grid -->
+            <!-- Quick Specs Ribbon -->
             <div class="hero-meta-grid">
                 <div class="meta-card">
                     <div class="meta-label">
-                        <svg class="icon-svg" viewBox="0 0 24 24"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9C2.1 11.1 2 11.5 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg>
+                        <svg class="icon-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                         Salida & Viaje
                     </div>
                     <div class="meta-val">Batería al 100%</div>
-                    <div class="meta-sub">Jueves 8 • 16:00 h desde Ontinyent</div>
+                    <div class="meta-sub">Jueves 8 • 16:00 h Ontinyent</div>
                 </div>
                 <div class="meta-card">
                     <div class="meta-label">
                         <svg class="icon-svg" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
                         Alojamiento Base
                     </div>
-                    <div class="meta-val">Apartamento Alya (90 m²)</div>
-                    <div class="meta-sub">Dúplex reformado • Parking cubierto incluido</div>
+                    <div class="meta-val">Dúplex Alya (90 m²)</div>
+                    <div class="meta-sub">Pradollano • Parking cubierto</div>
                 </div>
                 <div class="meta-card">
                     <div class="meta-label">
@@ -1031,117 +1399,50 @@
                         Carga Eléctrica
                     </div>
                     <div class="meta-val">SuC Guadix & Granada</div>
-                    <div class="meta-sub">2 paradas clave • Coste total ~24€</div>
+                    <div class="meta-sub">2 paradas • Coste total ~24€</div>
                 </div>
                 <div class="meta-card">
                     <div class="meta-label">
                         <svg class="icon-svg" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
                         Presupuesto Estimado
                     </div>
-                    <div class="meta-val">~190 € / persona</div>
-                    <div class="meta-sub">Comidas, cenas top, tapeo, vinos y recargas</div>
+                    <div class="meta-val">~191 € / persona</div>
+                    <div class="meta-sub">Comidas, cenas top y vinos</div>
                 </div>
             </div>
         </section>
 
-        <!-- Apartment & Logistics Banner -->
-        <section id="alojamiento" class="apartment-banner">
-            <div class="apartment-grid">
-                <div class="apartment-gallery-col">
-                    <div class="apartment-img-wrapper">
-                        <img src="./assets/img/airbnb_alya_main.jpg" alt="Apartamento Alya Sierra Nevada">
-                    </div>
-                    <div class="apartment-thumbs">
-                        <div class="apt-thumb">
-                            <img src="./assets/img/airbnb_alya_salon.jpg" alt="Salón Dúplex Alya">
-                        </div>
-                        <div class="apt-thumb">
-                            <img src="./assets/img/airbnb_alya_vistas.jpg" alt="Vistas a la Montaña">
-                        </div>
-                        <div class="apt-thumb">
-                            <img src="./assets/img/airbnb_alya_dormitorio.jpg" alt="Dormitorio Dúplex Alya">
-                        </div>
-                        <div class="apt-thumb">
-                            <img src="./assets/img/airbnb_alya_cocina.jpg" alt="Cocina Equipada">
-                        </div>
-                    </div>
-                </div>
-                <div class="apartment-info">
-                    <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px; margin-bottom: 8px;">
-                        <h3>
-                            <svg class="icon-svg" style="color: var(--primary);" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-                            Apartamento Base: Dúplex Alya (Pradollano)
-                        </h3>
-                        <a href="https://es-l.airbnb.com/rooms/820731397155508023" target="_blank" rel="noopener" class="airbnb-link-badge">
-                            <svg class="icon-svg" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                            Ver en Airbnb
-                        </a>
-                    </div>
-                    <p>
-                        Dúplex de 90 m² reformado íntegramente en 2022 con vistas espectaculares a la montaña y balcón exterior. Situado en la zona media-alta de Sierra Nevada (a 400 m de pistas y del telesilla Parador; a 50 m de la parada de bus interurbano). Consta de 2 habitaciones, 2 baños completos, salón comedor, cocina equipada, Smart TV y Wi-Fi de alta velocidad.
-                    </p>
-                    <div class="apartment-features">
-                        <div class="apt-feature">
-                            <strong>Parking Cubierto Incluido</strong>
-                            Plaza amplia y cubierta en el mismo edificio (fundamental para guardar el coche bajo techo en altura).
-                        </div>
-                        <div class="apt-feature">
-                            <strong>Dúplex 90 m² con Balcón</strong>
-                            Balcón con vistas a la montaña, 2 baños completos y estancia espaciosa para 4 personas.
-                        </div>
-                    </div>
-                    <div class="supercharger-steps">
-                        <div class="sc-step">
-                            <div><strong>Logística de ruta y carga:</strong> Salida de Ontinyent al 100% ➔ Parada técnica en <strong>Supercharger Guadix</strong> (km 345, 25 min al 85%) ➔ Subida a Pradollano guardando el coche en el parking cubierto con ~55% de batería. Cada descenso a Monachil o Granada regenera +3-4 kWh gracias a la frenada regenerativa.</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Main Unified Tab Navigation -->
-        <div class="tabs-wrapper" id="plan-central">
-            <div class="tabs-header-area">
-                <div>
-                    <h2>Planificación Integral</h2>
-                    <p>Selecciona cada pestaña para consultar el itinerario por días, el presupuesto global o el checklist de reservas.</p>
+        <!-- VIEW 1: ITINERARIO -->
+        <section id="view-itinerario" class="app-view active">
+            
+            <!-- Sticky Segmented Day Selector Bar -->
+            <div class="day-selector-sticky" id="itinerario-top">
+                <div class="day-pills-row">
+                    <button type="button" class="day-pill-btn active" id="pill-day-1" onclick="goToDay(1)">
+                        <span class="day-pill-code">JUE 8</span>
+                        <span class="day-pill-title">Salida</span>
+                    </button>
+                    <button type="button" class="day-pill-btn" id="pill-day-2" onclick="goToDay(2)">
+                        <span class="day-pill-code">VIE 9</span>
+                        <span class="day-pill-title">Cahorros</span>
+                    </button>
+                    <button type="button" class="day-pill-btn" id="pill-day-3" onclick="goToDay(3)">
+                        <span class="day-pill-code">SÁB 10</span>
+                        <span class="day-pill-title">Granada</span>
+                    </button>
+                    <button type="button" class="day-pill-btn" id="pill-day-4" onclick="goToDay(4)">
+                        <span class="day-pill-code">DOM 11</span>
+                        <span class="day-pill-title">Chuletón</span>
+                    </button>
+                    <button type="button" class="day-pill-btn" id="pill-day-5" onclick="goToDay(5)">
+                        <span class="day-pill-code">LUN 12</span>
+                        <span class="day-pill-title">Vuelta</span>
+                    </button>
                 </div>
             </div>
 
-            <!-- Tab Buttons Bar -->
-            <div class="day-tabs">
-                <button class="tab-btn active" onclick="switchTab('tab-dia1', this)">
-                    <svg class="icon-svg" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-                    Jueves 8 • Salida
-                </button>
-                <button class="tab-btn" onclick="switchTab('tab-dia2', this)">
-                    <svg class="icon-svg" viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
-                    Viernes 9 • Los Cahorros
-                </button>
-                <button class="tab-btn" onclick="switchTab('tab-dia3', this)">
-                    <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                    Sábado 10 • Granada & Tardeo
-                </button>
-                <button class="tab-btn" onclick="switchTab('tab-dia4', this)">
-                    <svg class="icon-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
-                    Domingo 11 • Chuletón
-                </button>
-                <button class="tab-btn" onclick="switchTab('tab-dia5', this)">
-                    <svg class="icon-svg" viewBox="0 0 24 24"><path d="M3 12h18M15 6l6 6-6 6"/></svg>
-                    Lunes 12 • Vuelta
-                </button>
-                <button class="tab-btn tab-btn-highlight" onclick="switchTab('tab-presupuesto', this)">
-                    <svg class="icon-svg" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-                    Presupuesto Global
-                </button>
-                <button class="tab-btn tab-btn-highlight" onclick="switchTab('tab-reservas', this)">
-                    <svg class="icon-svg" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                    Checklist & Reservas
-                </button>
-            </div>
-
-            <!-- TAB PANE 1: JUEVES 8 -->
-            <div id="tab-dia1" class="tab-pane active">
+            <!-- DAY 1: JUEVES 8 -->
+            <div id="day-pane-1" class="day-pane active">
                 <div class="day-card">
                     <div class="day-hero-img">
                         <img src="./assets/img/sierra_nevada_autumn.jpg" alt="Sierra Nevada Otoño">
@@ -1236,11 +1537,20 @@
                             </div>
                         </div>
                     </div>
+                    <div class="day-step-nav single-btn">
+                        <button type="button" class="btn-step btn-step-next" onclick="goToDay(2)">
+                            <div class="btn-step-text">
+                                <span class="step-label">Siguiente Día</span>
+                                <span class="step-title">Viernes 9 • Los Cahorros de Monachil</span>
+                            </div>
+                            <svg class="icon-svg" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                        </button>
+                    </div>
                 </div>
             </div>
 
-            <!-- TAB PANE 2: VIERNES 9 -->
-            <div id="tab-dia2" class="tab-pane">
+            <!-- DAY 2: VIERNES 9 -->
+            <div id="day-pane-2" class="day-pane">
                 <div class="day-card">
                     <div class="day-hero-img">
                         <img src="./assets/img/cahorros_monachil_1.jpg" alt="Los Cahorros de Monachil">
@@ -1346,11 +1656,27 @@
                             </div>
                         </div>
                     </div>
+                    <div class="day-step-nav double-btn">
+                        <button type="button" class="btn-step btn-step-prev" onclick="goToDay(1)">
+                            <svg class="icon-svg" viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+                            <div class="btn-step-text">
+                                <span class="step-label">Anterior</span>
+                                <span class="step-title">Jueves 8</span>
+                            </div>
+                        </button>
+                        <button type="button" class="btn-step btn-step-next" onclick="goToDay(3)">
+                            <div class="btn-step-text">
+                                <span class="step-label">Siguiente Día</span>
+                                <span class="step-title">Sábado 10 • Granada & Tardeo</span>
+                            </div>
+                            <svg class="icon-svg" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                        </button>
+                    </div>
                 </div>
             </div>
 
-            <!-- TAB PANE 3: SABADO 10 -->
-            <div id="tab-dia3" class="tab-pane">
+            <!-- DAY 3: SÁBADO 10 -->
+            <div id="day-pane-3" class="day-pane">
                 <div class="day-card">
                     <div class="day-hero-img">
                         <img src="./assets/img/granada_albaicin_sunset.jpg" alt="Granada y Alhambra al atardecer">
@@ -1499,11 +1825,27 @@
                             </div>
                         </div>
                     </div>
+                    <div class="day-step-nav double-btn">
+                        <button type="button" class="btn-step btn-step-prev" onclick="goToDay(2)">
+                            <svg class="icon-svg" viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+                            <div class="btn-step-text">
+                                <span class="step-label">Anterior</span>
+                                <span class="step-title">Viernes 9</span>
+                            </div>
+                        </button>
+                        <button type="button" class="btn-step btn-step-next" onclick="goToDay(4)">
+                            <div class="btn-step-text">
+                                <span class="step-label">Siguiente Día</span>
+                                <span class="step-title">Domingo 11 • Chuletón & Cumbres</span>
+                            </div>
+                            <svg class="icon-svg" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                        </button>
+                    </div>
                 </div>
             </div>
 
-            <!-- TAB PANE 4: DOMINGO 11 -->
-            <div id="tab-dia4" class="tab-pane">
+            <!-- DAY 4: DOMINGO 11 -->
+            <div id="day-pane-4" class="day-pane">
                 <div class="day-card">
                     <div class="day-hero-img">
                         <img src="./assets/img/chuleton_grill.jpg" alt="Chuletón a la brasa y vino">
@@ -1621,11 +1963,27 @@
                             </div>
                         </div>
                     </div>
+                    <div class="day-step-nav double-btn">
+                        <button type="button" class="btn-step btn-step-prev" onclick="goToDay(3)">
+                            <svg class="icon-svg" viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+                            <div class="btn-step-text">
+                                <span class="step-label">Anterior</span>
+                                <span class="step-title">Sábado 10</span>
+                            </div>
+                        </button>
+                        <button type="button" class="btn-step btn-step-next" onclick="goToDay(5)">
+                            <div class="btn-step-text">
+                                <span class="step-label">Siguiente Día</span>
+                                <span class="step-title">Lunes 12 • Retorno</span>
+                            </div>
+                            <svg class="icon-svg" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                        </button>
+                    </div>
                 </div>
             </div>
 
-            <!-- TAB PANE 5: LUNES 12 -->
-            <div id="tab-dia5" class="tab-pane">
+            <!-- DAY 5: LUNES 12 -->
+            <div id="day-pane-5" class="day-pane">
                 <div class="day-card">
                     <div class="day-hero-img">
                         <img src="./assets/img/mountain_trail.jpg" alt="Descenso y Regreso">
@@ -1695,195 +2053,366 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <!-- TAB PANE 6: PRESUPUESTO GLOBAL -->
-            <div id="tab-presupuesto" class="tab-pane">
-                <div class="day-card" style="padding: 30px;">
-                    <div class="section-header" style="margin-bottom: 24px;">
-                        <span class="sub-badge">Economía del Viaje</span>
-                        <h2>Plan Presupuestario Global</h2>
-                        <p>Estimación detallada de costes compartidos para el grupo de 4 personas durante los 4 días completos.</p>
-                    </div>
-
-                    <div class="budget-grid">
-                        <div class="budget-table-card">
-                            <table class="budget-table">
-                                <thead>
-                                    <tr>
-                                        <th>Concepto</th>
-                                        <th>Detalle</th>
-                                        <th>Total Grupo (4p)</th>
-                                        <th>Por Persona</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <svg class="icon-svg" style="color: var(--tesla-red); margin-right: 6px;" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-                                            <strong>Recargas en ruta</strong>
-                                        </td>
-                                        <td>Superchargers Guadix ida y vuelta (~60 kWh)</td>
-                                        <td>24 €</td>
-                                        <td><strong>6 €</strong></td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <svg class="icon-svg" style="color: var(--primary); margin-right: 6px;" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 17V7h4a3 3 0 0 1 0 6H9"/></svg>
-                                            <strong>Parkings</strong>
-                                        </td>
-                                        <td>Parking Alhambra + Parking Granada Centro</td>
-                                        <td>40 €</td>
-                                        <td><strong>10 €</strong></td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <svg class="icon-svg" style="color: var(--accent-cyan); margin-right: 6px;" viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
-                                            <strong>Almuerzo Monachil (Viernes)</strong>
-                                        </td>
-                                        <td>Restaurante tradicional Los Cerezos / Puntarrón</td>
-                                        <td>100 €</td>
-                                        <td><strong>25 €</strong></td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <svg class="icon-svg" style="color: var(--accent-emerald); margin-right: 6px;" viewBox="0 0 24 24"><path d="M17 11h1a3 3 0 0 1 0 6h-1"/><path d="M9 12v6"/><path d="M13 12v6"/><path d="M14 7.5c-1 0-1.44.5-3 .5s-2-.5-3-.5-1.72.5-2.5.5a2.5 2.5 0 0 1 0-5c.78 0 1.57.5 2.5.5s1.44-.5 3-.5 2 .5 3 .5 1.72-.5 2.5-.5a2.5 2.5 0 0 1 0 5c-.78 0-1.5-.5-2.5-.5z"/><path d="M5 8v10a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V8"/></svg>
-                                            <strong>Tapeo Granada (Sábado)</strong>
-                                        </td>
-                                        <td>Ruta Bodegas Castañeda, Diamantes y Ávila</td>
-                                        <td>80 €</td>
-                                        <td><strong>20 €</strong></td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <svg class="icon-svg" style="color: var(--accent-purple); margin-right: 6px;" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                                            <strong>Tardeo & Cócteles</strong>
-                                        </td>
-                                        <td>Rooftop B-Heaven / Terrazas Ganivet</td>
-                                        <td>60 €</td>
-                                        <td><strong>15 €</strong></td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <svg class="icon-svg" style="color: var(--primary); margin-right: 6px;" viewBox="0 0 24 24"><path d="M8 22h8"/><path d="M12 15v7"/><path d="M12 15a5 5 0 0 0 5-5c0-4-3-7-5-7s-5 3-5 7a5 5 0 0 0 5 5z"/></svg>
-                                            <strong>Cena Memorable (Sábado)</strong>
-                                        </td>
-                                        <td>Restaurante Carmen San Miguel con vistas Alhambra</td>
-                                        <td>240 €</td>
-                                        <td><strong>60 €</strong></td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <svg class="icon-svg" style="color: var(--accent-rose); margin-right: 6px;" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/></svg>
-                                            <strong>Compra Homenaje Chuletón</strong>
-                                        </td>
-                                        <td>Chuletones madurados, ibéricos, quesos, 3 vinos D.O.</td>
-                                        <td>180 €</td>
-                                        <td><strong>45 €</strong></td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <svg class="icon-svg" style="color: var(--text-dim); margin-right: 6px;" viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/></svg>
-                                            <strong>Cafés, Aperitivos & Extras</strong>
-                                        </td>
-                                        <td>Terrazas Pradollano, Hoya Mora, desayunos</td>
-                                        <td>40 €</td>
-                                        <td><strong>10 €</strong></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
-                        <div class="budget-summary-card">
-                            <div>
-                                <div class="meta-label">Coste Estimado Total</div>
-                                <div class="summary-figure">
-                                    <span class="currency">€</span>
-                                    <span class="big-number">191</span>
-                                    <div class="caption">por persona (4 días completos)</div>
-                                </div>
-                                <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
-                                    *No incluye el coste del alojamiento Airbnb ya contratado. Incluye comilonas prémium, tapeo, copas, carne madurada y recargas en ruta.
-                                </p>
+                    <div class="day-step-nav double-btn">
+                        <button type="button" class="btn-step btn-step-prev" onclick="goToDay(4)">
+                            <svg class="icon-svg" viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+                            <div class="btn-step-text">
+                                <span class="step-label">Anterior</span>
+                                <span class="step-title">Domingo 11</span>
                             </div>
-
-                            <div style="margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--border-subtle); display: flex; justify-content: space-between; font-weight: 700;">
-                                <span>Total bote grupo (4p):</span>
-                                <span style="color: var(--primary);">764 €</span>
+                        </button>
+                        <button type="button" class="btn-step btn-step-next" onclick="goToView('presupuesto')">
+                            <div class="btn-step-text">
+                                <span class="step-label">Ver Finanzas</span>
+                                <span class="step-title">Presupuesto Global</span>
                             </div>
-                        </div>
+                            <svg class="icon-svg" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                        </button>
                     </div>
                 </div>
             </div>
 
-            <!-- TAB PANE 7: CHECKLIST & RESERVAS -->
-            <div id="tab-reservas" class="tab-pane">
-                <div class="day-card" style="padding: 30px;">
-                    <div class="section-header" style="margin-bottom: 24px;">
-                        <span class="sub-badge">Gestión Anticipada</span>
-                        <h2>Checklist de Reservas Pendientes</h2>
-                        <p>Estado de cada gestión para dejar el viaje completamente cerrado sin imprevistos.</p>
+        </section>
+
+        <!-- VIEW 2: ALOJAMIENTO -->
+        <section id="view-alojamiento" class="app-view">
+            <div class="apartment-showcase-card">
+                <div class="apartment-gallery-grid">
+                    <div>
+                        <div class="apt-main-img-box">
+                            <img id="apt-main-display" src="./assets/img/airbnb_alya_main.jpg" alt="Dúplex Alya Sierra Nevada">
+                        </div>
+                        <div class="apt-thumbs-strip">
+                            <div class="apt-thumb-item active" onclick="selectAptPhoto(this)">
+                                <img src="./assets/img/airbnb_alya_main.jpg" alt="Fachada y entorno">
+                            </div>
+                            <div class="apt-thumb-item" onclick="selectAptPhoto(this)">
+                                <img src="./assets/img/airbnb_alya_salon.jpg" alt="Salón comedor">
+                            </div>
+                            <div class="apt-thumb-item" onclick="selectAptPhoto(this)">
+                                <img src="./assets/img/airbnb_alya_vistas.jpg" alt="Vistas a la montaña">
+                            </div>
+                            <div class="apt-thumb-item" onclick="selectAptPhoto(this)">
+                                <img src="./assets/img/airbnb_alya_dormitorio.jpg" alt="Dormitorio principal">
+                            </div>
+                            <div class="apt-thumb-item" onclick="selectAptPhoto(this)">
+                                <img src="./assets/img/airbnb_alya_cocina.jpg" alt="Cocina moderna">
+                            </div>
+                            <div class="apt-thumb-item" onclick="selectAptPhoto(this)">
+                                <img src="./assets/img/airbnb_alya_bano.jpg" alt="Baño renovado">
+                            </div>
+                            <div class="apt-thumb-item" onclick="selectAptPhoto(this)">
+                                <img src="./assets/img/airbnb_alya_dormitorio2.jpg" alt="Dormitorio 2">
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="checklist-grid">
-                        <div class="check-card">
-                            <div>
-                                <span class="status-badge status-urgent">Urgente</span>
+                    <div class="apt-info-col">
+                        <h2>Apartamento Base: Dúplex Alya</h2>
+                        <div class="apt-location-sub">
+                            <svg class="icon-svg" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            Pradollano (Zona Media-Alta, 2.150 m) • Sierra Nevada
+                        </div>
+                        <p class="apt-desc">
+                            Dúplex de 90 m² reformado íntegramente en 2022 con vistas panorámicas a la montaña y balcón exterior soleado. Cuenta con 2 habitaciones independientes, 2 baños completos, salón luminoso con Smart TV, cocina totalmente equipada y Wi-Fi de alta velocidad.
+                        </p>
+                        <a href="https://es-l.airbnb.com/rooms/820731397155508023" target="_blank" rel="noopener" class="apt-airbnb-cta">
+                            <svg class="icon-svg" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                            Ver anuncio oficial en Airbnb
+                        </a>
+
+                        <div class="apt-features-grid">
+                            <div class="apt-feature-card">
+                                <strong>Parking Cubierto Incluido</strong>
+                                <span>Plaza amplia y cubierta en el mismo edificio para resguardar el coche en alta montaña.</span>
                             </div>
-                            <div>
-                                <h4 style="font-size: 1.05rem; margin-bottom: 4px;">Cena Sábado Noche: Carmen de San Miguel</h4>
-                                <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 8px;">
-                                    Reserva de mesa para 4 comensales a las 21:30 h con vistas directas a la Alhambra iluminada. Las plazas se agotan con semanas de antelación.
-                                </p>
-                                <a href="https://carmensanmiguel.com" target="_blank" style="color: var(--primary); font-size: 0.8rem; font-weight: 600;">Ver Web Restaurante ➔</a>
+                            <div class="apt-feature-card">
+                                <strong>Dúplex 90 m² & 2 Baños</strong>
+                                <span>2 plantas, 2 baños completos y balcón con vistas para máxima privacidad del grupo.</span>
+                            </div>
+                            <div class="apt-feature-card">
+                                <strong>Ubicación Estratégica</strong>
+                                <span>A 400 m de pistas y telesilla Parador; a solo 50 m de la parada de bus interurbano.</span>
+                            </div>
+                            <div class="apt-feature-card">
+                                <strong>Confort Completo</strong>
+                                <span>Calefacción reforzada, Smart TV para veladas de cine, cocina completa y cafetera.</span>
                             </div>
                         </div>
 
-                        <div class="check-card">
-                            <div>
-                                <span class="status-badge status-soon">Próximos días</span>
-                            </div>
-                            <div>
-                                <h4 style="font-size: 1.05rem; margin-bottom: 4px;">Almuerzo Viernes: Los Cerezos (Monachil)</h4>
-                                <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 8px;">
-                                    Mesa para 4 comensales a las 14:30 h tras terminar la ruta de Los Cahorros.
-                                </p>
-                                <span style="color: var(--text-dim); font-size: 0.8rem;">Teléfono: +34 958 30 08 44</span>
-                            </div>
-                        </div>
-
-                        <div class="check-card">
-                            <div>
-                                <span class="status-badge status-soon">Opcional</span>
-                            </div>
-                            <div>
-                                <h4 style="font-size: 1.05rem; margin-bottom: 4px;">Tardeo Rooftop B-Heaven (Sábado)</h4>
-                                <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 8px;">
-                                    Acceso y mesa alta a las 18:30 h en la terraza del Hotel Barceló Carmen para las primeras copas al atardecer.
-                                </p>
-                                <a href="https://www.barcelo.com" target="_blank" style="color: var(--primary); font-size: 0.8rem; font-weight: 600;">Consultar Reserva ➔</a>
-                            </div>
-                        </div>
-
-                        <div class="check-card">
-                            <div>
-                                <span class="status-badge status-ok">Controlado</span>
-                            </div>
-                            <div>
-                                <h4 style="font-size: 1.05rem; margin-bottom: 4px;">Alhambra Libre & Puertas Monumentales</h4>
-                                <p style="font-size: 0.85rem; color: var(--text-muted);">
-                                    <strong>No requiere entrada ni reserva.</strong> El acceso al Palacio de Carlos V, Museo de la Alhambra, Puerta de la Justicia y Parador es completamente público y libre.
-                                </p>
-                            </div>
+                        <div class="apt-logistics-box">
+                            <strong>Logística de ruta y carga:</strong> Salida de Ontinyent al 100% ➔ Parada técnica en <strong>Supercharger Guadix</strong> (km 345, ~25 min al 85%) ➔ Subida a Pradollano con ~55% de batería y coche aparcado bajo techo. En cada bajada a Monachil o Granada se regeneran +3-4 kWh gracias a la frenada regenerativa.
                         </div>
                     </div>
                 </div>
             </div>
+        </section>
 
-        </div>
+        <!-- VIEW 3: PRESUPUESTO -->
+        <section id="view-presupuesto" class="app-view">
+            <div class="budget-view-card">
+                <div class="budget-hero-box">
+                    <div class="budget-hero-left">
+                        <span class="day-pill pill-gold" style="margin-bottom: 6px; display: inline-block;">Previsión Completa</span>
+                        <h3>Presupuesto Estimado de la Escapada</h3>
+                        <p>Cubre toda la gastronomía, restaurantes top, tapeo, cócteles, carnes maduradas para el apartamento, vinos de calidad y recargas eléctricas en ruta.</p>
+                    </div>
+                    <div class="budget-hero-badge">
+                        <div class="budget-number-sub">Coste por persona</div>
+                        <div class="budget-big-number">191 €</div>
+                        <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 4px;">Total grupo: <strong>764 €</strong></div>
+                    </div>
+                </div>
+
+                <div class="budget-cards-grid">
+                    <div class="budget-item-card">
+                        <div class="budget-item-info">
+                            <div class="budget-item-icon">
+                                <svg class="icon-svg" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                            </div>
+                            <div>
+                                <div class="budget-item-title">Recargas Supercharger en Ruta</div>
+                                <div class="budget-item-desc">SuC Guadix (ida y vuelta) + SuC Granada</div>
+                            </div>
+                        </div>
+                        <div class="budget-item-price">
+                            <div class="budget-price-person">6 €/p</div>
+                            <div class="budget-price-total">Total: 24 €</div>
+                        </div>
+                    </div>
+
+                    <div class="budget-item-card">
+                        <div class="budget-item-info">
+                            <div class="budget-item-icon">
+                                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/></svg>
+                            </div>
+                            <div>
+                                <div class="budget-item-title">Tapeo & Almuerzos en Granada</div>
+                                <div class="budget-item-desc">Ruta de tapas centro histórico y Calle Navas</div>
+                            </div>
+                        </div>
+                        <div class="budget-item-price">
+                            <div class="budget-price-person">20 €/p</div>
+                            <div class="budget-price-total">Total: 80 €</div>
+                        </div>
+                    </div>
+
+                    <div class="budget-item-card">
+                        <div class="budget-item-info">
+                            <div class="budget-item-icon">
+                                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            </div>
+                            <div>
+                                <div class="budget-item-title">Almuerzo Los Cerezos (Monachil)</div>
+                                <div class="budget-item-desc">Comida tradicional tras Los Cahorros</div>
+                            </div>
+                        </div>
+                        <div class="budget-item-price">
+                            <div class="budget-price-person">30 €/p</div>
+                            <div class="budget-price-total">Total: 120 €</div>
+                        </div>
+                    </div>
+
+                    <div class="budget-item-card">
+                        <div class="budget-item-info">
+                            <div class="budget-item-icon">
+                                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M8 22h8"/><path d="M12 15v7"/><path d="M12 15a5 5 0 0 0 5-5c0-4-3-7-5-7s-5 3-5 7a5 5 0 0 0 5 5z"/></svg>
+                            </div>
+                            <div>
+                                <div class="budget-item-title">Tardeo Rooftop & Cócteles</div>
+                                <div class="budget-item-desc">Rooftop B-Heaven y Terrazas Ganivet</div>
+                            </div>
+                        </div>
+                        <div class="budget-item-price">
+                            <div class="budget-price-person">15 €/p</div>
+                            <div class="budget-price-total">Total: 60 €</div>
+                        </div>
+                    </div>
+
+                    <div class="budget-item-card">
+                        <div class="budget-item-info">
+                            <div class="budget-item-icon">
+                                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            </div>
+                            <div>
+                                <div class="budget-item-title">Cena Memorable Carmen de San Miguel</div>
+                                <div class="budget-item-desc">Restaurante con vistas nocturnas a la Alhambra</div>
+                            </div>
+                        </div>
+                        <div class="budget-item-price">
+                            <div class="budget-price-person">60 €/p</div>
+                            <div class="budget-price-total">Total: 240 €</div>
+                        </div>
+                    </div>
+
+                    <div class="budget-item-card">
+                        <div class="budget-item-info">
+                            <div class="budget-item-icon">
+                                <svg class="icon-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/></svg>
+                            </div>
+                            <div>
+                                <div class="budget-item-title">Homenaje Chuletón Madurado & Vinos</div>
+                                <div class="budget-item-desc">Chuletones vaca vieja, ibéricos, quesos y 3 vinos D.O.</div>
+                            </div>
+                        </div>
+                        <div class="budget-item-price">
+                            <div class="budget-price-person">45 €/p</div>
+                            <div class="budget-price-total">Total: 180 €</div>
+                        </div>
+                    </div>
+
+                    <div class="budget-item-card">
+                        <div class="budget-item-info">
+                            <div class="budget-item-icon">
+                                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/></svg>
+                            </div>
+                            <div>
+                                <div class="budget-item-title">Cafés, Aperitivos & Desayunos</div>
+                                <div class="budget-item-desc">Terrazas Pradollano, Hoya de la Mora y ruta</div>
+                            </div>
+                        </div>
+                        <div class="budget-item-price">
+                            <div class="budget-price-person">10 €/p</div>
+                            <div class="budget-price-total">Total: 40 €</div>
+                        </div>
+                    </div>
+
+                    <div class="budget-item-card">
+                        <div class="budget-item-info">
+                            <div class="budget-item-icon">
+                                <svg class="icon-svg" viewBox="0 0 24 24"><polygon points="12 2 2 22 22 22 12 2"/></svg>
+                            </div>
+                            <div>
+                                <div class="budget-item-title">Alhambra Libre & Monumentos</div>
+                                <div class="budget-item-desc">Palacio Carlos V, Puerta Justicia y Parador</div>
+                            </div>
+                        </div>
+                        <div class="budget-item-price">
+                            <div class="budget-price-person" style="color: var(--accent-emerald);">0 €</div>
+                            <div class="budget-price-total">Acceso libre</div>
+                        </div>
+                    </div>
+
+                    <div class="budget-item-card" style="grid-column: 1 / -1;">
+                        <div class="budget-item-info">
+                            <div class="budget-item-icon">
+                                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                            </div>
+                            <div>
+                                <div class="budget-item-title">Alojamiento Dúplex Alya (Pradollano)</div>
+                                <div class="budget-item-desc">4 noches completas con parking cubierto incluido</div>
+                            </div>
+                        </div>
+                        <div class="budget-item-price">
+                            <div class="budget-price-person" style="color: var(--text-muted); font-size: 0.95rem;">Ya reservado</div>
+                            <div class="budget-price-total">Cubierto aparte</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="budget-tip-card">
+                    <svg class="icon-svg" style="width: 28px; height: 28px; color: var(--accent-emerald);" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                    <p>
+                        <strong>Gestión ágil con Bote Común:</strong> Crearemos un grupo de Tricount o fondo Bizum al salir el jueves aportando ~190 € por persona para cubrir compras conjuntas, comidas, cenas y recargas sin tener que andar dividiendo tickets en cada parada.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- VIEW 4: RESERVAS & CHECKLIST -->
+        <section id="view-reservas" class="app-view">
+            <div class="reservas-view-card">
+                <div class="reservas-header">
+                    <span class="day-pill pill-gold" style="margin-bottom: 6px; display: inline-block;">Gestión Anticipada</span>
+                    <h2>Checklist de Reservas Pendientes</h2>
+                    <p>Acciones concretas para dejar el viaje completamente asegurado y sin imprevistos.</p>
+                </div>
+
+                <div class="checklist-grid">
+                    <div class="check-card">
+                        <div>
+                            <span class="status-badge status-urgent">Urgente</span>
+                        </div>
+                        <div>
+                            <h4>Cena Sábado Noche: Carmen de San Miguel</h4>
+                            <p>
+                                Reserva de mesa para 4 comensales a las 21:30 h con vistas directas a la Alhambra iluminada. Las mesas exteriores con vistas se agotan con semanas de antelación.
+                            </p>
+                            <a href="https://carmensanmiguel.com" target="_blank" rel="noopener" class="check-action-link">
+                                Ir a la Web Oficial de Carmen de San Miguel
+                                <svg class="icon-svg" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="check-card">
+                        <div>
+                            <span class="status-badge status-soon">Próximos días</span>
+                        </div>
+                        <div>
+                            <h4>Almuerzo Viernes: Restaurante Los Cerezos (Monachil)</h4>
+                            <p>
+                                Mesa para 4 comensales a las 14:30 h al concluir la ruta circular de Los Cahorros. Cocina tradicional andaluza con terraza.
+                            </p>
+                            <a href="tel:+34958300844" class="check-action-link">
+                                Llamar para reservar (+34 958 30 08 44)
+                                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="check-card">
+                        <div>
+                            <span class="status-badge status-soon">Opcional</span>
+                        </div>
+                        <div>
+                            <h4>Tardeo Rooftop B-Heaven (Sábado)</h4>
+                            <p>
+                                Reserva de mesa alta a las 18:30 h en la terraza del Hotel Barceló Carmen para tomar las primeras copas disfrutando del atardecer sobre Granada.
+                            </p>
+                            <a href="https://www.barcelo.com" target="_blank" rel="noopener" class="check-action-link">
+                                Consultar Rooftop B-Heaven
+                                <svg class="icon-svg" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="check-card">
+                        <div>
+                            <span class="status-badge status-ok">Controlado</span>
+                        </div>
+                        <div>
+                            <h4>Alhambra Libre & Puertas Monumentales</h4>
+                            <p>
+                                <strong>No requiere entrada ni reserva previa.</strong> El acceso al Palacio de Carlos V, Museo de Bellas Artes, Puerta de la Justicia, Puerta del Vino y jardines del Parador es completamente público y libre.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
     </main>
+
+    <!-- Bottom Mobile App Bar (Fixed at bottom on phones) -->
+    <nav class="bottom-app-bar" aria-label="Navegación móvil">
+        <button type="button" class="bottom-tab-btn active" id="btn-nav-itinerario" onclick="goToView('itinerario')">
+            <svg class="icon-svg" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            <span>Itinerario</span>
+        </button>
+        <button type="button" class="bottom-tab-btn" id="btn-nav-alojamiento" onclick="goToView('alojamiento')">
+            <svg class="icon-svg" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            <span>Alojamiento</span>
+        </button>
+        <button type="button" class="bottom-tab-btn" id="btn-nav-presupuesto" onclick="goToView('presupuesto')">
+            <svg class="icon-svg" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            <span>Presupuesto</span>
+        </button>
+        <button type="button" class="bottom-tab-btn" id="btn-nav-reservas" onclick="goToView('reservas')">
+            <svg class="icon-svg" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <span>Reservas</span>
+        </button>
+    </nav>
 
     <footer>
         <div class="container">
@@ -1891,17 +2420,63 @@
         </div>
     </footer>
 
+    <!-- Interactive Navigation Scripts -->
     <script>
-        function switchTab(tabId, element) {
-            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-            document.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('active'));
-            
-            if (element) {
-                element.classList.add('active');
-            }
-            const target = document.getElementById(tabId);
+        function goToView(viewId) {
+            // 1. Hide all views
+            document.querySelectorAll('.app-view').forEach(v => v.classList.remove('active'));
+            // 2. Show selected view
+            const target = document.getElementById('view-' + viewId);
             if (target) {
                 target.classList.add('active');
+            }
+            // 3. Update desktop navigation
+            document.querySelectorAll('.desktop-tab-btn').forEach(b => b.classList.remove('active'));
+            const deskBtn = document.getElementById('btn-desk-' + viewId);
+            if (deskBtn) deskBtn.classList.add('active');
+
+            // 4. Update mobile bottom bar
+            document.querySelectorAll('.bottom-tab-btn').forEach(b => b.classList.remove('active'));
+            const mobBtn = document.getElementById('btn-nav-' + viewId);
+            if (mobBtn) mobBtn.classList.add('active');
+
+            // 5. Scroll smoothly to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function goToDay(dayNum) {
+            // Ensure Itinerario view is visible
+            goToView('itinerario');
+
+            // Hide all day panes
+            document.querySelectorAll('.day-pane').forEach(p => p.classList.remove('active'));
+            // Show chosen day pane
+            const pane = document.getElementById('day-pane-' + dayNum);
+            if (pane) {
+                pane.classList.add('active');
+            }
+
+            // Update day pills
+            document.querySelectorAll('.day-pill-btn').forEach(b => b.classList.remove('active'));
+            const pill = document.getElementById('pill-day-' + dayNum);
+            if (pill) {
+                pill.classList.add('active');
+            }
+
+            // Scroll smoothly to day content
+            const anchor = document.getElementById('itinerario-top');
+            if (anchor) {
+                anchor.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        function selectAptPhoto(el) {
+            const img = el.querySelector('img');
+            const mainImg = document.getElementById('apt-main-display');
+            if (img && mainImg) {
+                mainImg.src = img.src;
+                document.querySelectorAll('.apt-thumb-item').forEach(item => item.classList.remove('active'));
+                el.classList.add('active');
             }
         }
     </script>
