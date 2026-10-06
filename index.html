@@ -708,6 +708,33 @@
             color: #e2e8f0;
         }
 
+        .outfit-box {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 10px 14px;
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            background: rgba(168, 85, 247, 0.08);
+            border-left: 3px solid #c084fc;
+            margin: 12px 0;
+            font-size: 0.86rem;
+            color: #e9d5ff;
+            line-height: 1.5;
+        }
+
+        .outfit-box strong {
+            color: #f5f3ff;
+            font-weight: 700;
+        }
+
+        .outfit-box .outfit-icon {
+            width: 17px;
+            height: 17px;
+            flex-shrink: 0;
+            color: #c084fc;
+            margin-top: 2px;
+        }
+
         .media-strip {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -1665,6 +1692,10 @@
                                 <div class="timeline-highlight-box" style="margin-top: 16px;">
                                     <strong>Plan sin complicaciones:</strong> A 2.150 m en octubre la noche es fresca (~6 °C). Cenamos caliente, contundente y rápido a escasos pasos del apartamento, perfecto para descansar tras el viaje y cargar pilas para el sendero del día siguiente.
                                 </div>
+                                <div class="outfit-box">
+                                    <svg class="icon-svg outfit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/></svg>
+                                    <div><strong>Outfit recomendado:</strong> Casual de viaje / Informal abrigado. Zapatillas cómodas y ropa relajada para la carretera. Imprescindible tener a mano en el coche una chaqueta de montaña, forro polar o plumas ligero para la llegada a Pradollano de noche (a más de 2.100 m refresca notablemente).</div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1720,18 +1751,26 @@
                             <div class="timeline-item">
                                 <div class="timeline-bullet">1</div>
                                 <div class="timeline-header">
-                                    <span class="timeline-time">10:30 h</span>
-                                    <h4 class="timeline-title">Descenso hacia Monachil</h4>
+                                    <span class="timeline-time">09:00 h - 10:15 h</span>
+                                    <h4 class="timeline-title">Desayuno Energético de Montaña & Descenso a Monachil</h4>
                                 </div>
                                 <p class="timeline-desc">
-                                    Bajamos el puerto de montaña por la panorámica A-395 hacia el pueblo de Monachil. Aparcamos en el parking de El Molino / Era de Portachuelo para iniciar la ruta.
+                                    Para afrontar los 9 km de cañón con energía, tenemos dos fórmulas contundentes:
                                 </p>
+                                <ul style="margin: 10px 0 14px 20px; color: var(--text-muted); font-size: 0.92rem;">
+                                    <li><strong>Opción Monachil pueblo (Recomendada a pie de ruta):</strong> Bajamos temprano en coche (25 min por la A-395), aparcamos en el parking de la ruta y desayunamos en <strong>Bar El Puntarrón</strong> o <strong>Café Bar La Barbería</strong> junto al río. Auténticos molletes de pueblo con tomate, aceite virgen extra, jamón serrano al corte o lomo de orza, zumo natural y café caliente.</li>
+                                    <li><strong>Opción Pradollano:</strong> Desayunar en la Plaza de Andalucía (<strong>La Bodega</strong> o <strong>Cafetería Vertical</strong>) con tostadas gigantes de pan rústico andaluz antes de subir al coche.</li>
+                                </ul>
+                                <div class="outfit-box">
+                                    <svg class="icon-svg outfit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/></svg>
+                                    <div><strong>Outfit del Día: Ropa de Senderismo desde el desayuno.</strong> Salimos ya vestidos con la ropa técnica de la ruta. No hará falta cambiarse en todo el día hasta volver al apartamento por la tarde.</div>
+                                </div>
                             </div>
 
                             <div class="timeline-item">
                                 <div class="timeline-bullet">2</div>
                                 <div class="timeline-header">
-                                    <span class="timeline-time">11:15 h - 14:15 h</span>
+                                    <span class="timeline-time">10:30 h - 14:00 h</span>
                                     <h4 class="timeline-title">Ruta Senderista de Los Cahorros de Monachil</h4>
                                 </div>
                                 <p class="timeline-desc">
@@ -1751,9 +1790,9 @@
                                         <div class="media-caption">Pasarela suspendida sobre el río Monachil</div>
                                     </div>
                                 </div>
-                                <div class="timeline-callout tip">
-                                    <svg class="icon-svg" style="color: var(--accent-emerald);" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-                                    <div><strong>Consejo:</strong> Zapatillas de trekking o deportivas con buen agarre. No es exigente físicamente, pero es una experiencia entretenida y fotogénica al máximo.</div>
+                                <div class="outfit-box">
+                                    <svg class="icon-svg outfit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/></svg>
+                                    <div><strong>Outfit para el cañón:</strong> Calzado de trekking o zapatillas de trail con buena adherencia (la piedra caliza en los salientes del río está pulida), pantalón técnico o bermuda elástica, camiseta transpirable, sudadera ligera por capas (fresco en el cañón, cálido al sol) y gorra/gafas de sol.</div>
                                 </div>
                             </div>
 
@@ -1775,6 +1814,10 @@
                                 <div class="timeline-callout success" style="border-left-color: var(--accent-emerald); background: rgba(16, 185, 129, 0.08); margin-top: 14px;">
                                     <svg class="icon-svg" style="color: var(--accent-emerald);" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
                                     <div><strong>¡Reserva Confirmada en Terraza!</strong> Viernes 9 de Octubre a las 14:30 h (Mesa para 4 personas). Teléfono: +34 958 30 08 44.</div>
+                                </div>
+                                <div class="outfit-box">
+                                    <svg class="icon-svg outfit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/></svg>
+                                    <div><strong>Dress Code en Los Cerezos: 100% amigable con ropa de montaña.</strong> Tranquilidad absoluta: Los Cerezos es un asador tradicional situado junto al río a la salida del cañón. La inmensa mayoría de comensales comen directamente con la ropa de senderismo (pantalón de trekking, zapatillas de montaña limpias y camiseta o polo deportivo). Cero etiqueta ni necesidad de mudarse.</div>
                                 </div>
                             </div>
 
@@ -1848,6 +1891,10 @@
                                 <div class="timeline-highlight-box" style="margin-top: 14px;">
                                     <strong>Plan de montaña perfecto:</strong> La combinación imbatible de pizza recién hecha, vino tinto de la tierra, picoteo y charla en el sofá con calefacción tras 9 km de sendero por Los Cahorros.
                                 </div>
+                                <div class="outfit-box">
+                                    <svg class="icon-svg outfit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/></svg>
+                                    <div><strong>Dress Code: Homewear / Relax total en casa.</strong> Ducha caliente y ropa de estar por casa, pijama o sudadera cómoda con calefacción encendida para disfrutar del sofá y la sobremesa.</div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1916,6 +1963,10 @@
                                 <p class="timeline-desc">
                                     Al tener los chuletones comprados y en la nevera desde el viernes, el sábado nos olvidamos por completo de cargar con el coche. Un taxi oficial nos recoge en la puerta del Apartamento Alya en Pradollano y nos deja directamente en la Puerta de la Justicia de la Alhambra. Cero curvas conduciendo, cero estrés de buscar y pagar parking, y libertad absoluta para disfrutar de cervezas, vermut y vinos.
                                 </p>
+                                <div class="outfit-box">
+                                    <svg class="icon-svg outfit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/></svg>
+                                    <div><strong>Outfit del Sábado: Smart Casual "todoterreno" (Día & Noche).</strong> Como bajamos en taxi a las 11:00 h y no volvemos al apartamento hasta la madrugada, vestimos un look versátil y cómodo: calzado de vestir muy cómodo (zapatillas de piel limpias tipo Veja/Stan Smith o calzado casual) para caminar 8 km sin fatiga, pantalón chino o vaquero oscuro impecable, camisa o polo elegante y una chaqueta o cazadora bonita para cuando refresque por la noche (14-16 °C). Este conjunto encaja a la perfección en la Alhambra, en el tardeo, en la gran cena de Carmen de San Miguel y en los locales nocturnos del centro.</div>
+                                </div>
                             </div>
 
                             <div class="timeline-item">
@@ -2061,6 +2112,10 @@
                                     <svg class="icon-svg" style="color: var(--accent-emerald);" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
                                     <div><strong>¡Reserva Confirmada!</strong> Mesa para 4 personas a las 20:30 h con vistas privilegiadas a la Alhambra iluminada.</div>
                                 </div>
+                                <div class="outfit-box">
+                                    <svg class="icon-svg outfit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/></svg>
+                                    <div><strong>Dress Code Carmen de San Miguel: Casual Elegante / Smart Casual.</strong> Es un restaurante de alta gastronomía andaluza. No exige chaqueta formal ni corbata, pero no se admiten prendas deportivas ni calzado de montaña. Con el look Smart Casual (camisa/polo, pantalón chino/vaquero oscuro y calzado cuidado) se accede con total distinción.</div>
+                                </div>
                             </div>
 
                             <div class="timeline-item">
@@ -2102,6 +2157,10 @@
                                         <img src="./assets/img/sala_aliatar_granada.jpg" alt="Sala Aliatar Granada Interior">
                                         <div class="media-caption">Sala Aliatar • Discoteca en Antiguo Cine Monumental</div>
                                     </div>
+                                </div>
+                                <div class="outfit-box">
+                                    <svg class="icon-svg outfit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/></svg>
+                                    <div><strong>Dress Code Ganivet & Aliatar: Fiesta / Arreglado.</strong> Ambos locales tienen filtro en puerta y público adulto cuidado. El look Smart Casual de la cena cumple con creces los criterios de acceso de ambos espacios.</div>
                                 </div>
                             </div>
 
@@ -2217,6 +2276,10 @@
                                         <div class="media-caption">Senda Panorámica sobre el Barranco de San Juan</div>
                                     </div>
                                 </div>
+                                <div class="outfit-box">
+                                    <svg class="icon-svg outfit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/></svg>
+                                    <div><strong>Outfit de Alta Montaña (Vestir por capas):</strong> A casi 2.700 metros de altitud el sol de mediodía calienta pero corre viento fresco de cumbre (~12-16 °C). Calzado de trekking o deportivas con buen dibujo/agarre, pantalón de montaña o chándal cómodo, camiseta técnica, forro polar o cortavientos ligero, gafas de sol y protección solar alta.</div>
+                                </div>
                             </div>
 
                             <div class="timeline-item">
@@ -2279,6 +2342,10 @@
                                         <img src="./assets/img/airbnb_alya_salon.jpg" alt="Salón Apartamento Alya">
                                         <div class="media-caption">Salón del Apartamento Alya para la Sobremesa</div>
                                     </div>
+                                </div>
+                                <div class="outfit-box">
+                                    <svg class="icon-svg outfit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/></svg>
+                                    <div><strong>Dress Code: Homewear / Confort total.</strong> Ropa de estar por casa cómoda y abrigada, calcetines gruesos y relax absoluto junto a la calefacción para disfrutar del festín y la sobremesa nocturna sin ninguna prisa ni formalidad.</div>
                                 </div>
                             </div>
                         </div>
@@ -2348,6 +2415,10 @@
                                 <p class="timeline-desc">
                                     Desayuno alpino tranquilo, recogida de equipaje y check-out a las 11:45 h. Salimos de Pradollano y descendemos hacia la autovía A-92N en dirección Murcia/Alicante.
                                 </p>
+                                <div class="outfit-box">
+                                    <svg class="icon-svg outfit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/></svg>
+                                    <div><strong>Outfit recomendado:</strong> Casual de viaje / Confort en carretera. Ropa elástica y cómoda para el trayecto en coche (385 km), calzado plano confortable y parada informal de almuerzo en Venta del Peral.</div>
+                                </div>
                             </div>
 
                             <div class="timeline-item">
