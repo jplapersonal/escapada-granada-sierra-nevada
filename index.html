@@ -375,7 +375,9 @@
         .day-pills-row {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
-            gap: 6px;
+            gap: 8px;
+            max-width: 860px;
+            margin: 0 auto;
         }
 
         .day-pill-btn {
@@ -455,13 +457,19 @@
 
         .day-hero-img {
             position: relative;
-            height: 280px;
+            height: 380px;
             overflow: hidden;
+        }
+
+        @media (max-width: 850px) {
+            .day-hero-img {
+                height: 280px;
+            }
         }
 
         @media (max-width: 640px) {
             .day-hero-img {
-                height: 190px;
+                height: 210px;
             }
         }
 
@@ -469,6 +477,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: center 38%;
             transition: transform 0.6s ease;
         }
 
@@ -701,29 +710,51 @@
 
         .media-strip {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 12px;
-            margin-top: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+            margin-top: 18px;
         }
 
         @media (max-width: 640px) {
             .media-strip {
                 grid-template-columns: 1fr;
+                gap: 12px;
             }
         }
 
-        .media-strip-img {
+        .media-card {
+            position: relative;
             border-radius: var(--radius-md);
             overflow: hidden;
-            height: 160px;
+            height: 240px;
+            background: rgba(16, 23, 38, 0.7);
             border: 1px solid var(--border-subtle);
-            position: relative;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+            transition: var(--transition);
         }
 
-        .media-strip-img img {
+        @media (max-width: 640px) {
+            .media-card {
+                height: 195px;
+            }
+        }
+
+        .media-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--border-highlight);
+            box-shadow: 0 8px 26px rgba(0, 0, 0, 0.5);
+        }
+
+        .media-card img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .media-card:hover img {
+            transform: scale(1.04);
         }
 
         .media-caption {
@@ -731,12 +762,14 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: rgba(9, 13, 22, 0.75);
-            backdrop-filter: blur(4px);
-            padding: 6px 10px;
-            font-size: 0.75rem;
-            color: #e2e8f0;
-            font-weight: 500;
+            background: linear-gradient(180deg, transparent 0%, rgba(9, 13, 22, 0.7) 35%, rgba(9, 13, 22, 0.95) 100%);
+            padding: 18px 14px 10px;
+            font-size: 0.82rem;
+            color: #f1f5f9;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            z-index: 2;
+            pointer-events: none;
         }
 
         /* Step Navigation at the bottom of each day */
@@ -838,31 +871,33 @@
 
         .apartment-gallery-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 24px;
-            padding: 24px;
+            grid-template-columns: 1.15fr 1fr;
+            gap: 32px;
+            padding: 28px;
             align-items: start;
         }
 
-        @media (max-width: 850px) {
+        @media (max-width: 900px) {
             .apartment-gallery-grid {
                 grid-template-columns: 1fr;
-                padding: 16px;
-                gap: 16px;
+                padding: 18px;
+                gap: 20px;
             }
         }
 
         .apt-main-img-box {
             border-radius: var(--radius-md);
             overflow: hidden;
-            height: 320px;
+            height: 390px;
             border: 1px solid var(--border-subtle);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
             position: relative;
+            background: rgba(16, 23, 38, 0.8);
         }
 
         @media (max-width: 640px) {
             .apt-main-img-box {
-                height: 220px;
+                height: 230px;
             }
         }
 
@@ -870,23 +905,31 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            display: block;
             transition: opacity 0.3s ease;
         }
 
         .apt-thumbs-strip {
             display: grid;
             grid-template-columns: repeat(7, 1fr);
-            gap: 6px;
-            margin-top: 8px;
+            gap: 8px;
+            margin-top: 10px;
         }
 
         .apt-thumb-item {
-            height: 52px;
+            height: 64px;
             border-radius: var(--radius-sm);
             overflow: hidden;
             cursor: pointer;
             border: 2px solid transparent;
             transition: var(--transition);
+            background: rgba(16, 23, 38, 0.6);
+        }
+
+        @media (max-width: 640px) {
+            .apt-thumb-item {
+                height: 48px;
+            }
         }
 
         .apt-thumb-item img {
