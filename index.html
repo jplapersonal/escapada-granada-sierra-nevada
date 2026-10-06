@@ -1148,52 +1148,95 @@
         }
 
         .budget-hero-box {
-            background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(6, 182, 212, 0.1));
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.12), rgba(6, 182, 212, 0.08));
             border: 1px solid var(--border-highlight);
             border-radius: var(--radius-md);
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 16px;
+            padding: 22px;
             margin-bottom: 24px;
         }
 
-        .budget-hero-left h3 {
-            font-size: 1.4rem;
+        .budget-hero-top {
+            margin-bottom: 18px;
+        }
+
+        .budget-hero-top h3 {
+            font-size: 1.45rem;
             margin-bottom: 4px;
         }
 
-        .budget-hero-left p {
-            font-size: 0.85rem;
+        .budget-hero-top p {
+            font-size: 0.88rem;
             color: var(--text-muted);
-            max-width: 500px;
+            line-height: 1.5;
+            margin: 0;
         }
 
-        .budget-hero-badge {
+        .budget-summary-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            width: 100%;
+        }
+
+        @media (max-width: 860px) {
+            .budget-summary-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .budget-summary-card {
             background: var(--bg-surface);
             border: 1px solid var(--border-subtle);
             border-radius: var(--radius-md);
-            padding: 12px 20px;
-            text-align: right;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
-        @media (max-width: 640px) {
-            .budget-hero-box {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 14px;
-                padding: 16px;
-            }
-            .budget-hero-badge {
-                width: 100%;
-                display: flex;
-                align-items: baseline;
-                justify-content: space-between;
-                text-align: left;
-                padding: 12px 16px;
-            }
+        .budget-summary-card.card-pending {
+            border: 1px solid rgba(245, 158, 11, 0.5);
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(16, 23, 38, 0.95));
+            box-shadow: 0 4px 16px rgba(245, 158, 11, 0.08);
+        }
+
+        .budget-summary-card.card-paid {
+            border: 1px solid rgba(16, 185, 129, 0.5);
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(16, 23, 38, 0.95));
+        }
+
+        .budget-summary-card.card-total {
+            border: 1px solid rgba(6, 182, 212, 0.4);
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.08), rgba(16, 23, 38, 0.95));
+        }
+
+        .summary-card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 6px;
+        }
+
+        .summary-card-title {
+            font-size: 0.74rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 700;
+            color: var(--text-dim);
+        }
+
+        .summary-card-num {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 4px;
+        }
+
+        .summary-card-sub {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            line-height: 1.4;
         }
 
         .budget-big-number {
@@ -1643,10 +1686,10 @@
                 <div class="meta-card">
                     <div class="meta-label">
                         <svg class="icon-svg" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-                        Presupuesto Estimado
+                        Presupuesto Pendiente
                     </div>
                     <div class="meta-val">~340 € / persona</div>
-                    <div class="meta-sub">Comidas, copas, discoteca, taxi y cenas</div>
+                    <div class="meta-sub">Bote común viaje • Apto pagado (450 €)</div>
                 </div>
             </div>
         </section>
@@ -2628,6 +2671,10 @@
                         </a>
 
                         <div class="apt-features-grid">
+                            <div class="apt-feature-card" style="border: 1px solid rgba(16, 185, 129, 0.4); background: rgba(16, 185, 129, 0.05);">
+                                <strong style="color: var(--accent-emerald);">Reserva 100% Pagada</strong>
+                                <span>450 € abonados entre los 4 (112,50 €/persona). Confirmado para las 4 noches con garaje incluido.</span>
+                            </div>
                             <div class="apt-feature-card">
                                 <strong>Parking Cubierto Incluido</strong>
                                 <span>Plaza amplia y cubierta en el mismo edificio para resguardar el coche en alta montaña.</span>
@@ -2639,10 +2686,6 @@
                             <div class="apt-feature-card">
                                 <strong>Ubicación Estratégica</strong>
                                 <span>A 400 m de pistas y telesilla Parador; a solo 50 m de la parada de bus interurbano.</span>
-                            </div>
-                            <div class="apt-feature-card">
-                                <strong>Confort Completo</strong>
-                                <span>Calefacción reforzada, Smart TV para veladas de cine, cocina completa y cafetera.</span>
                             </div>
                         </div>
 
@@ -2658,15 +2701,45 @@
         <section id="view-presupuesto" class="app-view">
             <div class="budget-view-card">
                 <div class="budget-hero-box">
-                    <div class="budget-hero-left">
+                    <div class="budget-hero-top">
                         <span class="day-pill pill-gold" style="margin-bottom: 6px; display: inline-block;">Previsión Completa 100% Detallada</span>
-                        <h3>Presupuesto Estimado de la Escapada</h3>
-                        <p>Cubre toda la gastronomía, ocio y logística del viaje de jueves a lunes: burgers gourmet en ruta, desayuno energético del viernes fuera, restaurantes de montaña, pizzería artesana, comida de tapeo histórico, tardeo en rooftop, cena de gala en Carmen de San Miguel, copas y discoteca en Aliatar, taxi oficial puerta a puerta I/V a Granada, picnic panorámico en el Veleta, compras y desayunos del dúplex y la gran liturgia de chuletón.</p>
+                        <h3>Presupuesto de la Escapada: Resumen Financiero</h3>
+                        <p>Desglose transparente del viaje. El alojamiento ya está íntegramente pagado entre los 4. Lo único pendiente de aportar al salir el jueves es el bote común para cubrir el 100% de comidas, cenas, copas, discoteca, taxi oficial puerta a puerta I/V y compras de mercado.</p>
                     </div>
-                    <div class="budget-hero-badge">
-                        <div class="budget-number-sub">Coste total por persona</div>
-                        <div class="budget-big-number">340 €</div>
-                        <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 4px;">Fondo conjunto grupo (4p): <strong>1.360 €</strong></div>
+
+                    <div class="budget-summary-grid">
+                        <div class="budget-summary-card card-pending">
+                            <div class="summary-card-header">
+                                <span class="summary-card-title" style="color: #fbbf24;">Pendiente por Persona</span>
+                                <span class="day-pill pill-gold" style="font-size: 0.68rem; padding: 2px 7px;">Bote Común</span>
+                            </div>
+                            <div class="summary-card-num" style="color: var(--primary);">~340 €</div>
+                            <div class="summary-card-sub">
+                                <strong>1.360 € total grupo (4p).</strong> Fondo común para la ruta: restaurantes, cenas, tapeo, tardeo, copas, Aliatar, taxi y compras.
+                            </div>
+                        </div>
+
+                        <div class="budget-summary-card card-paid">
+                            <div class="summary-card-header">
+                                <span class="summary-card-title" style="color: #34d399;">Ya Abonado</span>
+                                <span class="day-pill pill-green" style="font-size: 0.68rem; padding: 2px 7px;">100% Pagado</span>
+                            </div>
+                            <div class="summary-card-num" style="color: var(--accent-emerald);">112,50 €</div>
+                            <div class="summary-card-sub">
+                                <strong>450 € total grupo (4p).</strong> Alojamiento Dúplex Alya (4 noches) con plaza de garaje privada en edificio liquidado.
+                            </div>
+                        </div>
+
+                        <div class="budget-summary-card card-total">
+                            <div class="summary-card-header">
+                                <span class="summary-card-title" style="color: #38bdf8;">Presupuesto Global</span>
+                                <span class="day-pill pill-cyan" style="font-size: 0.68rem; padding: 2px 7px;">Todo Incluido</span>
+                            </div>
+                            <div class="summary-card-num" style="color: #38bdf8;">~452,50 €</div>
+                            <div class="summary-card-sub">
+                                <strong>1.810 € inversión total grupo (4p).</strong> Suma global de alojamiento más todos los planes gastronómicos, ocio y logística.
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -2896,28 +2969,33 @@
                         </div>
                     </div>
 
-                    <div class="budget-item-card" style="grid-column: 1 / -1;">
+                    <div class="budget-item-card" style="grid-column: 1 / -1; border-color: rgba(16, 185, 129, 0.4); background: rgba(16, 185, 129, 0.04);">
                         <div class="budget-item-info">
-                            <div class="budget-item-icon">
+                            <div class="budget-item-icon" style="background: rgba(16, 185, 129, 0.2); color: var(--accent-emerald);">
                                 <svg class="icon-svg" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
                             </div>
                             <div>
                                 <div class="budget-item-title">Alojamiento Dúplex Alya (Pradollano)</div>
-                                <div class="budget-item-desc">4 noches completas con plaza de garaje privada incluida</div>
+                                <div class="budget-item-desc">4 noches completas con plaza de garaje privada en edificio • 450 € abonados entre los 4 (112,50 €/persona)</div>
                             </div>
                         </div>
                         <div class="budget-item-price">
-                            <div class="budget-price-person" style="color: var(--text-muted); font-size: 0.95rem;">Ya reservado</div>
-                            <div class="budget-price-total">Cubierto aparte</div>
+                            <div class="budget-price-person" style="color: var(--accent-emerald); font-weight: 700;">112,50 €/p</div>
+                            <div class="budget-price-total" style="color: var(--accent-emerald);">Total: 450 € (100% Pagado)</div>
                         </div>
                     </div>
                 </div>
 
                 <div class="budget-tip-card">
-                    <svg class="icon-svg" style="width: 28px; height: 28px; color: var(--accent-emerald);" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-                    <p>
-                        <strong>Gestión ágil con Bote Común:</strong> Crearemos un grupo de Tricount o fondo Bizum al salir el jueves aportando ~340 € por persona. Así queda cubierto el 100% de la experiencia: desayuno de montaña del viernes (El Puntarrón o La Bodega), burgers gourmet en ruta, restaurantes de montaña, pizzas artesanas, comida de tapeo histórico, tardeo en rooftop, cena de gala en Carmen de San Miguel, noche de fiesta con primera copa en Pub Instante y entrada con consumición en Sala Aliatar, taxi oficial puerta a puerta de ida y regreso de madrugada a Pradollano, compras de mercado, picnic alpino en el Veleta, desayunos y cervezas frías para la nevera del dúplex y la gran liturgia del chuletón madurado sin tener que andar dividiendo tickets en cada parada.
-                    </p>
+                    <svg class="icon-svg" style="width: 28px; height: 28px; color: var(--accent-emerald); flex-shrink: 0;" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                    <div>
+                        <p style="margin: 0 0 8px 0;">
+                            <strong>Alojamiento ya abonado y tranquilidad financiera:</strong> El apartamento Dúplex Alya ya está íntegramente pagado (450 € en total entre los 4, es decir 112,50 € por persona). Por lo tanto, <strong>lo único pendiente de aportar son ~340 € por persona</strong> para el fondo común de viaje.
+                        </p>
+                        <p style="margin: 0;">
+                            <strong>Gestión ágil con Bote Común:</strong> Crearemos un grupo de Tricount o fondo Bizum al salir el jueves aportando ~340 € por persona. Así queda cubierto el 100% de la experiencia: desayuno de montaña del viernes (El Puntarrón o La Bodega), burgers gourmet en ruta, restaurantes de montaña, pizzas artesanas, comida de tapeo histórico, tardeo en rooftop, cena de gala en Carmen de San Miguel, noche de fiesta con primera copa en Pub Instante y entrada con consumición en Sala Aliatar, taxi oficial puerta a puerta de ida y regreso de madrugada a Pradollano, compras de mercado, picnic alpino en el Veleta, desayunos y cervezas frías para la nevera del dúplex y la gran liturgia del chuletón madurado sin tener que andar dividiendo tickets en cada parada.
+                        </p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -2932,6 +3010,34 @@
                 </div>
 
                 <div class="checklist-grid">
+
+                    <!-- -1. ALOJAMIENTO DÚPLEX ALYA -->
+                    <div class="check-card" style="border: 1px solid rgba(16, 185, 129, 0.4); box-shadow: 0 0 16px rgba(16, 185, 129, 0.1);">
+                        <div class="check-card-img">
+                            <img src="./assets/img/apartamento_duplex_interior.jpg" alt="Dúplex Alya Sierra Nevada">
+                        </div>
+                        <div class="check-card-body">
+                            <div>
+                                <span class="status-badge status-ok">100% Pagado • Reserva Confirmada</span>
+                            </div>
+                            <h4>Alojamiento: Dúplex Alya (4 Noches + Garaje)</h4>
+                            <p>
+                                <strong>Jueves 8 al Lunes 12 de Octubre.</strong> Apartamento dúplex de 90 m² para 4 personas con 2 dormitorios, 2 baños y plaza de garaje privada en Edificio Mont Blanc 18 (Pradollano).
+                            </p>
+                            <p style="margin-bottom: 6px; font-size: 0.84rem; color: #a7f3d0;">
+                                <strong>Estado financiero:</strong> 450 € íntegramente pagados entre los 4 (112,50 €/persona ya abonados). Totalmente liquidado antes del viaje.
+                            </p>
+                            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
+                                <span style="font-size: 0.82rem; color: var(--accent-emerald); font-weight: 700;">
+                                    Mont Blanc 18 • Pradollano
+                                </span>
+                                <a href="https://es-l.airbnb.com/rooms/820731397155508023" target="_blank" rel="noopener" class="check-action-link">
+                                    Ver en Airbnb
+                                    <svg class="icon-svg" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
 
                     <!-- 0. LA MURALLA BURGER -->
                     <div class="check-card">
