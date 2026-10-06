@@ -550,36 +550,85 @@
         }
 
         .day-pill {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             padding: 4px 10px;
             border-radius: 999px;
             font-size: 0.75rem;
             font-weight: 700;
             letter-spacing: 0.02em;
             text-transform: uppercase;
+            white-space: nowrap;
+            line-height: 1.2;
         }
 
         .pill-gold {
-            background: rgba(245, 158, 11, 0.25);
-            border: 1px solid var(--primary);
+            background: rgba(245, 158, 11, 0.22);
+            border: 1px solid #f59e0b;
             color: #fbbf24;
+            box-shadow: 0 2px 8px rgba(245, 158, 11, 0.15);
         }
 
         .pill-cyan {
-            background: rgba(6, 182, 212, 0.25);
-            border: 1px solid var(--accent-cyan);
-            color: #67e8f9;
+            background: rgba(6, 182, 212, 0.22);
+            border: 1px solid #06b6d4;
+            color: #38bdf8;
+            box-shadow: 0 2px 8px rgba(6, 182, 212, 0.15);
         }
 
+        .pill-purple {
+            background: rgba(168, 85, 247, 0.22);
+            border: 1px solid #a855f7;
+            color: #c084fc;
+            box-shadow: 0 2px 8px rgba(168, 85, 247, 0.15);
+        }
+
+        .pill-orange,
+        .pill-amber {
+            background: rgba(249, 115, 22, 0.22);
+            border: 1px solid #f97316;
+            color: #fb923c;
+            box-shadow: 0 2px 8px rgba(249, 115, 22, 0.15);
+        }
+
+        .pill-green,
         .pill-emerald {
-            background: rgba(16, 185, 129, 0.25);
-            border: 1px solid var(--accent-emerald);
-            color: #6ee7b7;
+            background: rgba(16, 185, 129, 0.22);
+            border: 1px solid #10b981;
+            color: #34d399;
+            box-shadow: 0 2px 8px rgba(16, 185, 129, 0.15);
         }
 
+        .pill-red,
         .pill-rose {
-            background: rgba(244, 63, 94, 0.25);
-            border: 1px solid var(--accent-rose);
-            color: #fda4af;
+            background: rgba(239, 68, 68, 0.22);
+            border: 1px solid #ef4444;
+            color: #f87171;
+            box-shadow: 0 2px 8px rgba(239, 68, 68, 0.15);
+        }
+
+        /* Responsive Day Chip text */
+        .day-chip-mob {
+            display: none;
+        }
+        .day-chip-desk {
+            display: inline;
+        }
+
+        @media (max-width: 640px) {
+            .day-pill {
+                padding: 3px 8px;
+                font-size: 0.72rem;
+            }
+            .day-chip-desk {
+                display: none;
+            }
+            .day-chip-mob {
+                display: inline;
+                font-weight: 800;
+                letter-spacing: 0.04em;
+            }
         }
 
         .day-title {
@@ -1786,23 +1835,23 @@
             <div class="day-selector-sticky" id="itinerario-top">
                 <div class="day-pills-row">
                     <button type="button" class="day-pill-btn active" id="pill-day-1" onclick="goToDay(1)">
-                        <span class="day-pill-code">JUE 8</span>
+                        <span class="day-pill-code"><span class="day-chip-desk">JUE 8</span><span class="day-chip-mob">J8</span></span>
                         <span class="day-pill-title">Salida</span>
                     </button>
                     <button type="button" class="day-pill-btn" id="pill-day-2" onclick="goToDay(2)">
-                        <span class="day-pill-code">VIE 9</span>
+                        <span class="day-pill-code"><span class="day-chip-desk">VIE 9</span><span class="day-chip-mob">V9</span></span>
                         <span class="day-pill-title">Cahorros</span>
                     </button>
                     <button type="button" class="day-pill-btn" id="pill-day-3" onclick="goToDay(3)">
-                        <span class="day-pill-code">SÁB 10</span>
+                        <span class="day-pill-code"><span class="day-chip-desk">SÁB 10</span><span class="day-chip-mob">S10</span></span>
                         <span class="day-pill-title">Granada</span>
                     </button>
                     <button type="button" class="day-pill-btn" id="pill-day-4" onclick="goToDay(4)">
-                        <span class="day-pill-code">DOM 11</span>
+                        <span class="day-pill-code"><span class="day-chip-desk">DOM 11</span><span class="day-chip-mob">D11</span></span>
                         <span class="day-pill-title">Chuletón</span>
                     </button>
                     <button type="button" class="day-pill-btn" id="pill-day-5" onclick="goToDay(5)">
-                        <span class="day-pill-code">LUN 12</span>
+                        <span class="day-pill-code"><span class="day-chip-desk">LUN 12</span><span class="day-chip-mob">L12</span></span>
                         <span class="day-pill-title">Vuelta</span>
                     </button>
                 </div>
@@ -2156,7 +2205,7 @@
                         <img src="./assets/img/granada_albaicin_sunset.jpg" alt="Granada y Alhambra al atardecer">
                         <div class="day-hero-overlay">
                             <div class="day-badge-row">
-                                <span class="day-pill pill-gold">Día 3 • Granada Monumental</span>
+                                <span class="day-pill pill-purple">Día 3 • Granada Monumental</span>
                                 <span class="day-pill pill-cyan">Transporte: Taxi I/V (Libertad Total)</span>
                                 <span class="day-pill pill-green">Tardeo & Gran Cena Top</span>
                             </div>
@@ -2445,7 +2494,7 @@
                         <img src="./assets/img/chuleton_grill.jpg" alt="Chuletón a la brasa y vino">
                         <div class="day-hero-overlay">
                             <div class="day-badge-row">
-                                <span class="day-pill pill-gold">Día 4 • Sierra Nevada en las Alturas</span>
+                                <span class="day-pill pill-orange">Día 4 • Sierra Nevada en las Alturas</span>
                                 <span class="day-pill pill-cyan">Caminata & Gran Picnic 2.500 m</span>
                                 <span class="day-pill pill-green">Noche del Chuletón</span>
                             </div>
@@ -2852,7 +2901,7 @@
                     <div class="budget-day-group">
                         <div class="budget-day-header">
                             <div class="budget-day-title-wrap">
-                                <span class="day-pill pill-gold">Jueves 8</span>
+                                <span class="day-pill pill-gold"><span class="day-chip-desk">Jueves 8</span><span class="day-chip-mob">J8</span></span>
                                 <h4 class="budget-day-title">Salida & Primera Cena de Llegada</h4>
                             </div>
                             <div class="budget-day-subtotal">
@@ -2882,7 +2931,7 @@
                     <div class="budget-day-group">
                         <div class="budget-day-header">
                             <div class="budget-day-title-wrap">
-                                <span class="day-pill pill-cyan">Viernes 9</span>
+                                <span class="day-pill pill-cyan"><span class="day-chip-desk">Viernes 9</span><span class="day-chip-mob">V9</span></span>
                                 <h4 class="budget-day-title">Desfiladero de Los Cahorros & Montaña</h4>
                             </div>
                             <div class="budget-day-subtotal">
@@ -2944,7 +2993,7 @@
                     <div class="budget-day-group">
                         <div class="budget-day-header">
                             <div class="budget-day-title-wrap">
-                                <span class="day-pill pill-purple">Sábado 10</span>
+                                <span class="day-pill pill-purple"><span class="day-chip-desk">Sábado 10</span><span class="day-chip-mob">S10</span></span>
                                 <h4 class="budget-day-title">Granada Monumental, Tardeo, Gala & Fiesta</h4>
                             </div>
                             <div class="budget-day-subtotal">
@@ -3054,7 +3103,7 @@
                     <div class="budget-day-group">
                         <div class="budget-day-header">
                             <div class="budget-day-title-wrap">
-                                <span class="day-pill pill-gold">Domingo 11</span>
+                                <span class="day-pill pill-orange"><span class="day-chip-desk">Domingo 11</span><span class="day-chip-mob">D11</span></span>
                                 <h4 class="budget-day-title">Alta Cumbre Veleta & Noche de Chuletón</h4>
                             </div>
                             <div class="budget-day-subtotal">
@@ -3100,7 +3149,7 @@
                     <div class="budget-day-group">
                         <div class="budget-day-header">
                             <div class="budget-day-title-wrap">
-                                <span class="day-pill pill-green">Lunes 12</span>
+                                <span class="day-pill pill-green"><span class="day-chip-desk">Lunes 12</span><span class="day-chip-mob">L12</span></span>
                                 <h4 class="budget-day-title">Despedida de Pradollano & Regreso a Valencia</h4>
                             </div>
                             <div class="budget-day-subtotal">
@@ -3222,7 +3271,7 @@
                     <!-- DÍA 1: JUEVES 8 DE OCTUBRE -->
                     <div class="checklist-day-header">
                         <div class="checklist-day-title-wrap">
-                            <span class="day-pill pill-gold">Jueves 8 de Octubre</span>
+                            <span class="day-pill pill-gold"><span class="day-chip-desk">Jueves 8 de Octubre</span><span class="day-chip-mob">J8</span></span>
                             <h3 class="checklist-day-title">Llegada a Pradollano & Primera Cena</h3>
                         </div>
                         <span class="checklist-day-count">2 Hitos Programados</span>
@@ -3285,7 +3334,7 @@
                     <!-- DÍA 2: VIERNES 9 DE OCTUBRE -->
                     <div class="checklist-day-header">
                         <div class="checklist-day-title-wrap">
-                            <span class="day-pill pill-cyan">Viernes 9 de Octubre</span>
+                            <span class="day-pill pill-cyan"><span class="day-chip-desk">Viernes 9 de Octubre</span><span class="day-chip-mob">V9</span></span>
                             <h3 class="checklist-day-title">Desfiladero de Los Cahorros & Gastronomía</h3>
                         </div>
                         <span class="checklist-day-count">4 Hitos Programados</span>
@@ -3389,7 +3438,7 @@
                     <!-- DÍA 3: SÁBADO 10 DE OCTUBRE -->
                     <div class="checklist-day-header">
                         <div class="checklist-day-title-wrap">
-                            <span class="day-pill pill-purple">Sábado 10 de Octubre</span>
+                            <span class="day-pill pill-purple"><span class="day-chip-desk">Sábado 10 de Octubre</span><span class="day-chip-mob">S10</span></span>
                             <h3 class="checklist-day-title">Granada Monumental, Tardeo, Gala & Noche de Fiesta</h3>
                         </div>
                         <span class="checklist-day-count">6 Hitos Programados</span>
@@ -3529,7 +3578,7 @@
                     <!-- DÍA 4: DOMINGO 11 DE OCTUBRE -->
                     <div class="checklist-day-header">
                         <div class="checklist-day-title-wrap">
-                            <span class="day-pill pill-gold">Domingo 11 de Octubre</span>
+                            <span class="day-pill pill-orange"><span class="day-chip-desk">Domingo 11 de Octubre</span><span class="day-chip-mob">D11</span></span>
                             <h3 class="checklist-day-title">Alta Cumbre Veleta & Noche de Chuletón</h3>
                         </div>
                         <span class="checklist-day-count">2 Hitos Programados</span>
@@ -3577,7 +3626,7 @@
                     <!-- DÍA 5: LUNES 12 DE OCTUBRE -->
                     <div class="checklist-day-header">
                         <div class="checklist-day-title-wrap">
-                            <span class="day-pill pill-green">Lunes 12 de Octubre</span>
+                            <span class="day-pill pill-green"><span class="day-chip-desk">Lunes 12 de Octubre</span><span class="day-chip-mob">L12</span></span>
                             <h3 class="checklist-day-title">Despedida de Pradollano & Regreso a Valencia</h3>
                         </div>
                         <span class="checklist-day-count">1 Hito Programado</span>
