@@ -290,6 +290,24 @@
             }
         }
 
+        @media (max-width: 480px) {
+            .hero-meta-grid {
+                gap: 8px;
+            }
+            .meta-card {
+                padding: 10px;
+            }
+            .meta-val {
+                font-size: 0.86rem;
+                white-space: normal;
+                line-height: 1.25;
+            }
+            .meta-sub {
+                font-size: 0.72rem;
+                white-space: normal;
+            }
+        }
+
         .meta-card {
             background: var(--bg-card);
             border: 1px solid var(--border-subtle);
@@ -378,6 +396,21 @@
             gap: 8px;
             max-width: 860px;
             margin: 0 auto;
+        }
+
+        @media (max-width: 520px) {
+            .day-pills-row {
+                gap: 4px;
+            }
+            .day-pill-btn {
+                padding: 6px 2px;
+            }
+            .day-pill-code {
+                font-size: 0.76rem;
+            }
+            .day-pill-title {
+                font-size: 0.60rem;
+            }
         }
 
         .day-pill-btn {
@@ -573,6 +606,19 @@
         @media (max-width: 640px) {
             .day-stats-ribbon {
                 grid-template-columns: repeat(2, 1fr);
+            }
+            .ribbon-item:nth-child(2n) {
+                border-right: none;
+            }
+            .ribbon-item:nth-child(1),
+            .ribbon-item:nth-child(2) {
+                border-bottom: 1px solid var(--border-subtle);
+            }
+            .ribbon-item {
+                padding: 10px 12px;
+            }
+            .ribbon-val, .ribbon-value {
+                font-size: 0.88rem;
             }
         }
 
@@ -836,6 +882,20 @@
             min-height: 48px;
         }
 
+        @media (max-width: 480px) {
+            .btn-step {
+                padding: 10px 12px;
+                gap: 6px;
+                font-size: 0.82rem;
+            }
+            .step-title {
+                font-size: 0.78rem;
+            }
+            .step-label {
+                font-size: 0.65rem;
+            }
+        }
+
         .btn-step-prev {
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid var(--border-subtle);
@@ -943,6 +1003,20 @@
             margin-top: 10px;
         }
 
+        @media (max-width: 640px) {
+            .apt-thumbs-strip {
+                display: flex;
+                overflow-x: auto;
+                gap: 6px;
+                padding-bottom: 6px;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+            }
+            .apt-thumbs-strip::-webkit-scrollbar {
+                display: none;
+            }
+        }
+
         .apt-thumb-item {
             height: 64px;
             border-radius: var(--radius-sm);
@@ -955,7 +1029,8 @@
 
         @media (max-width: 640px) {
             .apt-thumb-item {
-                height: 48px;
+                flex: 0 0 68px;
+                height: 50px;
             }
         }
 
@@ -1104,6 +1179,23 @@
             text-align: right;
         }
 
+        @media (max-width: 640px) {
+            .budget-hero-box {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 14px;
+                padding: 16px;
+            }
+            .budget-hero-badge {
+                width: 100%;
+                display: flex;
+                align-items: baseline;
+                justify-content: space-between;
+                text-align: left;
+                padding: 12px 16px;
+            }
+        }
+
         .budget-big-number {
             font-family: 'Outfit', sans-serif;
             font-size: 2.2rem;
@@ -1148,6 +1240,13 @@
         .budget-item-card:hover {
             border-color: rgba(255, 255, 255, 0.15);
             background: rgba(255, 255, 255, 0.05);
+        }
+
+        @media (max-width: 480px) {
+            .budget-item-card {
+                padding: 12px;
+                gap: 8px;
+            }
         }
 
         .budget-item-info {
