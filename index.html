@@ -1474,6 +1474,41 @@
             gap: 20px;
         }
 
+        .checklist-day-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 26px;
+            margin-bottom: 4px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .checklist-day-header:first-of-type {
+            margin-top: 0;
+        }
+
+        .checklist-day-title-wrap {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .checklist-day-title {
+            font-size: 1.12rem;
+            font-weight: 700;
+            color: #fff;
+            margin: 0;
+        }
+
+        .checklist-day-count {
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            font-weight: 500;
+        }
+
         .check-card {
             background: var(--bg-card);
             border: 1px solid var(--border-subtle);
@@ -3153,7 +3188,16 @@
 
                 <div class="checklist-grid">
 
-                    <!-- -1. ALOJAMIENTO DÚPLEX ALYA -->
+                    <!-- DÍA 1: JUEVES 8 DE OCTUBRE -->
+                    <div class="checklist-day-header">
+                        <div class="checklist-day-title-wrap">
+                            <span class="day-pill pill-gold">Jueves 8 de Octubre</span>
+                            <h3 class="checklist-day-title">Llegada a Pradollano & Primera Cena</h3>
+                        </div>
+                        <span class="checklist-day-count">2 Hitos Programados</span>
+                    </div>
+
+                    <!-- 1.1 CHECK-IN DÚPLEX ALYA (19:30 h) -->
                     <div class="check-card" style="border: 1px solid rgba(16, 185, 129, 0.4); box-shadow: 0 0 16px rgba(16, 185, 129, 0.1);">
                         <div class="check-card-img">
                             <img src="./assets/img/apartamento_duplex_interior.jpg" alt="Dúplex Alya Sierra Nevada">
@@ -3162,9 +3206,9 @@
                             <div>
                                 <span class="status-badge status-ok">100% Pagado • Reserva Confirmada</span>
                             </div>
-                            <h4>Alojamiento: Dúplex Alya (4 Noches + Garaje)</h4>
+                            <h4>Alojamiento Base: Dúplex Alya (4 Noches + Garaje)</h4>
                             <p>
-                                <strong>Jueves 8 al Lunes 12 de Octubre.</strong> Apartamento dúplex de 90 m² para 4 personas con 2 dormitorios, 2 baños y plaza de garaje privada en Edificio Mont Blanc 18 (Pradollano).
+                                <strong>Jueves 8 al Lunes 12 de Octubre • Check-in 19:30 h.</strong> Apartamento dúplex de 90 m² para 4 personas con 2 dormitorios, 2 baños completos y plaza de garaje privada en Edificio Mont Blanc 18 (Pradollano, 2.150 m).
                             </p>
                             <p style="margin-bottom: 6px; font-size: 0.84rem; color: #a7f3d0;">
                                 <strong>Estado financiero:</strong> 450 € íntegramente pagados entre los 4 (112,50 €/persona ya abonados). Totalmente liquidado antes del viaje.
@@ -3181,7 +3225,7 @@
                         </div>
                     </div>
 
-                    <!-- 0. LA MURALLA BURGER -->
+                    <!-- 1.2 CENA LA MURALLA BURGER (21:45 h) -->
                     <div class="check-card">
                         <div class="check-card-img">
                             <img src="./assets/img/la_muralla_burger_local.jpg" alt="La Muralla Burger Sierra Nevada">
@@ -3206,7 +3250,36 @@
                         </div>
                     </div>
 
-                    <!-- 1. LOS CEREZOS -->
+
+                    <!-- DÍA 2: VIERNES 9 DE OCTUBRE -->
+                    <div class="checklist-day-header">
+                        <div class="checklist-day-title-wrap">
+                            <span class="day-pill pill-cyan">Viernes 9 de Octubre</span>
+                            <h3 class="checklist-day-title">Desfiladero de Los Cahorros & Gastronomía</h3>
+                        </div>
+                        <span class="checklist-day-count">4 Hitos Programados</span>
+                    </div>
+
+                    <!-- 2.1 RUTA LOS CAHORROS (10:00 h) -->
+                    <div class="check-card">
+                        <div class="check-card-img">
+                            <img src="./assets/img/cahorros_puente_colgante_largo.jpg" alt="Ruta Circular Los Cahorros Monachil">
+                        </div>
+                        <div class="check-card-body">
+                            <div>
+                                <span class="status-badge status-ok">Plan Confirmado • Acceso Libre</span>
+                            </div>
+                            <h4>Ruta Senderismo: Los Cahorros & Puentes Colgantes</h4>
+                            <p>
+                                <strong>Viernes 9 de Octubre • 10:00 h a 14:00 h.</strong> Ruta circular de 9,5 km junto al cauce del río Monachil. Cruce de puentes colgantes históricos, paso por la Cueva de las Palomas y desfiladeros kársticos de postal.
+                            </p>
+                            <div style="font-size: 0.82rem; color: var(--text-dim); margin-top: 4px;">
+                                Salida: Parking de Los Cahorros (Monachil pueblo) • Acceso libre
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2.2 COMIDA RESTAURANTE LOS CEREZOS (14:30 h) -->
                     <div class="check-card">
                         <div class="check-card-img">
                             <img src="./assets/img/restaurante_los_cerezos_terraza.jpg" alt="Terraza Restaurante Los Cerezos Monachil">
@@ -3225,7 +3298,38 @@
                         </div>
                     </div>
 
-                    <!-- 1.5 CENA VIERNES: TITO LUIGI TAKE-AWAY -->
+                    <!-- 2.3 COMPRA CHULETÓN MERCA 80 (17:30 h) -->
+                    <div class="check-card" style="border: 1px solid var(--border-highlight); box-shadow: 0 0 20px rgba(245, 158, 11, 0.15);">
+                        <div class="check-card-img">
+                            <img src="./assets/img/carniceria_lujan_pajuna.jpg" alt="Chuletones Raza Pajuna Cortijo Luján">
+                        </div>
+                        <div class="check-card-body">
+                            <div>
+                                <span class="status-badge status-pref">Plan Confirmado • Compra Tarde (17:30 h)</span>
+                            </div>
+                            <h4>Chuletón: Carnicería Luján (Cortijo Luján) — Merca 80</h4>
+                            <p>
+                                <strong>Viernes 9 de Octubre • 17:30 h.</strong> Al terminar la comida en Los Cerezos (Monachil), bajamos en coche en solo 10 minutos (6,8 km) a Merca 80 en el Zaidín (puestos 13-14), aprovechando su apertura vespertina (17:30 h a 20:30 h).
+                            </p>
+                            <p style="margin-bottom: 6px;">
+                                <strong>El producto estrella:</strong> Familia pionera en criar la auténtica <em>Vaca Pajuna de Sierra Nevada</em> (raza endémica criada en semilibertad en las altas cumbres granadinas). Compramos 2 chuletones de ~1,1 kg a 4-5 cm de grosor al vacío y los dejamos en la nevera del apartamento esa misma tarde.
+                            </p>
+                            <p style="margin-bottom: 8px; font-size: 0.84rem; color: #fde68a;">
+                                <strong>Clave de equipaje & cocina:</strong> Traer en el maletero del coche una <strong>plancha de hierro fundido</strong> de casa (apta para vitrocerámica) para asegurar calor abrasador constante sin enfriar la base, y una caja de <strong>Sal Maldon en escamas</strong> para el trinchado final.
+                            </p>
+                            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
+                                <span style="font-size: 0.82rem; color: var(--primary); font-weight: 600;">
+                                    Merca 80 (Zaidín) • Salida directa a la A-395
+                                </span>
+                                <a href="https://cortijolujan.com" target="_blank" rel="noopener" class="check-action-link">
+                                    Web Cortijo Luján
+                                    <svg class="icon-svg" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2.4 CENA PIZZERÍA TITO LUIGI (21:15 h) -->
                     <div class="check-card">
                         <div class="check-card-img">
                             <img src="./assets/img/pizzeria_tito_luigi.jpg" alt="Pizzería Tito Luigi Sierra Nevada">
@@ -3250,7 +3354,94 @@
                         </div>
                     </div>
 
-                    <!-- 2. CARMEN DE SAN MIGUEL -->
+
+                    <!-- DÍA 3: SÁBADO 10 DE OCTUBRE -->
+                    <div class="checklist-day-header">
+                        <div class="checklist-day-title-wrap">
+                            <span class="day-pill pill-purple">Sábado 10 de Octubre</span>
+                            <h3 class="checklist-day-title">Granada Monumental, Tardeo, Gala & Noche de Fiesta</h3>
+                        </div>
+                        <span class="checklist-day-count">6 Hitos Programados</span>
+                    </div>
+
+                    <!-- 3.1 TAXI IDA A GRANADA (11:00 h) -->
+                    <div class="check-card">
+                        <div class="check-card-img">
+                            <img src="./assets/img/tesla_model3_road.jpg" alt="Transporte en Taxi Puerta a Puerta">
+                        </div>
+                        <div class="check-card-body">
+                            <div>
+                                <span class="status-badge status-ok">Logística Confirmada • Sin Coche</span>
+                            </div>
+                            <h4>Transporte Sábado 10: Taxi Oficial Puerta a Puerta (I/V)</h4>
+                            <p>
+                                <strong>Sábado 10 de Octubre • Ida 11:00 h / Vuelta de Madrugada (03:30 h).</strong> Taxi oficial con recogida en la puerta del Apartamento Alya (Pradollano) directo a la Alhambra, y recogida de madrugada en Plaza del Campillo / Ganivet tras salir de Sala Aliatar.
+                            </p>
+                            <p style="margin-bottom: 6px;">
+                                <strong>Ventaja total:</strong> Cero curvas de noche, cero coste ni problemas de aparcamiento y libertad absoluta para disfrutar de cervezas en el tapeo, cócteles de tardeo, maridaje de vinos en Carmen de San Miguel y copas de fiesta sin preocupaciones. Presupuestado en el bote común (35 €/persona ida y vuelta completa, 140 € grupo).
+                            </p>
+                            <div style="font-size: 0.82rem; color: var(--text-dim);">
+                                Tele-Taxi Granada: +34 958 280 000 • App PideTaxi
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3.2 ALHAMBRA LIBRE (11:30 h) -->
+                    <div class="check-card">
+                        <div class="check-card-img">
+                            <img src="./assets/img/alhambra_carlos_v.jpg" alt="Palacio de Carlos V Alhambra">
+                        </div>
+                        <div class="check-card-body">
+                            <div>
+                                <span class="status-badge status-ok">Controlado • Acceso Libre</span>
+                            </div>
+                            <h4>Alhambra Libre & Puertas Monumentales</h4>
+                            <p>
+                                <strong>Sábado 10 de Octubre • 11:30 h a 13:30 h.</strong> No requiere entrada ni reserva previa. El acceso al Palacio de Carlos V, Museo de Bellas Artes, Puerta de la Justicia, Puerta del Vino y jardines del Parador es público, libre y 100% gratuito.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- 3.3 COMIDA TAPEO HISTÓRICO (13:45 h) -->
+                    <div class="check-card">
+                        <div class="check-card-img">
+                            <img src="./assets/img/tapas_granada.jpg" alt="Ruta de Tapeo Histórico en Granada">
+                        </div>
+                        <div class="check-card-body">
+                            <div>
+                                <span class="status-badge status-ok">Plan Confirmado • Acceso Libre</span>
+                            </div>
+                            <h4>Comida Sábado 10: Ruta de Tapeo Histórico (Centro Granada)</h4>
+                            <p>
+                                <strong>Sábado 10 de Octubre • 13:45 h a 16:30 h.</strong> Bajada a pie desde la Alhambra hacia Plaza Nueva. Secuencia de tabernas con solera: Bodegas Castañeda (tabla caliente y calicasas), Bar Los Diamantes (pescaíto frito recién tirado) y Casa Julio (berenjenas con miel de caña). En Granada cada consumición incluye su tapa caliente generosa.
+                            </p>
+                            <div style="font-size: 0.82rem; color: var(--text-dim);">
+                                Entorno Plaza Nueva & Calle Almireceros • Acceso directo en barra
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3.4 ROOFTOP & TARDEO (18:00 h) -->
+                    <div class="check-card">
+                        <div class="check-card-img">
+                            <img src="./assets/img/tardeo_cocktail_rooftop.jpg" alt="Rooftop B-Heaven Barceló Carmen">
+                        </div>
+                        <div class="check-card-body">
+                            <div>
+                                <span class="status-badge status-alt">Acceso Libre en Tardeo • Sin Reserva Requerida</span>
+                            </div>
+                            <h4>Tardeo Sábado 10: Rooftop B-Heaven o Terrazas del Realejo</h4>
+                            <p>
+                                <strong>Sábado 10 de Octubre • 18:00 h a 20:15 h.</strong> Dos opciones perfectas: azotea panorámica 360° en <strong>B-Heaven (Barceló Carmen)</strong> o copas en las terrazas del <strong>Campo del Príncipe (El Realejo)</strong>. Desde el Realejo se sube a pie en apenas 8 minutos por la Cuesta del Realejo a la cena de Carmen de San Miguel.
+                            </p>
+                            <a href="https://www.barcelo.com" target="_blank" rel="noopener" class="check-action-link">
+                                Consultar Hotel Barceló Carmen
+                                <svg class="icon-svg" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 3.5 CENA CARMEN DE SAN MIGUEL (20:30 h) -->
                     <div class="check-card">
                         <div class="check-card-img">
                             <img src="./assets/img/carmen_san_miguel_terraza.jpg" alt="Vistas desde Carmen de San Miguel">
@@ -3275,80 +3466,7 @@
                         </div>
                     </div>
 
-                    <!-- 3. CHULETÓN - ELECCIÓN CONFIRMADA (VIERNES TARDE) -->
-                    <div class="check-card" style="border: 1px solid var(--border-highlight); box-shadow: 0 0 20px rgba(245, 158, 11, 0.15);">
-                        <div class="check-card-img">
-                            <img src="./assets/img/carniceria_lujan_pajuna.jpg" alt="Chuletones Raza Pajuna Cortijo Luján">
-                        </div>
-                        <div class="check-card-body">
-                            <div>
-                                <span class="status-badge status-pref">Plan Confirmado • Compra Viernes Tarde (17:30 h)</span>
-                            </div>
-                            <h4>Chuletón: Carnicería Luján (Cortijo Luján) — Merca 80</h4>
-                            <p>
-                                <strong>Viernes 9 de Octubre • 17:30 h.</strong> Al terminar la comida en Los Cerezos (Monachil), bajamos en coche en solo 10 minutos (6,8 km) a Merca 80 en el Zaidín (puestos 13-14), aprovechando su apertura vespertina (17:30 h a 20:30 h).
-                            </p>
-                            <p style="margin-bottom: 6px;">
-                                <strong>El producto estrella:</strong> Familia pionera en criar la auténtica <em>Vaca Pajuna de Sierra Nevada</em> (raza endémica criada en semilibertad en las altas cumbres granadinas). Grasa con alto ácido oleico, sabor rústico y terneza excepcional. Compramos 2 chuletones de ~1,1 kg a 4-5 cm de grosor al vacío y los dejamos en la nevera del apartamento esa misma tarde.
-                            </p>
-                            <p style="margin-bottom: 8px; font-size: 0.84rem; color: #fde68a;">
-                                <strong>Clave de equipaje & cocina:</strong> Traer en el maletero del coche una <strong>plancha de hierro fundido</strong> de casa (apta para vitrocerámica) para asegurar calor abrasador constante sin enfriar la base, y una caja de <strong>Sal Maldon en escamas</strong> para el trinchado final.
-                            </p>
-                            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
-                                <span style="font-size: 0.82rem; color: var(--primary); font-weight: 600;">
-                                    Merca 80 (Zaidín) • Salida directa a la A-395
-                                </span>
-                                <a href="https://cortijolujan.com" target="_blank" rel="noopener" class="check-action-link">
-                                    Web Cortijo Luján
-                                    <svg class="icon-svg" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 4. TRANSPORTE SÁBADO: TAXI OFICIAL PUERTA A PUERTA -->
-                    <div class="check-card">
-                        <div class="check-card-img">
-                            <img src="./assets/img/tesla_model3_road.jpg" alt="Transporte en Taxi Puerta a Puerta">
-                        </div>
-                        <div class="check-card-body">
-                            <div>
-                                <span class="status-badge status-ok">Logística Confirmada • Sin Coche</span>
-                            </div>
-                            <h4>Transporte Sábado 10: Taxi Oficial Puerta a Puerta (I/V)</h4>
-                            <p>
-                                <strong>Sábado 10 de Octubre • Ida 11:00 h / Vuelta de Madrugada (03:30 h).</strong> Taxi oficial con recogida en la puerta del Apartamento Alya (Pradollano) directo a la Alhambra, y recogida de madrugada en Plaza del Campillo / Ganivet tras salir de Sala Aliatar.
-                            </p>
-                            <p style="margin-bottom: 6px;">
-                                <strong>Ventaja total:</strong> Cero curvas de noche, cero coste ni problemas de aparcamiento y libertad absoluta para disfrutar de cervezas en el tapeo, cócteles de tardeo, maridaje de vinos en Carmen de San Miguel y copas de fiesta sin preocupaciones. Presupuestado en el bote común (35 €/persona ida y vuelta completa, 140 € grupo).
-                            </p>
-                            <div style="font-size: 0.82rem; color: var(--text-dim);">
-                                Tele-Taxi Granada: +34 958 280 000 • App PideTaxi
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 5. ROOFTOP & TARDEO SÁBADO -->
-                    <div class="check-card">
-                        <div class="check-card-img">
-                            <img src="./assets/img/tardeo_cocktail_rooftop.jpg" alt="Rooftop B-Heaven Barceló Carmen">
-                        </div>
-                        <div class="check-card-body">
-                            <div>
-                                <span class="status-badge status-alt">Acceso Libre en Tardeo • Sin Reserva Requerida</span>
-                            </div>
-                            <h4>Tardeo Sábado: Rooftop B-Heaven o Terrazas del Realejo</h4>
-                            <p>
-                                <strong>Sábado 10 de Octubre • 18:00 h a 20:15 h.</strong> Dos opciones perfectas: azotea panorámica 360° en <strong>B-Heaven (Barceló Carmen)</strong> o copas en las terrazas del <strong>Campo del Príncipe (El Realejo)</strong>. Desde el Realejo se sube a pie en apenas 8 minutos por la Cuesta del Realejo a la cena de Carmen de San Miguel.
-                            </p>
-                            <a href="https://www.barcelo.com" target="_blank" rel="noopener" class="check-action-link">
-                                Consultar Hotel Barceló Carmen
-                                <svg class="icon-svg" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- 5.5 NOCHE DE FIESTA: GANIVET & SALA ALIATAR -->
+                    <!-- 3.6 NOCHE DE FIESTA ALIATAR (23:45 h) -->
                     <div class="check-card">
                         <div class="check-card-img">
                             <img src="./assets/img/sala_aliatar_granada.jpg" alt="Sala Aliatar Discoteca Granada">
@@ -3376,19 +3494,80 @@
                         </div>
                     </div>
 
-                    <!-- 6. ALHAMBRA LIBRE -->
+
+                    <!-- DÍA 4: DOMINGO 11 DE OCTUBRE -->
+                    <div class="checklist-day-header">
+                        <div class="checklist-day-title-wrap">
+                            <span class="day-pill pill-gold">Domingo 11 de Octubre</span>
+                            <h3 class="checklist-day-title">Alta Cumbre Veleta & Noche de Chuletón</h3>
+                        </div>
+                        <span class="checklist-day-count">2 Hitos Programados</span>
+                    </div>
+
+                    <!-- 4.1 PICNIC ALPINO VELETA (13:30 h) -->
                     <div class="check-card">
                         <div class="check-card-img">
-                            <img src="./assets/img/alhambra_carlos_v.jpg" alt="Palacio de Carlos V Alhambra">
+                            <img src="./assets/img/virgen_de_las_nieves_veleta.jpg" alt="Picnic Virgen de las Nieves Veleta">
                         </div>
                         <div class="check-card-body">
                             <div>
-                                <span class="status-badge status-ok">Controlado • Acceso Libre</span>
+                                <span class="status-badge status-ok">Plan Confirmado • Alta Montaña</span>
                             </div>
-                            <h4>Alhambra Libre & Puertas Monumentales</h4>
+                            <h4>Picnic Domingo 11: Virgen de las Nieves (Veleta)</h4>
                             <p>
-                                <strong>Sábado 10 de Octubre • 11:30 h.</strong> No requiere entrada ni reserva previa. El acceso al Palacio de Carlos V, Museo de Bellas Artes, Puerta de la Justicia, Puerta del Vino y jardines del Parador es público, libre y 100% gratuito.
+                                <strong>Domingo 11 de Octubre • 13:30 h a 15:30 h.</strong> Subida en coche hasta Hoya de la Mora (2.550 m). Picnic panorámico al pie de las altas cumbres con pan rústico, tortilla casera de patatas, embutidos ibéricos y cervezas frías en plena naturaleza alpina.
                             </p>
+                            <div style="font-size: 0.82rem; color: var(--text-dim);">
+                                Hoya de la Mora (2.550 m) • Acceso directo en coche
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 4.2 CENA CHULETÓN MADURADO (21:00 h) -->
+                    <div class="check-card" style="border: 1px solid var(--border-highlight); box-shadow: 0 0 20px rgba(245, 158, 11, 0.15);">
+                        <div class="check-card-img">
+                            <img src="./assets/img/chuleton_grill.jpg" alt="Liturgia Chuletón Madurado Apartamento">
+                        </div>
+                        <div class="check-card-body">
+                            <div>
+                                <span class="status-badge status-pref">Plan Confirmado • En el Apartamento</span>
+                            </div>
+                            <h4>Cena Domingo 11: Gran Liturgia Chuletón & Bodega Dúplex</h4>
+                            <p>
+                                <strong>Domingo 11 de Octubre • 21:00 h.</strong> La velada gastronómica reina del viaje en el salón del Dúplex Alya. Marcado y sellado de los chuletones de Vaca Pajuna de Cortijo Luján en la plancha de hierro fundido, trinchado con sal Maldon en escamas y maridaje de vinos tintos selectos.
+                            </p>
+                            <div style="font-size: 0.82rem; color: var(--primary); font-weight: 600;">
+                                Dúplex Alya • Mont Blanc 18 (Pradollano)
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- DÍA 5: LUNES 12 DE OCTUBRE -->
+                    <div class="checklist-day-header">
+                        <div class="checklist-day-title-wrap">
+                            <span class="day-pill pill-green">Lunes 12 de Octubre</span>
+                            <h3 class="checklist-day-title">Despedida de Pradollano & Regreso a Valencia</h3>
+                        </div>
+                        <span class="checklist-day-count">1 Hito Programado</span>
+                    </div>
+
+                    <!-- 5.1 COMIDA VENTA DEL PERAL (13:30 h) -->
+                    <div class="check-card">
+                        <div class="check-card-img">
+                            <img src="./assets/img/tesla_model3_road.jpg" alt="Comida Venta del Peral Baza">
+                        </div>
+                        <div class="check-card-body">
+                            <div>
+                                <span class="status-badge status-ok">Plan Confirmado • En Ruta</span>
+                            </div>
+                            <h4>Comida Lunes 12: Asador Venta del Peral (Baza - A-92N)</h4>
+                            <p>
+                                <strong>Lunes 12 de Octubre • 13:30 h.</strong> Descenso de Pradollano y parada gastronómica en el restaurante asador tradicional de Venta del Peral (A-92N, Baza) sincronizada con la parada de carga antes del tramo final de carretera a Valencia.
+                            </p>
+                            <div style="font-size: 0.82rem; color: var(--text-dim);">
+                                Autovía A-92N Km 28 • Baza (Granada)
+                            </div>
                         </div>
                     </div>
 
