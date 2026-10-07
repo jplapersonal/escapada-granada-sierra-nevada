@@ -476,6 +476,176 @@
             font-weight: 600;
         }
 
+        .day-pill-weather {
+            display: inline-flex;
+            align-items: center;
+            gap: 3px;
+            font-size: 0.64rem;
+            font-weight: 700;
+            color: var(--accent-cyan);
+            margin-top: 3px;
+            padding: 1px 4px;
+            border-radius: 4px;
+            background: rgba(6, 182, 212, 0.1);
+            line-height: 1;
+        }
+
+        .day-pill-btn.active .day-pill-weather {
+            background: rgba(245, 158, 11, 0.2);
+            color: #fbbf24;
+        }
+
+        .weather-mini-icon {
+            width: 11px;
+            height: 11px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 520px) {
+            .day-pill-weather {
+                font-size: 0.58rem;
+                gap: 2px;
+                padding: 1px 2px;
+                margin-top: 2px;
+            }
+            .weather-mini-icon {
+                width: 9px;
+                height: 9px;
+            }
+        }
+
+        /* Daily Weather & Outfit Summary Widget */
+        .day-weather-card {
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.08), rgba(15, 23, 42, 0.7));
+            border: 1px solid rgba(6, 182, 212, 0.25);
+            border-radius: var(--radius-md);
+            padding: 14px 18px;
+            margin-bottom: 22px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .day-weather-card.special-saturday {
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.12), rgba(245, 158, 11, 0.08), rgba(15, 23, 42, 0.75));
+            border-color: rgba(168, 85, 247, 0.35);
+            box-shadow: 0 0 20px rgba(168, 85, 247, 0.08);
+        }
+
+        .weather-card-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 8px;
+            padding-bottom: 9px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .weather-meta-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .weather-icon-badge {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 34px;
+            height: 34px;
+            border-radius: 8px;
+            background: rgba(6, 182, 212, 0.18);
+            color: var(--accent-cyan);
+            border: 1px solid rgba(6, 182, 212, 0.4);
+            flex-shrink: 0;
+        }
+
+        .weather-icon-badge.sunny {
+            background: rgba(245, 158, 11, 0.18);
+            color: #fbbf24;
+            border-color: rgba(245, 158, 11, 0.4);
+        }
+
+        .weather-icon-badge.purple {
+            background: rgba(168, 85, 247, 0.18);
+            color: #c084fc;
+            border-color: rgba(168, 85, 247, 0.4);
+        }
+
+        .weather-icon-badge.mountain {
+            background: rgba(249, 115, 22, 0.18);
+            color: #fb923c;
+            border-color: rgba(249, 115, 22, 0.4);
+        }
+
+        .weather-title-group h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #fff;
+            margin: 0 0 2px 0;
+        }
+
+        .weather-title-group p {
+            font-size: 0.80rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        .weather-temp-tags {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .weather-temp-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 3px 8px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            font-size: 0.74rem;
+            font-weight: 700;
+            color: #e2e8f0;
+        }
+
+        .weather-outfit-box {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            background: rgba(0, 0, 0, 0.22);
+            border-radius: var(--radius-sm);
+            padding: 10px 12px;
+            font-size: 0.85rem;
+            line-height: 1.5;
+            color: var(--text-main);
+        }
+
+        .weather-outfit-icon {
+            width: 18px;
+            height: 18px;
+            color: var(--primary);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .weather-outfit-box strong {
+            color: #fff;
+        }
+
+        .weather-outfit-box .alert-text {
+            color: #fde68a;
+            font-weight: 700;
+        }
+
         /* Day Panes */
         .day-pane {
             display: none;
@@ -1837,22 +2007,42 @@
                     <button type="button" class="day-pill-btn active" id="pill-day-1" onclick="goToDay(1)">
                         <span class="day-pill-code"><span class="day-chip-desk">JUE 8</span><span class="day-chip-mob">J8</span></span>
                         <span class="day-pill-title">Salida</span>
+                        <span class="day-pill-weather">
+                            <svg class="weather-mini-icon" viewBox="0 0 24 24"><path d="M12 2v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="M20 12h2"/><path d="m19.07 4.93-1.41 1.41"/><path d="M15.947 12.65a4 4 0 0 0-5.925-4.128"/><path d="M13 22H7a5 5 0 1 1 4.9-6H13a3 3 0 0 1 0 6Z"/></svg>
+                            <span>14°</span>
+                        </span>
                     </button>
                     <button type="button" class="day-pill-btn" id="pill-day-2" onclick="goToDay(2)">
                         <span class="day-pill-code"><span class="day-chip-desk">VIE 9</span><span class="day-chip-mob">V9</span></span>
                         <span class="day-pill-title">Cahorros</span>
+                        <span class="day-pill-weather">
+                            <svg class="weather-mini-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                            <span>21°</span>
+                        </span>
                     </button>
                     <button type="button" class="day-pill-btn" id="pill-day-3" onclick="goToDay(3)">
                         <span class="day-pill-code"><span class="day-chip-desk">SÁB 10</span><span class="day-chip-mob">S10</span></span>
                         <span class="day-pill-title">Granada</span>
+                        <span class="day-pill-weather">
+                            <svg class="weather-mini-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                            <span>24°</span>
+                        </span>
                     </button>
                     <button type="button" class="day-pill-btn" id="pill-day-4" onclick="goToDay(4)">
                         <span class="day-pill-code"><span class="day-chip-desk">DOM 11</span><span class="day-chip-mob">D11</span></span>
                         <span class="day-pill-title">Chuletón</span>
+                        <span class="day-pill-weather">
+                            <svg class="weather-mini-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                            <span>13°</span>
+                        </span>
                     </button>
                     <button type="button" class="day-pill-btn" id="pill-day-5" onclick="goToDay(5)">
                         <span class="day-pill-code"><span class="day-chip-desk">LUN 12</span><span class="day-chip-mob">L12</span></span>
                         <span class="day-pill-title">Vuelta</span>
+                        <span class="day-pill-weather">
+                            <svg class="weather-mini-icon" viewBox="0 0 24 24"><path d="M12 2v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="M20 12h2"/><path d="m19.07 4.93-1.41 1.41"/><path d="M15.947 12.65a4 4 0 0 0-5.925-4.128"/><path d="M13 22H7a5 5 0 1 1 4.9-6H13a3 3 0 0 1 0 6Z"/></svg>
+                            <span>16°</span>
+                        </span>
                     </button>
                 </div>
             </div>
@@ -1893,6 +2083,32 @@
                     </div>
 
                     <div class="day-body">
+
+                        <!-- Resumen Meteorológico & Combinación de Outfit -->
+                        <div class="day-weather-card">
+                            <div class="weather-card-top">
+                                <div class="weather-meta-left">
+                                    <div class="weather-icon-badge">
+                                        <svg class="weather-mini-icon" style="width: 18px; height: 18px;" viewBox="0 0 24 24"><path d="M12 2v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="M20 12h2"/><path d="m19.07 4.93-1.41 1.41"/><path d="M15.947 12.65a4 4 0 0 0-5.925-4.128"/><path d="M13 22H7a5 5 0 1 1 4.9-6H13a3 3 0 0 1 0 6Z"/></svg>
+                                    </div>
+                                    <div class="weather-title-group">
+                                        <h4>Clima Jueves 8: Tarde Templada en Ruta & Noche Alpina Fresca</h4>
+                                        <p>Trayecto en carretera despejado y llegada nocturna a 2.150 m con atmósfera limpia</p>
+                                    </div>
+                                </div>
+                                <div class="weather-temp-tags">
+                                    <span class="weather-temp-tag">Ruta: 19°C</span>
+                                    <span class="weather-temp-tag" style="color: var(--accent-cyan);">Pradollano (Noche): 6°C</span>
+                                </div>
+                            </div>
+                            <div class="weather-outfit-box">
+                                <svg class="icon-svg weather-outfit-icon" viewBox="0 0 24 24"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/></svg>
+                                <div>
+                                    <strong>Outfit Recomendado:</strong> Ropa informal, elástica y cómoda para conducir y viajar en coche (385 km). <span class="alert-text">A tener en cuenta:</span> Dejar una sudadera gruesa, forro polar o cazadora a mano en el asiento para ponérsela nada más aparcar en Pradollano, donde el termómetro rondará los 6°C al llegar a las 21:15 h.
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="timeline">
                             <div class="timeline-item">
                                 <div class="timeline-bullet">1</div>
@@ -2023,6 +2239,32 @@
                     </div>
 
                     <div class="day-body">
+
+                        <!-- Resumen Meteorológico & Combinación de Outfit -->
+                        <div class="day-weather-card">
+                            <div class="weather-card-top">
+                                <div class="weather-meta-left">
+                                    <div class="weather-icon-badge sunny">
+                                        <svg class="weather-mini-icon" style="width: 18px; height: 18px;" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                                    </div>
+                                    <div class="weather-title-group">
+                                        <h4>Clima Viernes 9: Sol Espléndido en el Cañón & Brisa de Montaña</h4>
+                                        <p>Monachil a 800 m soleado y templado para senderismo; tarde-noche fresca en Pradollano</p>
+                                    </div>
+                                </div>
+                                <div class="weather-temp-tags">
+                                    <span class="weather-temp-tag">Cahorros (Mediodía): 21°C</span>
+                                    <span class="weather-temp-tag" style="color: var(--accent-cyan);">Pradollano (Noche): 6°C</span>
+                                </div>
+                            </div>
+                            <div class="weather-outfit-box">
+                                <svg class="icon-svg weather-outfit-icon" viewBox="0 0 24 24"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/></svg>
+                                <div>
+                                    <strong>Combinación de Outfit:</strong> Calzado de senderismo o zapatillas deportivas con buen agarre (roca caliza y puentes colgantes). Pantalón técnico o bermuda deportiva, camiseta transpirable y forro polar ligero para primera hora de la mañana (a mediodía sobrará el abrigo con 21°C en la terraza de Los Cerezos). Por la tarde para bajar a Merca 80 y subir a cenar las pizzas Tito Luigi, ropa cómoda y abrigada de apartamento.
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="timeline">
                             <div class="timeline-item">
                                 <div class="timeline-bullet">1</div>
@@ -2234,6 +2476,41 @@
                     </div>
 
                     <div class="day-body">
+
+                        <!-- Resumen Meteorológico & Combinación de Outfit (Día Completo Fuera) -->
+                        <div class="day-weather-card special-saturday">
+                            <div class="weather-card-top">
+                                <div class="weather-meta-left">
+                                    <div class="weather-icon-badge purple">
+                                        <svg class="weather-mini-icon" style="width: 18px; height: 18px;" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                                    </div>
+                                    <div class="weather-title-group">
+                                        <h4>Clima Sábado 10: Granada Radiante (24°C) & Noche de Madrugada Fresca (6°C)</h4>
+                                        <p>Jornada 100% continua fuera del apartamento: desde las 11:00 h hasta las 04:00 h de la madrugada</p>
+                                    </div>
+                                </div>
+                                <div class="weather-temp-tags">
+                                    <span class="weather-temp-tag">Granada Día: 24°C</span>
+                                    <span class="weather-temp-tag">Granada Noche: 14°C</span>
+                                    <span class="weather-temp-tag" style="color: var(--accent-cyan);">Pradollano Retorno (04:00 h): 6°C</span>
+                                </div>
+                            </div>
+                            <div class="weather-outfit-box">
+                                <svg class="icon-svg weather-outfit-icon" viewBox="0 0 24 24"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/></svg>
+                                <div>
+                                    <div style="margin-bottom: 6px;">
+                                        <strong class="alert-text">Atención • Outfit Único para 16 Horas Seguidas:</strong> Como bajamos en taxi a las 11:00 h y no volveremos al apartamento hasta las 03:30 h - 04:00 h de la madrugada tras la discoteca, <span class="alert-text">no será posible cambiarse de ropa en todo el día</span>. El look debe ser un único conjunto "Smart Casual todo en uno" por capas que funcione con distinción tanto de día como de noche:
+                                    </div>
+                                    <ul style="margin: 4px 0 0 16px; padding: 0; font-size: 0.83rem; line-height: 1.45; color: var(--text-muted);">
+                                        <li><strong>Parte superior (Estrategia por capas):</strong> Camisa de vestir informal (lino/algodón de calidad lisa o microcuadros) o polo de manga larga elegante + sobrecamisa estilosa o cazadora cuidada (tipo Barbour, cuero sobrio o chaqueta de entretiempo estructurada). A mediodía con 24°C en el tapeo se lleva la camisa sola; al caer la tarde en el rooftop y para la cena en Carmen de San Miguel se suma la chaqueta.</li>
+                                        <li><strong>Parte inferior:</strong> Pantalón chino de corte actual (beige, marino o gris) o vaquero oscuro impoluto (sin rotos ni desgastes).</li>
+                                        <li><strong>Calzado (Factor Crítico):</strong> Zapatillas de vestir de piel limpias y sobrias (tipo Veja o Stan Smith blancas impecables) o zapato casual de piel. Es imprescindible que sea ultra cómodo para aguantar 7-8 km de paseo por la Alhambra y centro sin fatiga, y a la vez cumpla sobradamente con los criterios de acceso de Carmen de San Miguel y de la Sala Aliatar.</li>
+                                        <li><strong>Chaqueta exterior:</strong> Debe abrigar lo suficiente para el momento de salir de la discoteca a las 03:30 h y subir en el taxi oficial a los 2.150 m de Pradollano, donde el termómetro marcará unos 6°C.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="timeline">
                             <div class="timeline-item">
                                 <div class="timeline-bullet">1</div>
@@ -2523,6 +2800,32 @@
                     </div>
 
                     <div class="day-body">
+
+                        <!-- Resumen Meteorológico & Combinación de Outfit -->
+                        <div class="day-weather-card">
+                            <div class="weather-card-top">
+                                <div class="weather-meta-left">
+                                    <div class="weather-icon-badge mountain">
+                                        <svg class="weather-mini-icon" style="width: 18px; height: 18px;" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                                    </div>
+                                    <div class="weather-title-group">
+                                        <h4>Clima Domingo 11: Sol Alpino en Cumbres & Viento Fresco de Altura</h4>
+                                        <p>Hoya de la Mora y Veleta (2.550 m): alta radiación solar con brisa constante de montaña (13°C / 4°C)</p>
+                                    </div>
+                                </div>
+                                <div class="weather-temp-tags">
+                                    <span class="weather-temp-tag">Veleta / 2.550 m (Mediodía): 13°C</span>
+                                    <span class="weather-temp-tag" style="color: var(--accent-cyan);">Pradollano (Noche): 4°C</span>
+                                </div>
+                            </div>
+                            <div class="weather-outfit-box">
+                                <svg class="icon-svg weather-outfit-icon" viewBox="0 0 24 24"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/></svg>
+                                <div>
+                                    <strong>Combinación de Outfit:</strong> <span class="alert-text">Técnica de capas para alta montaña:</span> A más de 2.500 m el sol calienta pero el viento de cumbre genera sensación térmica fresca (8-10°C). Camiseta técnica, forro polar o sudadera abrigada, cortavientos o plumífero ligero, calzado de montaña o deportivas con suela de agarre, gafas de sol homologadas y crema solar protectora. Por la noche en el Dúplex: <em>Homewear</em> / relax total (chándal suave y calcetines gruesos junto al calor para el festín del chuletón).
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="timeline">
                             <div class="timeline-item">
                                 <div class="timeline-bullet">1</div>
@@ -2697,6 +3000,32 @@
                     </div>
 
                     <div class="day-body">
+
+                        <!-- Resumen Meteorológico & Combinación de Outfit -->
+                        <div class="day-weather-card">
+                            <div class="weather-card-top">
+                                <div class="weather-meta-left">
+                                    <div class="weather-icon-badge">
+                                        <svg class="weather-mini-icon" style="width: 18px; height: 18px;" viewBox="0 0 24 24"><path d="M12 2v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="M20 12h2"/><path d="m19.07 4.93-1.41 1.41"/><path d="M15.947 12.65a4 4 0 0 0-5.925-4.128"/><path d="M13 22H7a5 5 0 1 1 4.9-6H13a3 3 0 0 1 0 6Z"/></svg>
+                                    </div>
+                                    <div class="weather-title-group">
+                                        <h4>Clima Lunes 12: Descenso de la Sierra & Parada en Ruta Agradable</h4>
+                                        <p>Mañana fresca en Pradollano (11°C) y mediodía suave en Baza / Venta del Peral (20°C)</p>
+                                    </div>
+                                </div>
+                                <div class="weather-temp-tags">
+                                    <span class="weather-temp-tag">Pradollano Salida: 11°C</span>
+                                    <span class="weather-temp-tag">Baza / Comida: 20°C</span>
+                                </div>
+                            </div>
+                            <div class="weather-outfit-box">
+                                <svg class="icon-svg weather-outfit-icon" viewBox="0 0 24 24"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/></svg>
+                                <div>
+                                    <strong>Combinación de Outfit:</strong> <em>Casual de viaje y carretera:</em> Ropa elástica, cómoda y holgada para el trayecto en coche (385 km), calzado plano confortable y una chaqueta o sudadera ligera para la despedida de la sierra y la comida tradicional en el Asador Venta del Peral.
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="timeline">
                             <div class="timeline-item">
                                 <div class="timeline-bullet">1</div>
